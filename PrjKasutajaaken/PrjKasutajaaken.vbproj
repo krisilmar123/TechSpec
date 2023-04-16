@@ -151,6 +151,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrjKaardistaja\PrjKaardistaja.vbproj">
+      <Project>{edc6fdf2-f8de-4a64-91c2-1ca4156f5b2b}</Project>
+      <Name>PrjKaardistaja</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

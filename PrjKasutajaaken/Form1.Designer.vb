@@ -40,11 +40,12 @@ Partial Class Form1
         Me.lblAlguspeatus = New System.Windows.Forms.Label()
         Me.txtLopppeatus = New System.Windows.Forms.MaskedTextBox()
         Me.txtAlgpeatus = New System.Windows.Forms.TextBox()
+        Me.UMap = New PrjKaardistaja.UserControl1()
         Me.SuspendLayout()
         '
         'btnOtsi
         '
-        Me.btnOtsi.Location = New System.Drawing.Point(760, 310)
+        Me.btnOtsi.Location = New System.Drawing.Point(191, 421)
         Me.btnOtsi.Name = "btnOtsi"
         Me.btnOtsi.Size = New System.Drawing.Size(66, 48)
         Me.btnOtsi.TabIndex = 35
@@ -53,7 +54,7 @@ Partial Class Form1
         '
         'lblTranspordiLiik
         '
-        Me.lblTranspordiLiik.Location = New System.Drawing.Point(83, 403)
+        Me.lblTranspordiLiik.Location = New System.Drawing.Point(12, 346)
         Me.lblTranspordiLiik.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblTranspordiLiik.Name = "lblTranspordiLiik"
         Me.lblTranspordiLiik.Size = New System.Drawing.Size(109, 31)
@@ -62,7 +63,7 @@ Partial Class Form1
         '
         'lblEeldatavAjakulu
         '
-        Me.lblEeldatavAjakulu.Location = New System.Drawing.Point(400, 401)
+        Me.lblEeldatavAjakulu.Location = New System.Drawing.Point(329, 344)
         Me.lblEeldatavAjakulu.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblEeldatavAjakulu.Name = "lblEeldatavAjakulu"
         Me.lblEeldatavAjakulu.Size = New System.Drawing.Size(134, 33)
@@ -71,7 +72,7 @@ Partial Class Form1
         '
         'btnKuvaKaardil
         '
-        Me.btnKuvaKaardil.Location = New System.Drawing.Point(685, 47)
+        Me.btnKuvaKaardil.Location = New System.Drawing.Point(35, 215)
         Me.btnKuvaKaardil.Name = "btnKuvaKaardil"
         Me.btnKuvaKaardil.Size = New System.Drawing.Size(124, 87)
         Me.btnKuvaKaardil.TabIndex = 32
@@ -80,21 +81,21 @@ Partial Class Form1
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(448, 453)
+        Me.Label3.Location = New System.Drawing.Point(377, 396)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(100, 23)
         Me.Label3.TabIndex = 19
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(107, 453)
+        Me.Label2.Location = New System.Drawing.Point(36, 396)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 23)
         Me.Label2.TabIndex = 20
         '
         'lblKellaaeg
         '
-        Me.lblKellaaeg.Location = New System.Drawing.Point(301, 401)
+        Me.lblKellaaeg.Location = New System.Drawing.Point(230, 344)
         Me.lblKellaaeg.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblKellaaeg.Name = "lblKellaaeg"
         Me.lblKellaaeg.Size = New System.Drawing.Size(70, 20)
@@ -103,7 +104,7 @@ Partial Class Form1
         '
         'lblLiiniNr
         '
-        Me.lblLiiniNr.Location = New System.Drawing.Point(222, 401)
+        Me.lblLiiniNr.Location = New System.Drawing.Point(151, 344)
         Me.lblLiiniNr.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLiiniNr.Name = "lblLiiniNr"
         Me.lblLiiniNr.Size = New System.Drawing.Size(54, 20)
@@ -112,7 +113,7 @@ Partial Class Form1
         '
         'lblPeatuseLiinid
         '
-        Me.lblPeatuseLiinid.Location = New System.Drawing.Point(944, 401)
+        Me.lblPeatuseLiinid.Location = New System.Drawing.Point(375, 512)
         Me.lblPeatuseLiinid.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPeatuseLiinid.Name = "lblPeatuseLiinid"
         Me.lblPeatuseLiinid.Size = New System.Drawing.Size(105, 20)
@@ -121,7 +122,7 @@ Partial Class Form1
         '
         'lblLiiniPeatused
         '
-        Me.lblLiiniPeatused.Location = New System.Drawing.Point(711, 401)
+        Me.lblLiiniPeatused.Location = New System.Drawing.Point(142, 512)
         Me.lblLiiniPeatused.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblLiiniPeatused.Name = "lblLiiniPeatused"
         Me.lblLiiniPeatused.Size = New System.Drawing.Size(124, 20)
@@ -130,7 +131,7 @@ Partial Class Form1
         '
         'cbxVali
         '
-        Me.cbxVali.Location = New System.Drawing.Point(685, 277)
+        Me.cbxVali.Location = New System.Drawing.Point(116, 388)
         Me.cbxVali.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxVali.Name = "cbxVali"
         Me.cbxVali.Size = New System.Drawing.Size(224, 28)
@@ -139,7 +140,7 @@ Partial Class Form1
         'lblVali
         '
         Me.lblVali.AutoSize = True
-        Me.lblVali.Location = New System.Drawing.Point(555, 277)
+        Me.lblVali.Location = New System.Drawing.Point(-14, 388)
         Me.lblVali.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblVali.Name = "lblVali"
         Me.lblVali.Size = New System.Drawing.Size(112, 20)
@@ -148,7 +149,7 @@ Partial Class Form1
         '
         'lblPeatus
         '
-        Me.lblPeatus.Location = New System.Drawing.Point(93, 272)
+        Me.lblPeatus.Location = New System.Drawing.Point(31, 171)
         Me.lblPeatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPeatus.Name = "lblPeatus"
         Me.lblPeatus.Size = New System.Drawing.Size(59, 20)
@@ -157,7 +158,7 @@ Partial Class Form1
         '
         'cbxPeatus
         '
-        Me.cbxPeatus.Location = New System.Drawing.Point(203, 269)
+        Me.cbxPeatus.Location = New System.Drawing.Point(141, 168)
         Me.cbxPeatus.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxPeatus.Name = "cbxPeatus"
         Me.cbxPeatus.Size = New System.Drawing.Size(186, 28)
@@ -165,7 +166,7 @@ Partial Class Form1
         '
         'lblSihtpeatus
         '
-        Me.lblSihtpeatus.Location = New System.Drawing.Point(83, 129)
+        Me.lblSihtpeatus.Location = New System.Drawing.Point(21, 28)
         Me.lblSihtpeatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSihtpeatus.Name = "lblSihtpeatus"
         Me.lblSihtpeatus.Size = New System.Drawing.Size(113, 20)
@@ -174,7 +175,7 @@ Partial Class Form1
         '
         'lblAlguspeatus
         '
-        Me.lblAlguspeatus.Location = New System.Drawing.Point(83, 185)
+        Me.lblAlguspeatus.Location = New System.Drawing.Point(21, 84)
         Me.lblAlguspeatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblAlguspeatus.Name = "lblAlguspeatus"
         Me.lblAlguspeatus.Size = New System.Drawing.Size(123, 20)
@@ -183,7 +184,7 @@ Partial Class Form1
         '
         'txtLopppeatus
         '
-        Me.txtLopppeatus.Location = New System.Drawing.Point(226, 129)
+        Me.txtLopppeatus.Location = New System.Drawing.Point(164, 28)
         Me.txtLopppeatus.Margin = New System.Windows.Forms.Padding(2)
         Me.txtLopppeatus.Name = "txtLopppeatus"
         Me.txtLopppeatus.Size = New System.Drawing.Size(186, 26)
@@ -191,17 +192,25 @@ Partial Class Form1
         '
         'txtAlgpeatus
         '
-        Me.txtAlgpeatus.Location = New System.Drawing.Point(226, 179)
+        Me.txtAlgpeatus.Location = New System.Drawing.Point(164, 78)
         Me.txtAlgpeatus.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAlgpeatus.Name = "txtAlgpeatus"
         Me.txtAlgpeatus.Size = New System.Drawing.Size(186, 26)
         Me.txtAlgpeatus.TabIndex = 18
+        '
+        'UMap
+        '
+        Me.UMap.Location = New System.Drawing.Point(485, 6)
+        Me.UMap.Name = "UMap"
+        Me.UMap.Size = New System.Drawing.Size(737, 576)
+        Me.UMap.TabIndex = 36
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1224, 594)
+        Me.Controls.Add(Me.UMap)
         Me.Controls.Add(Me.btnOtsi)
         Me.Controls.Add(Me.lblTranspordiLiik)
         Me.Controls.Add(Me.lblEeldatavAjakulu)
@@ -245,4 +254,5 @@ Partial Class Form1
     Friend WithEvents lblAlguspeatus As Label
     Friend WithEvents txtLopppeatus As MaskedTextBox
     Friend WithEvents txtAlgpeatus As TextBox
+    Friend WithEvents UMap As PrjKaardistaja.UserControl1
 End Class
