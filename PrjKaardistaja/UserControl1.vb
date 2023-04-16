@@ -8,5 +8,6 @@
         GMapControl1.Manager.Mode = GMap.NET.AccessMode.ServerAndCache
         GMapControl1.CanDragMap = true
         GMapControl1.DragButton = MouseButtons.Left
+
     End Sub
 End Class
