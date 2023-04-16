@@ -13,8 +13,6 @@
         If Selected = "Peatus" Then
 
         End If
-
-
     End Sub
 
     Private Sub btnOtsi_Click(sender As Object, e As EventArgs)  ' Klikib OTSI ja siis kuvab kas liini peatuste loetelu VÕI peatuses peatuvad liinid
