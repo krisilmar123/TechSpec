@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class UserControl1
+Partial Class ULiinidJaPeatusedList
     Inherits System.Windows.Forms.UserControl
 
     'UserControl1 overrides dispose to clean up the component list.
@@ -22,9 +22,16 @@ Partial Class UserControl1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.SuspendLayout()
+        '
+        'ULiinidJaPeatusedList
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Name = "ULiinidJaPeatusedList"
+        Me.Size = New System.Drawing.Size(894, 538)
+        Me.ResumeLayout(False)
+
     End Sub
 
 End Class
