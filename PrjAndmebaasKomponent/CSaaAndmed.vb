@@ -67,7 +67,7 @@ Public Class CSaaAndmed
         Return "Failed"
     End Function
 
-    Public Function saaLiinid() As String Implements ISaaAndmed.saaLiinid
+    Public Function saaLiinid() As List(Of String) Implements ISaaAndmed.saaLiinid
         connection.Open()
 
         If connection.State = ConnectionState.Open Then
@@ -75,18 +75,17 @@ Public Class CSaaAndmed
             command.CommandText = "SELECT route_short_name, route_long_name FROM Route;"
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
-            Dim result As String = ""
+            Dim liinideList As New List(Of String)
             Using rdr
                 While (rdr.Read())
-                    result &= rdr.GetValue(0) & vbTab & rdr.GetValue(1) & vbLf
+                    liinideList.Add(rdr.GetValue(0) & " " & rdr.GetValue(1))
                 End While
             End Using
             connection.Close()
-            Return result
+            Return liinideList
         End If
 
         connection.Close()
-        Return "Failed"
     End Function
 
     Public Function saaKoikPeatuseNimed() As List(Of String) Implements ISaaAndmed.saaKoikPeatuseNimed

@@ -66,6 +66,10 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PrjAndmebaasKomponent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PrjAndmebaasKomponent\bin\Debug\PrjAndmebaasKomponent.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -155,6 +159,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LiinidJaPeatusedList\LiinidJaPeatusedList.vbproj">
+      <Project>{7338FF8C-F855-4C0D-924D-F256796E39F6}</Project>
+      <Name>LiinidJaPeatusedList</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrjKaardistaja\PrjKaardistaja.vbproj">
       <Project>{edc6fdf2-f8de-4a64-91c2-1ca4156f5b2b}</Project>
       <Name>PrjKaardistaja</Name>
