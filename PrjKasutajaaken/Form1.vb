@@ -31,4 +31,8 @@
         UMap.margiKoikPeatused()
 
     End Sub
+
+    Private Sub cbxPeatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxPeatus.SelectedIndexChanged
+
+    End Sub
 End Class
