@@ -40,6 +40,7 @@ Partial Class Form1
         Me.lblAlguspeatus = New System.Windows.Forms.Label()
         Me.txtLopppeatus = New System.Windows.Forms.MaskedTextBox()
         Me.txtAlgpeatus = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.UMap = New PrjKaardistaja.UserControl1()
         Me.SuspendLayout()
         '
@@ -198,9 +199,19 @@ Partial Class Form1
         Me.txtAlgpeatus.Size = New System.Drawing.Size(186, 26)
         Me.txtAlgpeatus.TabIndex = 18
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(368, 168)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(109, 68)
+        Me.Button1.TabIndex = 37
+        Me.Button1.Text = "KÕIK PEATUSED"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'UMap
         '
         Me.UMap.Location = New System.Drawing.Point(485, 6)
+        Me.UMap.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UMap.Name = "UMap"
         Me.UMap.Size = New System.Drawing.Size(737, 576)
         Me.UMap.TabIndex = 36
@@ -210,6 +221,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1224, 594)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.UMap)
         Me.Controls.Add(Me.btnOtsi)
         Me.Controls.Add(Me.lblTranspordiLiik)
@@ -255,4 +267,5 @@ Partial Class Form1
     Friend WithEvents txtLopppeatus As MaskedTextBox
     Friend WithEvents txtAlgpeatus As TextBox
     Friend WithEvents UMap As PrjKaardistaja.UserControl1
+    Friend WithEvents Button1 As Button
 End Class

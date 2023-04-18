@@ -26,4 +26,8 @@
     Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        UMap.margiKoikPeatused()
+    End Sub
 End Class

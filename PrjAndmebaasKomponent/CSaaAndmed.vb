@@ -88,4 +88,25 @@ Public Class CSaaAndmed
         connection.Close()
         Return "Failed"
     End Function
+
+    Public Function saaKoikPeatuseNimed() As List(Of String) Implements ISaaAndmed.saaKoikPeatuseNimed
+        connection.Open()
+
+        If connection.State = ConnectionState.Open Then
+            command.Connection = connection
+            command.CommandText = "SELECT DISTINCT stop_name FROM Stop;"
+            Dim rdr As SQLiteDataReader = command.ExecuteReader
+
+            Dim peatusteList As New List(Of String)
+            Using rdr
+                While (rdr.Read())
+                    peatusteList.Add(rdr.GetValue(0))
+                End While
+            End Using
+            connection.Close()
+            Return peatusteList
+        End If
+
+        connection.Close()
+    End Function
 End Class
