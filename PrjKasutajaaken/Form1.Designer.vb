@@ -34,6 +34,7 @@ Partial Class Form1
         Me.txtAlgpeatus = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.UMap = New PrjKaardistaja.UserControl1()
+        Me.ULiinidJaPeatusedList1 = New LiinidJaPeatusedList.ULiinidJaPeatusedList()
         Me.SuspendLayout()
         '
         'btnOtsi
@@ -140,11 +141,20 @@ Partial Class Form1
         Me.UMap.Size = New System.Drawing.Size(655, 461)
         Me.UMap.TabIndex = 36
         '
+        'ULiinidJaPeatusedList1
+        '
+        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(2, 200)
+        Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
+        Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(425, 277)
+        Me.ULiinidJaPeatusedList1.TabIndex = 38
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1088, 475)
+        Me.Controls.Add(Me.ULiinidJaPeatusedList1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.UMap)
         Me.Controls.Add(Me.btnOtsi)
@@ -177,4 +187,5 @@ Partial Class Form1
     Friend WithEvents txtAlgpeatus As TextBox
     Friend WithEvents UMap As PrjKaardistaja.UserControl1
     Friend WithEvents Button1 As Button
+    Friend WithEvents ULiinidJaPeatusedList1 As LiinidJaPeatusedList.ULiinidJaPeatusedList
 End Class

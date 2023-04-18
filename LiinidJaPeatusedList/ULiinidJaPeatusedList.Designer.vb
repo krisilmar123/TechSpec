@@ -28,19 +28,21 @@ Partial Class ULiinidJaPeatusedList
         'ListView1
         '
         Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(112, 110)
+        Me.ListView1.Location = New System.Drawing.Point(0, 0)
+        Me.ListView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(341, 343)
+        Me.ListView1.Size = New System.Drawing.Size(425, 277)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
         'ULiinidJaPeatusedList
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.ListView1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "ULiinidJaPeatusedList"
-        Me.Size = New System.Drawing.Size(894, 538)
+        Me.Size = New System.Drawing.Size(425, 277)
         Me.ResumeLayout(False)
 
     End Sub
