@@ -28,10 +28,14 @@ Public Class UserControl1
             Dim koordinaadid As Double() = andmebaas.saaPeatuseAsukoht(peatus)
             Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
             marker.ToolTipText = peatus
+            Dim size As New Size(16, 16)
+            marker.Size = size
 
             markerOverlay.Markers.Add(marker)
 
         Next
+
+
     End Sub
 
 
