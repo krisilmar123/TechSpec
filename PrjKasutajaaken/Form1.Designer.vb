@@ -39,121 +39,121 @@ Partial Class Form1
         '
         'btnOtsi
         '
-        Me.btnOtsi.Location = New System.Drawing.Point(22, 144)
+        Me.btnOtsi.Location = New System.Drawing.Point(25, 180)
         Me.btnOtsi.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnOtsi.Name = "btnOtsi"
-        Me.btnOtsi.Size = New System.Drawing.Size(59, 38)
+        Me.btnOtsi.Size = New System.Drawing.Size(66, 48)
         Me.btnOtsi.TabIndex = 35
         Me.btnOtsi.Text = "OTSI"
         Me.btnOtsi.UseVisualStyleBackColor = True
         '
         'btnKuvaKaardil
         '
-        Me.btnKuvaKaardil.Location = New System.Drawing.Point(317, 14)
+        Me.btnKuvaKaardil.Location = New System.Drawing.Point(357, 18)
         Me.btnKuvaKaardil.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnKuvaKaardil.Name = "btnKuvaKaardil"
-        Me.btnKuvaKaardil.Size = New System.Drawing.Size(110, 70)
+        Me.btnKuvaKaardil.Size = New System.Drawing.Size(124, 88)
         Me.btnKuvaKaardil.TabIndex = 32
         Me.btnKuvaKaardil.Text = "KUVA KAART"
         Me.btnKuvaKaardil.UseVisualStyleBackColor = True
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(335, 317)
+        Me.Label3.Location = New System.Drawing.Point(377, 396)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 18)
+        Me.Label3.Size = New System.Drawing.Size(100, 22)
         Me.Label3.TabIndex = 19
         '
         'cbxVali
         '
-        Me.cbxVali.Location = New System.Drawing.Point(112, 144)
+        Me.cbxVali.Location = New System.Drawing.Point(126, 180)
         Me.cbxVali.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxVali.Name = "cbxVali"
-        Me.cbxVali.Size = New System.Drawing.Size(200, 24)
+        Me.cbxVali.Size = New System.Drawing.Size(224, 28)
         Me.cbxVali.TabIndex = 27
         '
         'lblPeatus
         '
-        Me.lblPeatus.Location = New System.Drawing.Point(19, 103)
+        Me.lblPeatus.Location = New System.Drawing.Point(21, 129)
         Me.lblPeatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPeatus.Name = "lblPeatus"
-        Me.lblPeatus.Size = New System.Drawing.Size(52, 16)
+        Me.lblPeatus.Size = New System.Drawing.Size(58, 20)
         Me.lblPeatus.TabIndex = 25
         Me.lblPeatus.Text = "Peatus"
         '
         'cbxPeatus
         '
-        Me.cbxPeatus.Location = New System.Drawing.Point(146, 100)
+        Me.cbxPeatus.Location = New System.Drawing.Point(164, 125)
         Me.cbxPeatus.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxPeatus.Name = "cbxPeatus"
-        Me.cbxPeatus.Size = New System.Drawing.Size(166, 24)
+        Me.cbxPeatus.Size = New System.Drawing.Size(186, 28)
         Me.cbxPeatus.TabIndex = 24
         '
         'lblSihtpeatus
         '
-        Me.lblSihtpeatus.Location = New System.Drawing.Point(19, 22)
+        Me.lblSihtpeatus.Location = New System.Drawing.Point(21, 28)
         Me.lblSihtpeatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSihtpeatus.Name = "lblSihtpeatus"
-        Me.lblSihtpeatus.Size = New System.Drawing.Size(100, 16)
+        Me.lblSihtpeatus.Size = New System.Drawing.Size(112, 20)
         Me.lblSihtpeatus.TabIndex = 23
         Me.lblSihtpeatus.Text = "Vali sihtpeatus"
         '
         'lblAlguspeatus
         '
-        Me.lblAlguspeatus.Location = New System.Drawing.Point(19, 67)
+        Me.lblAlguspeatus.Location = New System.Drawing.Point(21, 84)
         Me.lblAlguspeatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblAlguspeatus.Name = "lblAlguspeatus"
-        Me.lblAlguspeatus.Size = New System.Drawing.Size(109, 16)
+        Me.lblAlguspeatus.Size = New System.Drawing.Size(123, 20)
         Me.lblAlguspeatus.TabIndex = 22
         Me.lblAlguspeatus.Text = "Vali lähtepeatus"
         '
         'txtLopppeatus
         '
-        Me.txtLopppeatus.Location = New System.Drawing.Point(146, 22)
+        Me.txtLopppeatus.Location = New System.Drawing.Point(164, 28)
         Me.txtLopppeatus.Margin = New System.Windows.Forms.Padding(2)
         Me.txtLopppeatus.Name = "txtLopppeatus"
-        Me.txtLopppeatus.Size = New System.Drawing.Size(166, 22)
+        Me.txtLopppeatus.Size = New System.Drawing.Size(186, 26)
         Me.txtLopppeatus.TabIndex = 21
         '
         'txtAlgpeatus
         '
-        Me.txtAlgpeatus.Location = New System.Drawing.Point(146, 62)
+        Me.txtAlgpeatus.Location = New System.Drawing.Point(164, 78)
         Me.txtAlgpeatus.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAlgpeatus.Name = "txtAlgpeatus"
-        Me.txtAlgpeatus.Size = New System.Drawing.Size(166, 22)
+        Me.txtAlgpeatus.Size = New System.Drawing.Size(186, 26)
         Me.txtAlgpeatus.TabIndex = 18
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(317, 88)
+        Me.Button1.Location = New System.Drawing.Point(357, 110)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(97, 54)
+        Me.Button1.Size = New System.Drawing.Size(109, 68)
         Me.Button1.TabIndex = 37
         Me.Button1.Text = "KÕIK PEATUSED"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'UMap
         '
-        Me.UMap.Location = New System.Drawing.Point(431, 5)
-        Me.UMap.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.UMap.Location = New System.Drawing.Point(663, 3)
+        Me.UMap.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UMap.Name = "UMap"
-        Me.UMap.Size = New System.Drawing.Size(655, 461)
+        Me.UMap.Size = New System.Drawing.Size(761, 593)
         Me.UMap.TabIndex = 36
         '
         'ULiinidJaPeatusedList1
         '
-        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(2, 200)
+        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(2, 250)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
-        Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(425, 277)
+        Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(624, 346)
         Me.ULiinidJaPeatusedList1.TabIndex = 38
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1088, 475)
+        Me.ClientSize = New System.Drawing.Size(1422, 723)
         Me.Controls.Add(Me.ULiinidJaPeatusedList1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.UMap)
