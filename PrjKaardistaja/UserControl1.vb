@@ -34,8 +34,28 @@ Public Class UserControl1
             markerOverlay.Markers.Add(marker)
 
         Next
+    End Sub
 
+    Public Sub margiKoikVaatamisvaarsused()
+        Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
+        andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
+        Dim vaatamisvaarsusedList As List(Of String)
+        vaatamisvaarsusedList = andmebaas.saaKoikVaatamisvaarsuseNimed
+
+        Dim markerOverlay As New GMapOverlay("markers")
+        GMapControl1.Overlays.Add(markerOverlay)
+
+        For Each koht As String In vaatamisvaarsusedList
+            Dim koordinaadid As Double() = andmebaas.saaVaatamisvaarsuseAsukoht(koht)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.blue)
+            marker.ToolTipText = koht
+            Dim size As New Size(16, 16)
+            marker.Size = size
+
+            markerOverlay.Markers.Add(marker)
+
+        Next
     End Sub
 
 
