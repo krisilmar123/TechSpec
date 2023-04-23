@@ -9,5 +9,7 @@
 
     Function saaPeatuseNimedLiiniJargi(liiniNimi As String, liiniTeekond As String) As List(Of String)
 
+    Function saaKoikVaatamisvaarsuseNimed() As List(Of String)
 
+    Function saaVaatamisvaarsuseAsukoht(vaarsusNimi As String) As Double()
 End Interface
