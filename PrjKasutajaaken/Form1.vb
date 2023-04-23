@@ -6,6 +6,7 @@
         Me.cbxVali.Items.Add("Peatus") ' Kuvab loetelu peatustest
         Me.cbxVali.Items.Add("Liin") ' Kuvab loetelu liinidest
         UMap.Hide()
+
     End Sub
 
     Private Sub cbxVali_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxVali.SelectedIndexChanged
