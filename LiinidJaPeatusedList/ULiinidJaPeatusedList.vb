@@ -16,11 +16,19 @@
             ListLiinid.Items.Add(s)
         Next
     End Sub
-    Private Sub ListBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
+    Private Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
+        ListPeatused.Items.Clear()
+
         If ListLiinid.SelectedIndex >= 0 Then
-            MessageBox.Show(ListLiinid.SelectedItem.ToString())
+            ' Get the selected item in the first ListBox control
+            Dim selectedItem As String = ListLiinid.SelectedItem.ToString()
+
+            ' Add the selected item to the second ListBox control
+            ListPeatused.Items.Add(selectedItem)
         End If
+
     End Sub
+
 
 
 

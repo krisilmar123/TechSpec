@@ -23,6 +23,7 @@ Partial Class ULiinidJaPeatusedList
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.ListLiinid = New System.Windows.Forms.ListBox()
+        Me.ListPeatused = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'ListLiinid
@@ -34,10 +35,20 @@ Partial Class ULiinidJaPeatusedList
         Me.ListLiinid.Size = New System.Drawing.Size(290, 324)
         Me.ListLiinid.TabIndex = 0
         '
+        'ListPeatused
+        '
+        Me.ListPeatused.FormattingEnabled = True
+        Me.ListPeatused.ItemHeight = 20
+        Me.ListPeatused.Location = New System.Drawing.Point(314, 13)
+        Me.ListPeatused.Name = "ListPeatused"
+        Me.ListPeatused.Size = New System.Drawing.Size(298, 324)
+        Me.ListPeatused.TabIndex = 1
+        '
         'ULiinidJaPeatusedList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.ListPeatused)
         Me.Controls.Add(Me.ListLiinid)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "ULiinidJaPeatusedList"
@@ -47,4 +58,5 @@ Partial Class ULiinidJaPeatusedList
     End Sub
 
     Friend WithEvents ListLiinid As ListBox
+    Friend WithEvents ListPeatused As ListBox
 End Class
