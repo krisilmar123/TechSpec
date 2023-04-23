@@ -88,7 +88,7 @@ Partial Class Form1
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(36, 396)
+        Me.Label2.Location = New System.Drawing.Point(44, 489)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 23)
         Me.Label2.TabIndex = 20
@@ -131,7 +131,7 @@ Partial Class Form1
         '
         'cbxVali
         '
-        Me.cbxVali.Location = New System.Drawing.Point(116, 388)
+        Me.cbxVali.Location = New System.Drawing.Point(206, 391)
         Me.cbxVali.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxVali.Name = "cbxVali"
         Me.cbxVali.Size = New System.Drawing.Size(224, 28)
@@ -140,7 +140,7 @@ Partial Class Form1
         'lblVali
         '
         Me.lblVali.AutoSize = True
-        Me.lblVali.Location = New System.Drawing.Point(-14, 388)
+        Me.lblVali.Location = New System.Drawing.Point(31, 391)
         Me.lblVali.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblVali.Name = "lblVali"
         Me.lblVali.Size = New System.Drawing.Size(112, 20)
@@ -201,6 +201,7 @@ Partial Class Form1
         'UMap
         '
         Me.UMap.Location = New System.Drawing.Point(485, 6)
+        Me.UMap.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UMap.Name = "UMap"
         Me.UMap.Size = New System.Drawing.Size(737, 576)
         Me.UMap.TabIndex = 36
