@@ -23,18 +23,15 @@
             Dim koosNimi As String = ListLiinid.SelectedItem.ToString()
             Dim stringArray As String() = Split(koosNimi)
             Dim liiniNimi As String = stringArray(0)
-            Dim liiniTeekond As String = stringArray(1)
-            Dim liiniTeekond2 As String = stringArray(2)
-            Dim liiniTeekond3 As String = stringArray(3)
 
-            Dim uusLiiniTeekond As String = ""
+            Dim liiniTeekond As String = ""
 
             For i As Integer = 1 To stringArray.Length - 1
-                uusLiiniTeekond &= stringArray(i) & " "
+                liiniTeekond &= stringArray(i) & " "
             Next
-            uusLiiniTeekond = Trim(uusLiiniTeekond)
+            liiniTeekond = Trim(liiniTeekond)
 
-            Dim peatusteNimed As List(Of String) = andmebaas.saaPeatuseNimedLiiniJargi(liiniNimi, uusLiiniTeekond)
+            Dim peatusteNimed As List(Of String) = andmebaas.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
 
             For Each peatus In peatusteNimed
                 ListPeatused.Items.Add(peatus)
