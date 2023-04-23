@@ -27,17 +27,17 @@
             Dim liiniTeekond2 As String = stringArray(2)
             Dim liiniTeekond3 As String = stringArray(3)
 
-            Dim mingiString As String = liiniNimi & liiniTeekond
+            Dim uusLiiniTeekond As String = ""
 
-
-            Dim uusLiiniTeekond As String = liiniTeekond & " " & liiniTeekond2 & " " & liiniTeekond3
-
-            MsgBox(uusLiiniTeekond & "midagi")
+            For i As Integer = 1 To stringArray.Length - 1
+                uusLiiniTeekond &= stringArray(i) & " "
+            Next
+            uusLiiniTeekond = Trim(uusLiiniTeekond)
 
             Dim peatusteNimed As List(Of String) = andmebaas.saaPeatuseNimedLiiniJargi(liiniNimi, uusLiiniTeekond)
 
             For Each peatus In peatusteNimed
-                MsgBox(peatus)
+                ListPeatused.Items.Add(peatus)
             Next
         End If
 
