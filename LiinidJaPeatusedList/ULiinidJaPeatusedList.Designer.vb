@@ -22,30 +22,29 @@ Partial Class ULiinidJaPeatusedList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ListLiinid = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
-        'ListView1
+        'ListLiinid
         '
-        Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(0, 0)
-        Me.ListView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(425, 277)
-        Me.ListView1.TabIndex = 0
-        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListLiinid.FormattingEnabled = True
+        Me.ListLiinid.ItemHeight = 20
+        Me.ListLiinid.Location = New System.Drawing.Point(3, 13)
+        Me.ListLiinid.Name = "ListLiinid"
+        Me.ListLiinid.Size = New System.Drawing.Size(290, 324)
+        Me.ListLiinid.TabIndex = 0
         '
         'ULiinidJaPeatusedList
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.ListView1)
+        Me.Controls.Add(Me.ListLiinid)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "ULiinidJaPeatusedList"
-        Me.Size = New System.Drawing.Size(425, 277)
+        Me.Size = New System.Drawing.Size(651, 360)
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents ListView1 As ListView
+    Friend WithEvents ListLiinid As ListBox
 End Class
