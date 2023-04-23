@@ -108,4 +108,30 @@ Public Class CSaaAndmed
 
         connection.Close()
     End Function
+
+    Public Function saaPeatuseNimedLiiniJargi(liiniNimi As String, liiniTeekond As String) As List(Of String) Implements ISaaAndmed.saaPeatuseNimedLiiniJargi
+        connection.Open()
+
+        If connection.State = ConnectionState.Open Then
+            command.Connection = connection
+            command.CommandText = "SELECT DISTINCT stop_name
+FROM Stop
+INNER JOIN Stop_time ON Stop.stop_id = Stop_time.stop_id
+INNER JOIN Trip ON Trip.trip_id = Stop_time.trip_id
+INNER JOIN Route ON Route.route_id = Trip.route_id
+WHERE Route.route_short_name='" & liiniNimi & "' AND Route.route_long_name='" & liiniTeekond & "' AND Trip.direction_code='A>B';"
+            Dim rdr As SQLiteDataReader = command.ExecuteReader
+
+            Dim resultList As New List(Of String)
+            Using rdr
+                While (rdr.Read())
+                    resultList.Add(rdr.GetValue(0))
+                End While
+            End Using
+            connection.Close()
+            Return resultList
+        End If
+
+        connection.Close()
+    End Function
 End Class

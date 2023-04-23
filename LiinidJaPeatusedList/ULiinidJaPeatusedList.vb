@@ -20,11 +20,25 @@
         ListPeatused.Items.Clear()
 
         If ListLiinid.SelectedIndex >= 0 Then
-            ' Get the selected item in the first ListBox control
-            Dim selectedItem As String = ListLiinid.SelectedItem.ToString()
+            Dim koosNimi As String = ListLiinid.SelectedItem.ToString()
+            Dim stringArray As String() = Split(koosNimi)
+            Dim liiniNimi As String = stringArray(0)
+            Dim liiniTeekond As String = stringArray(1)
+            Dim liiniTeekond2 As String = stringArray(2)
+            Dim liiniTeekond3 As String = stringArray(3)
 
-            ' Add the selected item to the second ListBox control
-            ListPeatused.Items.Add(selectedItem)
+            Dim mingiString As String = liiniNimi & liiniTeekond
+
+
+            Dim uusLiiniTeekond As String = liiniTeekond & " " & liiniTeekond2 & " " & liiniTeekond3
+
+            MsgBox(uusLiiniTeekond & "midagi")
+
+            Dim peatusteNimed As List(Of String) = andmebaas.saaPeatuseNimedLiiniJargi(liiniNimi, uusLiiniTeekond)
+
+            For Each peatus In peatusteNimed
+                MsgBox(peatus)
+            Next
         End If
 
     End Sub
