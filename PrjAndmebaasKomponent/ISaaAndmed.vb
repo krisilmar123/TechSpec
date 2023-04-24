@@ -7,5 +7,7 @@
 
     Function saaKoikPeatuseNimed() As List(Of String)
 
+    Function saaPeatuseNimedLiiniJargi(liiniNimi As String, liiniTeekond As String) As List(Of String)
+
 
 End Interface
