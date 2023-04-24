@@ -120,7 +120,7 @@ Partial Class Form1
         '
         'ULiinidJaPeatusedList1
         '
-        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(12, 346)
+        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(26, 346)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
         Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(771, 346)
