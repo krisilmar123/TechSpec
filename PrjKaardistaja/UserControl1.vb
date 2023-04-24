@@ -38,5 +38,32 @@ Public Class UserControl1
 
     End Sub
 
+    Public Sub margiSoidukiAsukoht(liin As String)
+        Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
+        baasHankimine = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+
+        Dim baasUuendamine As PrjAndmebaasKomponent.IUuendaAndmed
+        baasUuendamine = New PrjAndmebaasKomponent.CUuuendaAndmed(Application.StartupPath)
+
+        baasUuendamine.uuendaSoidukiAsukoht(liin)
+
+        Dim koordinaadidList As List(Of Double()) = baasHankimine.saaSoidukiAsukoht(liin)
+
+        Dim markerOverlay As New GMapOverlay("markers")
+        GMapControl1.Overlays.Clear()
+
+        GMapControl1.Overlays.Add(markerOverlay)
+
+        For Each koordinaadid In koordinaadidList
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
+            marker.ToolTipText = liin
+            Dim size As New Size(16, 16)
+            marker.Size = size
+
+            markerOverlay.Markers.Add(marker)
+        Next
+
+
+    End Sub
 
 End Class

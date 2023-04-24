@@ -12,6 +12,8 @@ Public Class CSaaAndmed
     Private connection As SQLiteConnection
     Private command As SQLiteCommand
 
+
+
     Public Sub New(Path As String)
         dbPath = Path & "\" & dbName
         connString = "Data Source=" & dbPath & ";Version=3"
@@ -72,6 +74,7 @@ Public Class CSaaAndmed
         If connection.State = ConnectionState.Open Then
             command.Connection = connection
             command.CommandText = "SELECT route_short_name, route_long_name FROM Route;"
+
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
             Dim liinideList As New List(Of String)
@@ -174,6 +177,32 @@ WHERE Route.route_short_name='" & liiniNimi & "' AND Route.route_long_name='" & 
             Dim koordinaadid = New Double() {lat, lon}
             connection.Close()
             Return koordinaadid
+        End If
+        connection.Close()
+    End Function
+
+    Public Function saaSoidukiAsukoht(liin As String) As List(Of Double()) Implements ISaaAndmed.saaSoidukiAsukoht
+        connection.Open()
+
+        If connection.State = ConnectionState.Open Then
+            command.Connection = connection
+            command.CommandText = "SELECT long, lat FROM GPS WHERE route_short_name='" & liin & "';"
+            Dim rdr As SQLiteDataReader = command.ExecuteReader
+
+            Dim lat As Double
+            Dim lon As Double
+            Dim list As New List(Of Double())
+
+            Using rdr
+                While (rdr.Read())
+                    lon = Convert.ToDouble(rdr.GetValue(0))
+                    lat = Convert.ToDouble(rdr.GetValue(1))
+                    Dim koordinaadid = New Double() {lon, lat}
+                    list.Add(koordinaadid)
+                End While
+            End Using
+            connection.Close()
+            Return list
         End If
 
         connection.Close()

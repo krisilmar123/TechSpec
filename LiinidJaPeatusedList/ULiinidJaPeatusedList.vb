@@ -2,6 +2,9 @@
 
     Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
 
+    Public Property liiniValik As String
+
+    Public Event liinValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
@@ -19,12 +22,16 @@
     Private Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
         ListPeatused.Items.Clear()
 
+        RaiseEvent liinValitud()
+
         If ListLiinid.SelectedIndex >= 0 Then
             Dim koosNimi As String = ListLiinid.SelectedItem.ToString()
             Dim stringArray As String() = Split(koosNimi)
             Dim liiniNimi As String = stringArray(0)
 
             Dim liiniTeekond As String = ""
+
+            liiniValik = liiniNimi
 
             For i As Integer = 1 To stringArray.Length - 1
                 liiniTeekond &= stringArray(i) & " "

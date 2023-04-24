@@ -12,4 +12,6 @@
     Function saaKoikVaatamisvaarsuseNimed() As List(Of String)
 
     Function saaVaatamisvaarsuseAsukoht(vaarsusNimi As String) As Double()
+
+    Function saaSoidukiAsukoht(liin As String) As List(Of Double())
 End Interface
