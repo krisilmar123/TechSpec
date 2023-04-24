@@ -5,12 +5,6 @@
 
     End Sub
 
-    Private Sub cbxVali_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxVali.SelectedIndexChanged
-        Selected = cbxVali.SelectedItem
-        If Selected = "Peatus" Then
-
-        End If
-    End Sub
 
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)

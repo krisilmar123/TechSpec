@@ -12,6 +12,7 @@ Public Class UserControl1
         GMapControl1.DragButton = MouseButtons.Left
 
 
+
     End Sub
 
     Public Sub margiKoikPeatused()
@@ -51,7 +52,7 @@ Public Class UserControl1
 
         Dim markerOverlay As New GMapOverlay("markers")
         GMapControl1.Overlays.Clear()
-
+        
         GMapControl1.Overlays.Add(markerOverlay)
 
         For Each koordinaadid In koordinaadidList
@@ -66,4 +67,9 @@ Public Class UserControl1
 
     End Sub
 
+    Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
+        Dim message As String = "Klikkisid just selle peatuse peale: " & item.ToolTipText
+        MsgBox(message)
+
+    End Sub
 End Class
