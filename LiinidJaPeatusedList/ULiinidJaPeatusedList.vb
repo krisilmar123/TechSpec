@@ -22,7 +22,6 @@
     Private Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
         ListPeatused.Items.Clear()
 
-        RaiseEvent liinValitud()
 
         If ListLiinid.SelectedIndex >= 0 Then
             Dim koosNimi As String = ListLiinid.SelectedItem.ToString()
@@ -43,6 +42,52 @@
             For Each peatus In peatusteNimed
                 ListPeatused.Items.Add(peatus)
             Next
+        End If
+
+    End Sub
+
+    Public Sub ListPeatused_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListPeatused.SelectedIndexChanged
+        ListValjumised.Items.Clear()
+
+
+        If ListPeatused.SelectedIndex >= 0 Then
+
+            Dim peatuseNimi As String = ListPeatused.SelectedItem.ToString()
+
+            Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi)
+
+            valjumised = valjumised.Distinct.ToList()
+
+            For Each valjumine In valjumised
+
+                Dim stringKell1 As String = valjumine(1)
+                Dim stringKell2 As String() = stringKell1.Split(":")
+
+
+                Dim stringHour As String = stringKell2(0)
+                Dim stringMinute As String = stringKell2(1)
+                Dim stringSecond As String = stringKell2(2)
+                Dim stringResult As String = stringKell2(0) & stringKell2(1)
+                Dim intResult As Integer = Integer.Parse(stringResult)
+
+                If stringKell2(0) = 24 Then
+                    stringKell2(0) = 0
+                End If
+
+                Dim dateValue As String = DateTime.Now
+                Dim stringaegDate As String() = dateValue.ToString().Split(" ")
+                Dim stringDateWO As String() = stringaegDate(1).ToString().Split(":")
+                Dim stringReaalResult As String = stringDateWO(0) & stringDateWO(1)
+                Dim intReaalResutl As Integer = Integer.Parse(stringReaalResult)
+
+                If (intResult - intReaalResutl <= 30) And (intResult - intReaalResutl >= 0) Then
+
+                    ListValjumised.Items.Add("nr:" & valjumine(0) & " " & valjumine(1))
+
+                End If
+
+            Next
+
         End If
 
     End Sub
@@ -73,64 +118,14 @@
 
     '    ListValjumised.Items.Add(praeguneAeg)
     'End Sub
-    Private Sub ListPeatused_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListPeatused.SelectedIndexChanged
-        ListValjumised.Items.Clear()
 
-        If ListPeatused.SelectedIndex >= 0 Then
+    'Dim stringHour As String = DateTime.Now.Hour.ToString()
+    'Dim stringMinute As String = DateTime.Now.Minute.ToString()
+    'Dim stringSecond As String = DateTime.Now.Second.ToString()
 
-            Dim peatuseNimi As String = ListPeatused.SelectedItem.ToString()
+    'Dim result As String = stringHour & ":" stringMinute & ":" stringSecond
+    'Integer.Parse(result)
 
-            Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi)
-
-
-
-            For Each valjumine In valjumised
-
-                Dim stringKell1 As String = valjumine(1)
-                Dim stringKell2 As String() = stringKell1.Split(":")
-                Dim stringResult As String = ""
-
-                Dim stringHour As String = stringKell2(0)
-                Dim stringMinute As String = stringKell2(1)
-                Dim stringSecond As String = stringKell2(2)
-
-                stringResult &= stringKell2(0) & ":" & stringKell2(1) & ":" & stringKell2(2)
-
-
-                If stringKell2(0) = 24 Then
-                    stringKell2(0) = 0
-                End If
-
-                ListValjumised.Items.Add(stringResult)
-
-
-
-
-
-
-            Next
-        End If
-
-        Dim dateValue As String = DateTime.Now
-        Dim aegDate As String() = dateValue.ToString().Split(" ")
-        Dim reaalAeg As String = aegDate(1)
-
-
-        ListValjumised.Items.Add(reaalAeg)
-
-
-        'Dim stringHour As String = DateTime.Now.Hour.ToString()
-        'Dim stringMinute As String = DateTime.Now.Minute.ToString()
-        'Dim stringSecond As String = DateTime.Now.Second.ToString()
-
-        'Dim result As String = stringHour & ":" stringMinute & ":" stringSecond
-        'Integer.Parse(result)
-
-        'ListValjumised.Items.Add(result)
-    End Sub
-
-
-
-
+    'ListValjumised.Items.Add(result)
 
 End Class
