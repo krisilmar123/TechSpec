@@ -24,6 +24,7 @@
 
 
         If ListLiinid.SelectedIndex >= 0 Then
+            RaiseEvent liinValitud()
             Dim koosNimi As String = ListLiinid.SelectedItem.ToString()
             Dim stringArray As String() = Split(koosNimi)
             Dim liiniNimi As String = stringArray(0)
