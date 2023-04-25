@@ -34,6 +34,7 @@
     Private Sub btnOtsi_Click_1(sender As Object, e As EventArgs) Handles btnOtsi.Click
     End Sub
 
+    ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
     Private Sub markerDoubleClick(item As GMap.NET.WindowsForms.GMapMarker) Handles UMap.markerDoubleClick
         ULiinidJaPeatusedList1.KuvaValjumised(item.ToolTipText)
     End Sub

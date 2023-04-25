@@ -5,6 +5,8 @@ Public Class UserControl1
 
     Private andmebaas As PrjAndmebaasKomponent.ISaaAndmed
 
+
+    ' Event mõeldud markeri topelt klikkimise tuvastasmieks, võtab markeri endaga kaasa 
     Public Event markerDoubleClick(item As GMapMarker)
 
     Private Sub GMapControl1_Load(sender As Object, e As EventArgs) Handles GMapControl1.Load
@@ -111,6 +113,7 @@ Public Class UserControl1
     End Sub
 
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
+        ' Event käivitub ning seda jälgiv funktsioon käivitub kasutajaakna koodis
         RaiseEvent markerDoubleClick(item)
 
     End Sub
