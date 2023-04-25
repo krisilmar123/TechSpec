@@ -48,6 +48,31 @@
     End Sub
 
 
+    'Private Sub ListPeatused_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListPeatused.SelectedIndexChanged
+    '    ListValjumised.Items.Clear()
+
+    '    If ListPeatused.SelectedIndex >= 0 Then
+
+    '        Dim peatuseNimi As String = ListPeatused.SelectedItem.ToString()
+
+    '        Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi)
+
+
+
+    '        For Each valjumine In valjumised
+
+    '            Dim stringKell As String = valjumine(1)
+    '            Dim dateValue As Date = CDate(stringKell)
+
+    '            ListValjumised.Items.Add(dateValue)
+
+    '        Next
+    '    End If
+
+    '    Dim praeguneAeg As String = DateTime.Now
+
+    '    ListValjumised.Items.Add(praeguneAeg)
+    'End Sub
     Private Sub ListPeatused_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListPeatused.SelectedIndexChanged
         ListValjumised.Items.Clear()
 
@@ -55,10 +80,36 @@
 
             Dim peatuseNimi As String = ListPeatused.SelectedItem.ToString()
 
-            Dim valjumisteNimed As String = andmebaas.saaValjumised(peatuseNimi)
+            Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi)
 
-            ListValjumised.Items.Add(valjumisteNimed)
+
+
+            For Each valjumine In valjumised
+
+                Dim stringKell1 As String = valjumine(1)
+                Dim stringKell2 As String() = stringKell1.Split(":")
+                Dim stringResult As String = ""
+                stringResult &= stringKell2(0) & stringKell2(1) & stringKell2(2)
+                Dim dateValue As Date = CDate(stringResult)
+
+                If stringKell2(0) = 24 Then
+                    stringKell2(0) = 0
+                End If
+
+                ListValjumised.Items.Add(dateValue)
+
+
+            Next
         End If
+
+        Dim stringHour As String = DateTime.Now.Hour.ToString()
+        Dim stringMinute As String = DateTime.Now.Minute.ToString()
+        Dim stringSecond As String = DateTime.Now.Second.ToString()
+
+        Dim result As String = stringHour & stringMinute & stringSecond
+        Integer.Parse(result)
+
+        ListValjumised.Items.Add(result)
     End Sub
 
 
