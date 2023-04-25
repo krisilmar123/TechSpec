@@ -34,7 +34,6 @@ Partial Class UserControl1
         Me.GMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
         Me.GMapControl1.LevelsKeepInMemory = 5
         Me.GMapControl1.Location = New System.Drawing.Point(0, 0)
-        Me.GMapControl1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GMapControl1.MarkersEnabled = True
         Me.GMapControl1.MaxZoom = 2
         Me.GMapControl1.MinZoom = 2
@@ -48,18 +47,17 @@ Partial Class UserControl1
         Me.GMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.GMapControl1.ShowTileGridLines = False
-        Me.GMapControl1.Size = New System.Drawing.Size(1196, 688)
+        Me.GMapControl1.Size = New System.Drawing.Size(797, 447)
         Me.GMapControl1.TabIndex = 0
         Me.GMapControl1.Zoom = 0R
         '
         'UserControl1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.GMapControl1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "UserControl1"
-        Me.Size = New System.Drawing.Size(1200, 692)
+        Me.Size = New System.Drawing.Size(800, 450)
         Me.ResumeLayout(False)
 
     End Sub
