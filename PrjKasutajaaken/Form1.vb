@@ -1,13 +1,13 @@
 ﻿Imports System.Threading
 Public Class Form1
     Public Selected As String
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Form1_Load(sender As Object, e As EventArgs)
         UMap.Hide()
 
     End Sub
 
 
-    Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
+    Private Sub liinValitud()
         Timer1.Enabled = True
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
@@ -16,7 +16,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btnKuvaKaardil_Click(sender As Object, e As EventArgs) Handles btnKuvaKaardil.Click
+    Private Sub btnKuvaKaardil_Click(sender As Object, e As EventArgs)
         UMap.Show()
         Button1.Visible = True
     End Sub

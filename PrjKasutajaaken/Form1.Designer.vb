@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnKuvaKaardil = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -31,7 +32,8 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.SuspendLayout
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.SuspendLayout()
         '
         'btnKuvaKaardil
         '
@@ -41,7 +43,7 @@ Partial Class Form1
         Me.btnKuvaKaardil.Size = New System.Drawing.Size(83, 57)
         Me.btnKuvaKaardil.TabIndex = 32
         Me.btnKuvaKaardil.Text = "KUVA KAART"
-        Me.btnKuvaKaardil.UseVisualStyleBackColor = true
+        Me.btnKuvaKaardil.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -59,8 +61,8 @@ Partial Class Form1
         Me.Button1.Size = New System.Drawing.Size(83, 54)
         Me.Button1.TabIndex = 37
         Me.Button1.Text = " KUVA KÕIK PEATUSED"
-        Me.Button1.UseVisualStyleBackColor = true
-        Me.Button1.Visible = false
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'UMap
         '
@@ -72,6 +74,7 @@ Partial Class Form1
         '
         'ULiinidJaPeatusedList1
         '
+        Me.ULiinidJaPeatusedList1.liiniValik = Nothing
         Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(48, 100)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
@@ -80,9 +83,9 @@ Partial Class Form1
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
+        Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(1508, 53)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(62, 20)
@@ -91,7 +94,7 @@ Partial Class Form1
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
+        Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(53, 45)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 13)
@@ -100,7 +103,7 @@ Partial Class Form1
         '
         'Label4
         '
-        Me.Label4.AutoSize = true
+        Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(232, 45)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(140, 13)
@@ -109,7 +112,7 @@ Partial Class Form1
         '
         'Label5
         '
-        Me.Label5.AutoSize = true
+        Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(378, 45)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(176, 13)
@@ -118,9 +121,9 @@ Partial Class Form1
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(2425, 1176)
+        Me.ClientSize = New System.Drawing.Size(1924, 1061)
         Me.Controls.Add(Me.ULiinidJaPeatusedList1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -133,10 +136,10 @@ Partial Class Form1
         Me.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents btnKuvaKaardil As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents UMap As PrjKaardistaja.UserControl1
@@ -146,4 +149,5 @@ End Sub
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Timer1 As Timer
 End Class

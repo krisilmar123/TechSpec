@@ -21,7 +21,7 @@
     End Sub
     Private Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
         ListPeatused.Items.Clear()
-
+        RaiseEvent liinValitud()
 
         If ListLiinid.SelectedIndex >= 0 Then
             Dim koosNimi As String = ListLiinid.SelectedItem.ToString()
