@@ -40,6 +40,20 @@
 
     End Sub
 
+    Private Sub ListPeatused_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListPeatused.SelectedIndexChanged
+        ListValjumised.Items.Clear()
+
+        If ListPeatused.SelectedIndex >= 0 Then
+
+            Dim peatuseNimi As String = ListPeatused.SelectedItem.ToString()
+
+            Dim valjumisteNimed As String = andmebaas.saaValjumised(peatuseNimi)
+
+            ListValjumised.Items.Add(valjumisteNimed)
+        End If
+    End Sub
+
+
 
 
 
