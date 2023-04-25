@@ -83,7 +83,7 @@ Public Class UserControl1
         GMapControl1.Overlays.Add(routesOverlay)
 
         ruut.Stroke.Width = 2
-        ruut.Stroke.Color = Color.LimeGreen
+        ruut.Stroke.Color = Color.Red
         GMapControl1.Refresh()
     End Sub
 End Class
