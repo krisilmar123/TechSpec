@@ -39,7 +39,7 @@ Partial Class UserControl1
         Me.GMapControl1.GrayScaleMode = false
         Me.GMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
         Me.GMapControl1.LevelsKeepInMemory = 5
-        Me.GMapControl1.Location = New System.Drawing.Point(0, 3)
+        Me.GMapControl1.Location = New System.Drawing.Point(0, 0)
         Me.GMapControl1.MarkersEnabled = true
         Me.GMapControl1.MaxZoom = 2
         Me.GMapControl1.MinZoom = 2
@@ -53,7 +53,7 @@ Partial Class UserControl1
         Me.GMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.GMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33,Byte),Integer), CType(CType(65,Byte),Integer), CType(CType(105,Byte),Integer), CType(CType(225,Byte),Integer))
         Me.GMapControl1.ShowTileGridLines = false
-        Me.GMapControl1.Size = New System.Drawing.Size(1345, 742)
+        Me.GMapControl1.Size = New System.Drawing.Size(1345, 745)
         Me.GMapControl1.TabIndex = 0
         Me.GMapControl1.Zoom = 0R
         '

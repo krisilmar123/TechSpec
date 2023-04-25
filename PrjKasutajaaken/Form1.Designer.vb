@@ -53,7 +53,7 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(688, 152)
+        Me.Button1.Location = New System.Drawing.Point(599, 236)
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(83, 54)
@@ -64,10 +64,10 @@ Partial Class Form1
         '
         'UMap
         '
-        Me.UMap.Location = New System.Drawing.Point(805, 100)
+        Me.UMap.Location = New System.Drawing.Point(689, 45)
         Me.UMap.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.UMap.Name = "UMap"
-        Me.UMap.Size = New System.Drawing.Size(1351, 753)
+        Me.UMap.Size = New System.Drawing.Size(1352, 750)
         Me.UMap.TabIndex = 36
         '
         'ULiinidJaPeatusedList1
@@ -83,7 +83,7 @@ Partial Class Form1
         Me.Label1.AutoSize = true
         Me.Label1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Label1.Location = New System.Drawing.Point(1508, 53)
+        Me.Label1.Location = New System.Drawing.Point(1330, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(62, 20)
         Me.Label1.TabIndex = 39
@@ -120,7 +120,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(2425, 1176)
+        Me.ClientSize = New System.Drawing.Size(2037, 792)
         Me.Controls.Add(Me.ULiinidJaPeatusedList1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
