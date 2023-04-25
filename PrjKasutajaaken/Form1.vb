@@ -33,6 +33,7 @@
     End Sub
 
     ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
+    ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
     Private Sub markerDoubleClick(item As GMap.NET.WindowsForms.GMapMarker) Handles UMap.markerDoubleClick
         ULiinidJaPeatusedList1.KuvaValjumised(item.ToolTipText)
     End Sub
