@@ -31,4 +31,9 @@
     Private Sub cbxPeatus_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
+
+    ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
+    Private Sub markerDoubleClick(item As GMap.NET.WindowsForms.GMapMarker) Handles UMap.markerDoubleClick
+        ULiinidJaPeatusedList1.KuvaValjumised(item.ToolTipText)
+    End Sub
 End Class
