@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnOtsi = New System.Windows.Forms.Button()
         Me.btnKuvaKaardil = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -37,7 +38,8 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.SuspendLayout
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.SuspendLayout()
         '
         'btnOtsi
         '
@@ -47,7 +49,7 @@ Partial Class Form1
         Me.btnOtsi.Size = New System.Drawing.Size(139, 48)
         Me.btnOtsi.TabIndex = 35
         Me.btnOtsi.Text = "OTSI"
-        Me.btnOtsi.UseVisualStyleBackColor = true
+        Me.btnOtsi.UseVisualStyleBackColor = True
         '
         'btnKuvaKaardil
         '
@@ -57,7 +59,7 @@ Partial Class Form1
         Me.btnKuvaKaardil.Size = New System.Drawing.Size(83, 57)
         Me.btnKuvaKaardil.TabIndex = 32
         Me.btnKuvaKaardil.Text = "KUVA KAART"
-        Me.btnKuvaKaardil.UseVisualStyleBackColor = true
+        Me.btnKuvaKaardil.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -109,7 +111,7 @@ Partial Class Form1
         Me.Button1.Size = New System.Drawing.Size(124, 88)
         Me.Button1.TabIndex = 37
         Me.Button1.Text = " KUVA KÕIK PEATUSED"
-        Me.Button1.UseVisualStyleBackColor = true
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'UMap
         '
@@ -121,6 +123,7 @@ Partial Class Form1
         '
         'ULiinidJaPeatusedList1
         '
+        Me.ULiinidJaPeatusedList1.liiniValik = Nothing
         Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(26, 346)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
@@ -129,9 +132,9 @@ Partial Class Form1
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
+        Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(1189, 45)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(62, 20)
@@ -140,7 +143,7 @@ Partial Class Form1
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
+        Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(80, 324)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 13)
@@ -149,7 +152,7 @@ Partial Class Form1
         '
         'Label4
         '
-        Me.Label4.AutoSize = true
+        Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(305, 324)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(140, 13)
@@ -158,7 +161,7 @@ Partial Class Form1
         '
         'Label5
         '
-        Me.Label5.AutoSize = true
+        Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(533, 324)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(176, 13)
@@ -167,17 +170,21 @@ Partial Class Form1
         '
         'Label6
         '
-        Me.Label6.AutoSize = true
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(624, 165)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(30, 15)
         Me.Label6.TabIndex = 43
         Me.Label6.Text = "--->"
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 3000
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(2205, 1058)
         Me.Controls.Add(Me.Label6)
@@ -198,10 +205,10 @@ Partial Class Form1
         Me.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        Me.ResumeLayout(false)
+        Me.ResumeLayout(False)
         Me.PerformLayout
 
-End Sub
+    End Sub
 
     Friend WithEvents btnOtsi As Button
     Friend WithEvents btnKuvaKaardil As Button
@@ -218,4 +225,5 @@ End Sub
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents Timer1 As Timer
 End Class

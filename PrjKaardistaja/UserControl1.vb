@@ -23,22 +23,30 @@ Public Class UserControl1
 
     End Sub
     Public Sub margiKoikPeatused()
-
+        ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
+        Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
+        ' Peatuste nimede nimekirja deklareerimine ja väärtuse andmine vastava funktsiooni kaudu
         Dim peatusteList As List(Of String)
         peatusteList = andmebaas.saaKoikPeatuseNimed
 
         Dim markerOverlay As New GMapOverlay("markers")
         GMapControl1.Overlays.Add(markerOverlay)
 
+        ' Tsükkel, mis käib kõik peatuse nimed läbi
         For Each peatus As String In peatusteList
+            ' Peatuse nime järgi koordinaatide saamine Double array'na.
+            ' Array esimene liige on latitude, array teine liige on longitude
             Dim koordinaadid As Double() = andmebaas.saaPeatuseAsukoht(peatus)
+            ' Markeri loomine koordinaatide järgi
             Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
+            ' Kui hiir läheb markeri peale, siis tuleb Tool Tip'ina tekst, mis kuvab peatuse nime
             marker.ToolTipText = peatus
+            ' Muudab markeri väiksemaks
             Dim size As New Size(16, 16)
             marker.Size = size
-
+            ' Lisab markeri kaardile
             markerOverlay.Markers.Add(marker)
         Next
     End Sub
@@ -85,14 +93,18 @@ Public Class UserControl1
     End Sub
 
     Public Sub margiSoidukiAsukoht(liin As String)
+        ' Andmebaasi muutuja andmete hankimiseks
         Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
         baasHankimine = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
-
+        ' Andmebaasi muutuja andmete uuendamiseks
         Dim baasUuendamine As PrjAndmebaasKomponent.IUuendaAndmed
         baasUuendamine = New PrjAndmebaasKomponent.CUuuendaAndmed(Application.StartupPath)
 
+        ' Uuendab ühistranspordi sõidukite asukohta liini järgi
         baasUuendamine.uuendaSoidukiAsukoht(liin)
 
+        ' Hangib sõidukite koordinaadid Double array List'ina
+        ' Iga Double array esimene liige on longitude, teine liige on latitude
         Dim koordinaadidList As List(Of Double()) = baasHankimine.saaSoidukiAsukoht(liin)
 
         Dim markerOverlay As New GMapOverlay("markers")
@@ -100,9 +112,12 @@ Public Class UserControl1
 
         GMapControl1.Overlays.Add(markerOverlay)
 
+        ' Loop kõikide sõidukite koordinaatide läbimiseks
         For Each koordinaadid In koordinaadidList
-            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), WindowsForms.Markers.GMarkerGoogleType.red)
+
             marker.ToolTipText = liin
+
             Dim size As New Size(16, 16)
             marker.Size = size
 
