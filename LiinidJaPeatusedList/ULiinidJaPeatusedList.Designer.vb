@@ -63,7 +63,7 @@ Partial Class ULiinidJaPeatusedList
         Me.Controls.Add(Me.ListLiinid)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "ULiinidJaPeatusedList"
-        Me.Size = New System.Drawing.Size(771, 360)
+        Me.Size = New System.Drawing.Size(765, 360)
         Me.ResumeLayout(False)
 
     End Sub
