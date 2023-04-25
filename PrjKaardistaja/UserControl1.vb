@@ -27,6 +27,8 @@ Public Class UserControl1
         Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
+         GMapControl1.Overlays.Clear()
+
         ' Peatuste nimede nimekirja deklareerimine ja väärtuse andmine vastava funktsiooni kaudu
         Dim peatusteList As List(Of String)
         peatusteList = andmebaas.saaKoikPeatuseNimed

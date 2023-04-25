@@ -2,11 +2,10 @@
 Public Class Form1
     Public Selected As String
     Private Sub Form1_Load(sender As Object, e As EventArgs)
+        UMap.Visible = False
         UMap.Hide()
 
     End Sub
-
-
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
         Timer1.Enabled = True
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
@@ -16,18 +15,20 @@ Public Class Form1
 
     End Sub
 
-    Private Sub btnKuvaKaardil_Click(sender As Object, e As EventArgs)
+    Private Sub btnKuvaKaardil_Click(sender As Object, e As EventArgs) Handles btnKuvaKaardil.Click
+        UMap.Visible = True
+        Timer1.Enabled = False
         UMap.Show()
-        Button1.Visible = True
+        btnKuvaPeatused.Visible = True
     End Sub
 
     Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnKuvaPeatused_Click(sender As Object, e As EventArgs) Handles btnKuvaPeatused.Click
         UMap.margiKoikPeatused()
-        Button1.Visible = False
+        Timer1.Enabled = False
     End Sub
 
     Private Sub cbxPeatus_SelectedIndexChanged(sender As Object, e As EventArgs)
@@ -43,4 +44,5 @@ Public Class Form1
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
 
+    
 End Class
