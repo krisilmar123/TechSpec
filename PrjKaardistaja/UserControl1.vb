@@ -4,7 +4,7 @@ Imports GMap.NET.MapProviders
 Public Class UserControl1
 
     Private andmebaas As PrjAndmebaasKomponent.ISaaAndmed
-  
+
     Private Sub GMapControl1_Load(sender As Object, e As EventArgs) Handles GMapControl1.Load
         GMapControl1.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance
         GMapControl1.Position = New GMap.NET.PointLatLng(59.437, 24.7536)
@@ -16,9 +16,10 @@ Public Class UserControl1
         GMapControl1.DragButton = MouseButtons.Left
 
 
+
     End Sub
     Public Sub margiKoikPeatused()
-        
+
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
         Dim peatusteList As List(Of String)
@@ -56,7 +57,7 @@ Public Class UserControl1
 
         Dim alguseMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
         New PointLatLng(koordinaadidAlgus(0), koordinaadidAlgus(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
-        
+
         Dim lopuMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
         New PointLatLng(koordinaadidLopp(0), koordinaadidLopp(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
 
@@ -77,13 +78,39 @@ Public Class UserControl1
 
         Dim ruut As GMapRoute = New GMapRoute(route.Points, "My route")
 
-        dim routesOverlay As GMapOverlay = New GMapOverlay("routes")
-        routesOverlay.Routes.Add(ruut)
-        
-        GMapControl1.Overlays.Add(routesOverlay)
+    End Sub
 
-        ruut.Stroke.Width = 2
-        ruut.Stroke.Color = Color.Red
-        GMapControl1.Refresh()
+    Public Sub margiSoidukiAsukoht(liin As String)
+        Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
+        baasHankimine = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+
+        Dim baasUuendamine As PrjAndmebaasKomponent.IUuendaAndmed
+        baasUuendamine = New PrjAndmebaasKomponent.CUuuendaAndmed(Application.StartupPath)
+
+        baasUuendamine.uuendaSoidukiAsukoht(liin)
+
+        Dim koordinaadidList As List(Of Double()) = baasHankimine.saaSoidukiAsukoht(liin)
+
+        Dim markerOverlay As New GMapOverlay("markers")
+        GMapControl1.Overlays.Clear()
+
+        GMapControl1.Overlays.Add(markerOverlay)
+
+        For Each koordinaadid In koordinaadidList
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
+            marker.ToolTipText = liin
+            Dim size As New Size(16, 16)
+            marker.Size = size
+
+            markerOverlay.Markers.Add(marker)
+        Next
+
+
+    End Sub
+
+    Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
+        Dim message As String = "Klikkisid just selle peatuse peale: " & item.ToolTipText
+        MsgBox(message)
+
     End Sub
 End Class

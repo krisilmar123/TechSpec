@@ -5,6 +5,11 @@
 
     End Sub
 
+
+    Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
+        UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
+    End Sub
+
     Private Sub btnOtsi_Click(sender As Object, e As EventArgs)  ' Klikib OTSI ja siis kuvab kas liini peatuste loetelu VÕI peatuses peatuvad liinid
 
     End Sub

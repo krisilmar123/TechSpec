@@ -25,6 +25,7 @@ Partial Class ULiinidJaPeatusedList
         Me.ListLiinid = New System.Windows.Forms.ListBox()
         Me.ListPeatused = New System.Windows.Forms.ListBox()
         Me.ListValjumised = New System.Windows.Forms.ListBox()
+        Me.txtBox = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'ListLiinid
@@ -54,21 +55,31 @@ Partial Class ULiinidJaPeatusedList
         Me.ListValjumised.Size = New System.Drawing.Size(204, 324)
         Me.ListValjumised.TabIndex = 2
         '
+        'txtBox
+        '
+        Me.txtBox.Location = New System.Drawing.Point(788, 13)
+        Me.txtBox.Name = "txtBox"
+        Me.txtBox.Size = New System.Drawing.Size(230, 26)
+        Me.txtBox.TabIndex = 3
+        '
         'ULiinidJaPeatusedList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.txtBox)
         Me.Controls.Add(Me.ListValjumised)
         Me.Controls.Add(Me.ListPeatused)
         Me.Controls.Add(Me.ListLiinid)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "ULiinidJaPeatusedList"
-        Me.Size = New System.Drawing.Size(771, 360)
+        Me.Size = New System.Drawing.Size(1053, 360)
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents ListLiinid As ListBox
     Friend WithEvents ListPeatused As ListBox
     Friend WithEvents ListValjumised As ListBox
+    Friend WithEvents txtBox As TextBox
 End Class
