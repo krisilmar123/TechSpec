@@ -5,6 +5,8 @@ Public Class UserControl1
 
     Private andmebaas As PrjAndmebaasKomponent.ISaaAndmed
 
+    Public Event markerDoubleClick(item As GMapMarker)
+
     Private Sub GMapControl1_Load(sender As Object, e As EventArgs) Handles GMapControl1.Load
         GMapControl1.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance
         GMapControl1.Position = New GMap.NET.PointLatLng(59.437, 24.7536)
@@ -109,8 +111,7 @@ Public Class UserControl1
     End Sub
 
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
-        Dim peatused As LiinidJaPeatusedList.ULiinidJaPeatusedList
-        peatused.KuvaValjumised(item.ToolTipText)
+        RaiseEvent markerDoubleClick(item)
 
     End Sub
 

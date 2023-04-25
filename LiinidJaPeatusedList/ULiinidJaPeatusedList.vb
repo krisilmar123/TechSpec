@@ -59,6 +59,7 @@
     End Sub
 
     Public Sub KuvaValjumised(peatuseNimi As String)
+        ListValjumised.Items.Clear()
 
         Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi)
 
