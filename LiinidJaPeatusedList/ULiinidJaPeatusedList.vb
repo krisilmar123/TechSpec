@@ -89,27 +89,40 @@
                 Dim stringKell1 As String = valjumine(1)
                 Dim stringKell2 As String() = stringKell1.Split(":")
                 Dim stringResult As String = ""
-                stringResult &= stringKell2(0) & stringKell2(1) & stringKell2(2)
-                Dim dateValue As Date = CDate(stringResult)
+
+                Dim stringHour As String = stringKell2(0)
+                Dim stringMinute As String = stringKell2(1)
+                Dim stringSecond As String = stringKell2(2)
+
+                stringResult &= stringKell2(0) & ":" & stringKell2(1) & ":" & stringKell2(2)
 
                 If stringKell2(0) = 24 Then
                     stringKell2(0) = 0
                 End If
 
-                ListValjumised.Items.Add(dateValue)
+                ListValjumised.Items.Add(stringResult)
+
+
+
+
 
 
             Next
         End If
 
-        Dim stringHour As String = DateTime.Now.Hour.ToString()
-        Dim stringMinute As String = DateTime.Now.Minute.ToString()
-        Dim stringSecond As String = DateTime.Now.Second.ToString()
+        Dim dateValue As Date = DateTime.Now
 
-        Dim result As String = stringHour & stringMinute & stringSecond
-        Integer.Parse(result)
+        ListValjumised.Items.Add(dateValue)
 
-        ListValjumised.Items.Add(result)
+
+        'Dim stringHour As String = DateTime.Now.Hour.ToString()
+        'Dim stringMinute As String = DateTime.Now.Minute.ToString()
+        'Dim stringSecond As String = DateTime.Now.Second.ToString()
+
+        'Dim result As String = stringHour & ":" stringMinute & ":" stringSecond
+        'Integer.Parse(result)
+
+        'ListValjumised.Items.Add(result)
     End Sub
 
 
