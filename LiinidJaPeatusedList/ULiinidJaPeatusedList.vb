@@ -96,6 +96,7 @@
 
                 stringResult &= stringKell2(0) & ":" & stringKell2(1) & ":" & stringKell2(2)
 
+
                 If stringKell2(0) = 24 Then
                     stringKell2(0) = 0
                 End If
@@ -110,9 +111,12 @@
             Next
         End If
 
-        Dim dateValue As Date = DateTime.Now
+        Dim dateValue As String = DateTime.Now
+        Dim aegDate As String() = dateValue.ToString().Split(" ")
+        Dim reaalAeg As String = aegDate(1)
 
-        ListValjumised.Items.Add(dateValue)
+
+        ListValjumised.Items.Add(reaalAeg)
 
 
         'Dim stringHour As String = DateTime.Now.Hour.ToString()
