@@ -46,18 +46,21 @@ Public Class CSaaAndmed
         connection.Close()
     End Function
 
-    Function saaValjumised(peatuseNimi As String) As String Implements ISaaAndmed.saaValjumised
+    Function saaValjumised(peatuseNimi As String) As List(Of String()) Implements ISaaAndmed.saaValjumised
         connection.Open()
 
         If connection.State = ConnectionState.Open Then
             command.Connection = connection
-            command.CommandText = "SELECT trip_id, departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id WHERE Stop.stop_name='" & peatuseNimi & "' ORDER BY departure_time;"
+            command.CommandText = "SELECT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id WHERE Stop.stop_name='" & peatuseNimi & "' ORDER BY Route.route_short_name;"
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
-            Dim result As String = ""
+            Dim result As New List(Of String())
             Using rdr
                 While (rdr.Read())
-                    result &= rdr.GetValue(0) & vbTab & rdr.GetValue(1) & vbLf
+                    Dim liiniNimi As String = rdr.GetValue(0)
+                    Dim aeg As String = rdr.GetValue(1)
+                    Dim resultArray As String() = {liiniNimi, aeg}
+                    result.Add(resultArray)
                 End While
             End Using
             connection.Close()
@@ -65,7 +68,7 @@ Public Class CSaaAndmed
         End If
 
         connection.Close()
-        Return "Failed"
+
     End Function
 
     Public Function saaLiinid() As List(Of String) Implements ISaaAndmed.saaLiinid
