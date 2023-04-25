@@ -109,8 +109,9 @@ Public Class UserControl1
     End Sub
 
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
-        Dim message As String = "Klikkisid just selle peatuse peale: " & item.ToolTipText
-        MsgBox(message)
+        Dim peatused As LiinidJaPeatusedList.ULiinidJaPeatusedList
+        peatused.KuvaValjumised(item.ToolTipText)
 
     End Sub
+
 End Class
