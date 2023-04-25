@@ -23,46 +23,79 @@ Partial Class UserControl1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GMapControl1 = New GMap.NET.WindowsForms.GMapControl()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.TxtAlgusPeatus = New System.Windows.Forms.TextBox()
+        Me.txtLoppPeatus = New System.Windows.Forms.TextBox()
+        Me.btnOtsiPeatused = New System.Windows.Forms.Button()
         Me.SuspendLayout
         '
         'GMapControl1
         '
         Me.GMapControl1.Bearing = 0!
-        Me.GMapControl1.CanDragMap = True
+        Me.GMapControl1.CanDragMap = true
         Me.GMapControl1.EmptyTileColor = System.Drawing.Color.Navy
-        Me.GMapControl1.GrayScaleMode = False
+        Me.GMapControl1.GrayScaleMode = false
         Me.GMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
         Me.GMapControl1.LevelsKeepInMemory = 5
-        Me.GMapControl1.Location = New System.Drawing.Point(0, 0)
-        Me.GMapControl1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.GMapControl1.MarkersEnabled = True
+        Me.GMapControl1.Location = New System.Drawing.Point(3, 3)
+        Me.GMapControl1.MarkersEnabled = true
         Me.GMapControl1.MaxZoom = 2
         Me.GMapControl1.MinZoom = 2
-        Me.GMapControl1.MouseWheelZoomEnabled = True
+        Me.GMapControl1.MouseWheelZoomEnabled = true
         Me.GMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter
         Me.GMapControl1.Name = "GMapControl1"
-        Me.GMapControl1.NegativeMode = False
-        Me.GMapControl1.PolygonsEnabled = True
+        Me.GMapControl1.NegativeMode = false
+        Me.GMapControl1.PolygonsEnabled = true
         Me.GMapControl1.RetryLoadTile = 0
-        Me.GMapControl1.RoutesEnabled = True
+        Me.GMapControl1.RoutesEnabled = true
         Me.GMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
-        Me.GMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
-        Me.GMapControl1.ShowTileGridLines = False
-        Me.GMapControl1.Size = New System.Drawing.Size(1196, 688)
+        Me.GMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33,Byte),Integer), CType(CType(65,Byte),Integer), CType(CType(105,Byte),Integer), CType(CType(225,Byte),Integer))
+        Me.GMapControl1.ShowTileGridLines = false
+        Me.GMapControl1.Size = New System.Drawing.Size(1345, 745)
         Me.GMapControl1.TabIndex = 0
         Me.GMapControl1.Zoom = 0R
         '
+        'TxtAlgusPeatus
+        '
+        Me.TxtAlgusPeatus.Location = New System.Drawing.Point(3, 12)
+        Me.TxtAlgusPeatus.Name = "TxtAlgusPeatus"
+        Me.TxtAlgusPeatus.Size = New System.Drawing.Size(100, 20)
+        Me.TxtAlgusPeatus.TabIndex = 1
+        '
+        'txtLoppPeatus
+        '
+        Me.txtLoppPeatus.Location = New System.Drawing.Point(3, 38)
+        Me.txtLoppPeatus.Name = "txtLoppPeatus"
+        Me.txtLoppPeatus.Size = New System.Drawing.Size(100, 20)
+        Me.txtLoppPeatus.TabIndex = 2
+        '
+        'btnOtsiPeatused
+        '
+        Me.btnOtsiPeatused.Location = New System.Drawing.Point(13, 64)
+        Me.btnOtsiPeatused.Name = "btnOtsiPeatused"
+        Me.btnOtsiPeatused.Size = New System.Drawing.Size(75, 23)
+        Me.btnOtsiPeatused.TabIndex = 3
+        Me.btnOtsiPeatused.Text = "Otsi"
+        Me.btnOtsiPeatused.UseVisualStyleBackColor = true
+        '
         'UserControl1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnOtsiPeatused)
+        Me.Controls.Add(Me.txtLoppPeatus)
+        Me.Controls.Add(Me.TxtAlgusPeatus)
         Me.Controls.Add(Me.GMapControl1)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "UserControl1"
-        Me.Size = New System.Drawing.Size(1200, 692)
-        Me.ResumeLayout(False)
+        Me.Size = New System.Drawing.Size(1345, 745)
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
 
     Friend WithEvents GMapControl1 As GMap.NET.WindowsForms.GMapControl
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents TxtAlgusPeatus As TextBox
+    Friend WithEvents txtLoppPeatus As TextBox
+    Friend WithEvents btnOtsiPeatused As Button
 End Class
