@@ -23,6 +23,12 @@ Partial Class UserControl1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GMapControl1 = New GMap.NET.WindowsForms.GMapControl()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.TxtAlgusPeatus = New System.Windows.Forms.TextBox()
+        Me.txtLoppPeatus = New System.Windows.Forms.TextBox()
+        Me.btnOtsiPeatused = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout
         '
         'GMapControl1
@@ -33,7 +39,7 @@ Partial Class UserControl1
         Me.GMapControl1.GrayScaleMode = false
         Me.GMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
         Me.GMapControl1.LevelsKeepInMemory = 5
-        Me.GMapControl1.Location = New System.Drawing.Point(0, 0)
+        Me.GMapControl1.Location = New System.Drawing.Point(-3, 0)
         Me.GMapControl1.MarkersEnabled = true
         Me.GMapControl1.MaxZoom = 2
         Me.GMapControl1.MinZoom = 2
@@ -51,10 +57,57 @@ Partial Class UserControl1
         Me.GMapControl1.TabIndex = 0
         Me.GMapControl1.Zoom = 0R
         '
+        'TxtAlgusPeatus
+        '
+        Me.TxtAlgusPeatus.Location = New System.Drawing.Point(72, 12)
+        Me.TxtAlgusPeatus.Name = "TxtAlgusPeatus"
+        Me.TxtAlgusPeatus.Size = New System.Drawing.Size(100, 20)
+        Me.TxtAlgusPeatus.TabIndex = 1
+        '
+        'txtLoppPeatus
+        '
+        Me.txtLoppPeatus.Location = New System.Drawing.Point(72, 38)
+        Me.txtLoppPeatus.Name = "txtLoppPeatus"
+        Me.txtLoppPeatus.Size = New System.Drawing.Size(100, 20)
+        Me.txtLoppPeatus.TabIndex = 2
+        '
+        'btnOtsiPeatused
+        '
+        Me.btnOtsiPeatused.Location = New System.Drawing.Point(81, 64)
+        Me.btnOtsiPeatused.Name = "btnOtsiPeatused"
+        Me.btnOtsiPeatused.Size = New System.Drawing.Size(75, 23)
+        Me.btnOtsiPeatused.TabIndex = 3
+        Me.btnOtsiPeatused.Text = "Otsi"
+        Me.btnOtsiPeatused.UseVisualStyleBackColor = true
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = true
+        Me.Label1.Cursor = System.Windows.Forms.Cursors.No
+        Me.Label1.Location = New System.Drawing.Point(3, 15)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Lähtekoht"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = true
+        Me.Label2.Location = New System.Drawing.Point(3, 45)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Sihtkoht"
+        '
         'UserControl1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnOtsiPeatused)
+        Me.Controls.Add(Me.txtLoppPeatus)
+        Me.Controls.Add(Me.TxtAlgusPeatus)
         Me.Controls.Add(Me.GMapControl1)
         Me.Name = "UserControl1"
         Me.Size = New System.Drawing.Size(800, 450)
@@ -63,4 +116,10 @@ Partial Class UserControl1
 End Sub
 
     Friend WithEvents GMapControl1 As GMap.NET.WindowsForms.GMapControl
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents TxtAlgusPeatus As TextBox
+    Friend WithEvents txtLoppPeatus As TextBox
+    Friend WithEvents btnOtsiPeatused As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class
