@@ -1,4 +1,5 @@
-﻿Public Class Form1
+﻿Imports System.Threading
+Public Class Form1
     Public Selected As String
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UMap.Hide()
@@ -7,6 +8,7 @@
 
 
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
+        Timer1.Enabled = True
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
 
@@ -31,5 +33,7 @@
 
     End Sub
 
-
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
+    End Sub
 End Class

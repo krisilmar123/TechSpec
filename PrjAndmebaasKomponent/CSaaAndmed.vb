@@ -20,6 +20,10 @@ Public Class CSaaAndmed
         connection = New SQLiteConnection(connString)
         command = New SQLiteCommand("", connection)
 
+
+
+
+
     End Sub
 
     Public Function saaPeatuseAsukoht(peatuseNimi As String) As Double() Implements ISaaAndmed.saaPeatuseAsukoht

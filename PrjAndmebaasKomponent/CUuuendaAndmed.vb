@@ -49,6 +49,11 @@ Public Class CUuuendaAndmed
 
                 affectedRows = command.ExecuteNonQuery()
 
+                If affectedRows = 0 Then
+                    command.CommandText = "INSERT INTO GPS VALUES ('" & liin & "', '" & lon & "', '" & lat & "', '" & lineArray(6) & "' );"
+                    command.ExecuteNonQuery()
+                End If
+
                 connection.Close()
             End If
         End While

@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.btnOtsi = New System.Windows.Forms.Button()
         Me.btnKuvaKaardil = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -37,6 +38,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'btnOtsi
@@ -120,6 +122,7 @@ Partial Class Form1
         '
         'ULiinidJaPeatusedList1
         '
+        Me.ULiinidJaPeatusedList1.liiniValik = Nothing
         Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(26, 346)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
@@ -174,6 +177,10 @@ Partial Class Form1
         Me.Label6.TabIndex = 43
         Me.Label6.Text = "--->"
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 3000
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -217,4 +224,5 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents Timer1 As Timer
 End Class
