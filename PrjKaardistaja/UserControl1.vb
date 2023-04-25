@@ -90,6 +90,14 @@ Public Class UserControl1
 
         Dim ruut As GMapRoute = New GMapRoute(route.Points, "My route")
 
+        Dim routesOverlay As GMapOverlay = New GMapOverlay("routes")
+        routesOverlay.Routes.Add(ruut)
+
+        GMapControl1.Overlays.Add(routesOverlay)
+
+        ruut.Stroke.Width = 2
+        ruut.Stroke.Color = Color.Red
+        GMapControl1.Refresh()
     End Sub
 
     Public Sub margiSoidukiAsukoht(liin As String)
@@ -130,7 +138,6 @@ Public Class UserControl1
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
         ' Event käivitub ning seda jälgiv funktsioon käivitub kasutajaakna koodis
         RaiseEvent markerDoubleClick(item)
-
     End Sub
 
 End Class
