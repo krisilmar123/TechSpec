@@ -1,17 +1,18 @@
 ﻿Imports GMap.NET
 Imports GMap.NET.WindowsForms
+Imports GMap.NET.MapProviders
 Public Class UserControl1
 
     Private andmebaas As PrjAndmebaasKomponent.ISaaAndmed
-
+  
     Private Sub GMapControl1_Load(sender As Object, e As EventArgs) Handles GMapControl1.Load
         GMapControl1.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance
-        GMapControl1.Position = New GMap.NET.PointLatLng(59.4370, 24.7536)
+        GMapControl1.Position = New GMap.NET.PointLatLng(59.437, 24.7536)
         GMapControl1.MinZoom = 1
         GMapControl1.MaxZoom = 18
         GMapControl1.Zoom = 13
         GMapControl1.Manager.Mode = GMap.NET.AccessMode.ServerAndCache
-        GMapControl1.CanDragMap = true
+        GMapControl1.CanDragMap = True
         GMapControl1.DragButton = MouseButtons.Left
 
 
@@ -74,12 +75,12 @@ Public Class UserControl1
 
         Dim route As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(alguseOma, lopuOma, False, False, 15)
 
-        Dim ruut As GMapRoute = New GMapRoute(route.Points, "Minu Marsruut")
+        Dim ruut As GMapRoute = New GMapRoute(route.Points, "My route")
 
-        dim routesKuvamine As GMapOverlay = New GMapOverlay("marsruut")
-        routesKuvamine.Routes.Add(ruut)
+        dim routesOverlay As GMapOverlay = New GMapOverlay("routes")
+        routesOverlay.Routes.Add(ruut)
         
-        GMapControl1.Overlays.Add(routesKuvamine)
+        GMapControl1.Overlays.Add(routesOverlay)
 
         ruut.Stroke.Width = 2
         ruut.Stroke.Color = Color.Red
