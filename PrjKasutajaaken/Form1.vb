@@ -11,6 +11,7 @@
 
     Private Sub btnKuvaKaardil_Click(sender As Object, e As EventArgs) Handles btnKuvaKaardil.Click
         UMap.Show()
+        Button1.Visible = True
     End Sub
 
     Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
@@ -19,13 +20,10 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         UMap.margiKoikPeatused()
-
+        Button1.Visible = False
     End Sub
 
     Private Sub cbxPeatus_SelectedIndexChanged(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub btnOtsi_Click_1(sender As Object, e As EventArgs) Handles btnOtsi.Click
     End Sub
 End Class
