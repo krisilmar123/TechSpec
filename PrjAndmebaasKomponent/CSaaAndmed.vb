@@ -2,40 +2,46 @@
 Public Class CSaaAndmed
     Implements ISaaAndmed
 
-
-    Private dbCommand = ""
-
+    ' Andmebaasi faili nimi 
     Private dbName As String = "TranspordiAndmed.db"
+
+    ' Muutuja mõeldud andmebaasi faili asukoha hoidmiseks, saab väärtuse konstruktoris
     Public Property dbPath As String = ""
+
+    ' Muutuja mõeldud andmebaasiga ühenduse loova stringi hoidmiseks
     Private connString As String = ""
 
+    ' Ühenduse muutuja
     Private connection As SQLiteConnection
+    ' SQL käsu muutuja
     Private command As SQLiteCommand
 
 
-
+    ' Konstruktor, võtab argumendiks kausta, kus andmebaasi fail sees on
     Public Sub New(Path As String)
         dbPath = Path & "\" & dbName
         connString = "Data Source=" & dbPath & ";Version=3"
         connection = New SQLiteConnection(connString)
         command = New SQLiteCommand("", connection)
-
-
-
-
-
     End Sub
 
     Public Function saaPeatuseAsukoht(peatuseNimi As String) As Double() Implements ISaaAndmed.saaPeatuseAsukoht
+        ' Loob ühenduse andmebaasiga
         connection.Open()
 
+        ' Kontrollib kas ühendus õnnestus
         If connection.State = ConnectionState.Open Then
             command.Connection = connection
+            ' Kirjutab SQL lause, millega andmeid andmebaasist hankida
+            ' Selle puhul saab peatuse koordinaadid nendelt ridadelt, kus peatuse nimi on sama, mis antud
             command.CommandText = "SELECT stop_lat, stop_lon FROM Stop WHERE stop_name='" & peatuseNimi & "';"
+            ' Lause pannakse käima ning hakkab lugema Reader ehk lugeja
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
             Dim lat As Double
             Dim lon As Double
+
+            ' Võtab lugejalt andmeid
             Using rdr
                 While (rdr.Read())
                     lat = Convert.ToDouble(rdr.GetValue(0))
