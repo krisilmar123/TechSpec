@@ -7,7 +7,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub liinValitud()
+    Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
         Timer1.Enabled = True
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
@@ -32,5 +32,14 @@ Public Class Form1
 
     Private Sub cbxPeatus_SelectedIndexChanged(sender As Object, e As EventArgs)
 
+    End Sub
+
+    ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
+    Private Sub markerDoubleClick(item As GMap.NET.WindowsForms.GMapMarker) Handles UMap.markerDoubleClick
+        ULiinidJaPeatusedList1.KuvaValjumised(item.ToolTipText)
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
 End Class

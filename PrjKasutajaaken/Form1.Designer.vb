@@ -119,6 +119,9 @@ Partial Class Form1
         Me.Label5.TabIndex = 42
         Me.Label5.Text = "VALITUD PEATUSE VÄLJUMISED"
         '
+        'Timer1
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
