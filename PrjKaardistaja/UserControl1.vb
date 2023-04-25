@@ -77,10 +77,10 @@ Public Class UserControl1
 
         Dim ruut As GMapRoute = New GMapRoute(route.Points, "My route")
 
-        dim routesOverlay As GMapOverlay = New GMapOverlay("routes")
-        routesOverlay.Routes.Add(ruut)
+        dim teekonnaKuvamine As GMapOverlay = New GMapOverlay("routes")
+        teekonnaKuvamine.Routes.Add(ruut)
         
-        GMapControl1.Overlays.Add(routesOverlay)
+        GMapControl1.Overlays.Add(teekonnaKuvamine)
 
         ruut.Stroke.Width = 2
         ruut.Stroke.Color = Color.Red
