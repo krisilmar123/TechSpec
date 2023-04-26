@@ -22,9 +22,6 @@ Public Class Form1
         btnKuvaPeatused.Visible = True
     End Sub
 
-
-    End Sub
-
     Private Sub btnKuvaPeatused_Click(sender As Object, e As EventArgs) Handles btnKuvaPeatused.Click
         UMap.margiKoikPeatused()
         Timer1.Enabled = False
