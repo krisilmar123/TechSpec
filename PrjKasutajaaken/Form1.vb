@@ -23,7 +23,6 @@ Public Class Form1
     End Sub
 
 
-    End Sub
 
     Private Sub btnKuvaPeatused_Click(sender As Object, e As EventArgs) Handles btnKuvaPeatused.Click
         UMap.margiKoikPeatused()
@@ -43,5 +42,7 @@ Public Class Form1
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
 
+    Private Sub Form1_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
 End Class
