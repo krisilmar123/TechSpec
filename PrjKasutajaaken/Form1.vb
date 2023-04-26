@@ -44,5 +44,5 @@ Public Class Form1
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
 
-    
+
 End Class
