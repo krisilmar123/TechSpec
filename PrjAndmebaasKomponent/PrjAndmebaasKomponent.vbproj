@@ -272,6 +272,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSaaAndmed.vb" />
+    <Compile Include="CUuuendaAndmed.vb" />
+    <Compile Include="IUuendaAndmed.vb" />
     <Compile Include="ISaaAndmed.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
