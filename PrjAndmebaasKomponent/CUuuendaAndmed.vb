@@ -23,6 +23,7 @@ Public Class CUuuendaAndmed
     End Sub
 
     Public Sub uuendaSoidukiAsukoht(liin As String) Implements IUuendaAndmed.uuendaSoidukiAsukoht
+        ' Laeb internetist alla gps.txt
         Dim destinationPath As String = applicationStartUpPath & "\" & "gps.txt"
         My.Computer.Network.DownloadFile("https://transport.tallinn.ee/gps.txt", destinationPath, userName:=String.Empty, password:=String.Empty, showUI:=False, connectionTimeout:=10000, overwrite:=True)
 
