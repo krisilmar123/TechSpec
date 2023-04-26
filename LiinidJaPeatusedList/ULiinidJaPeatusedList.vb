@@ -14,7 +14,7 @@
         ' Clear the items in the ListView control
         ListLiinid.Items.Clear()
 
-        ' Add each string in the list as an item in the ListView control
+        ' Add each string in the list as an item in the Listbox control
         For Each s As String In stringList
             ListLiinid.Items.Add(s)
         Next
