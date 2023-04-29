@@ -1,4 +1,8 @@
-﻿Imports System.Data.SQLite
+﻿' Koodi baas on võetud järgnevast Youtube video'st: https://www.youtube.com/watch?v=9PrPx83L2hY. 
+' Looja: PSDen
+
+Imports System.Data.SQLite
+
 Public Class CSaaAndmed
     Implements ISaaAndmed
 
@@ -48,6 +52,7 @@ Public Class CSaaAndmed
                     lon = Convert.ToDouble(rdr.GetValue(1))
                 End While
             End Using
+            ' Salvestab latitute ja longitude koordinaadid array'sse
             Dim koordinaadid = New Double() {lat, lon}
             connection.Close()
             Return koordinaadid
