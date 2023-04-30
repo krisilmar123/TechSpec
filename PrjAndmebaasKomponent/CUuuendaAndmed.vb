@@ -2,8 +2,6 @@
 Public Class CUuuendaAndmed
     Implements IUuendaAndmed
 
-    Private dbCommand = ""
-
     Private dbName As String = "TranspordiAndmed.db"
     Public Property dbPath As String = ""
     Private connString As String = ""
@@ -25,6 +23,7 @@ Public Class CUuuendaAndmed
     Public Sub uuendaSoidukiAsukoht(liin As String) Implements IUuendaAndmed.uuendaSoidukiAsukoht
         ' Laeb internetist alla sõidukite reaalaja infot sisaldava faili nimega "gps.txt", salvestab selle rakenduse käivituskohta
         Dim destinationPath As String = applicationStartUpPath & "\" & "gps.txt"
+
         My.Computer.Network.DownloadFile("https://transport.tallinn.ee/gps.txt", destinationPath, userName:=String.Empty, password:=String.Empty, showUI:=False, connectionTimeout:=10000, overwrite:=True)
 
         ' Faili lugeja deklareerimine
