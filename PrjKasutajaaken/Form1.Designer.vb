@@ -55,6 +55,7 @@ Partial Class Form1
         '
         'btnKuvaPeatused
         '
+        Me.btnKuvaPeatused.Enabled = False
         Me.btnKuvaPeatused.Location = New System.Drawing.Point(837, 288)
         Me.btnKuvaPeatused.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.btnKuvaPeatused.Name = "btnKuvaPeatused"
@@ -62,7 +63,6 @@ Partial Class Form1
         Me.btnKuvaPeatused.TabIndex = 37
         Me.btnKuvaPeatused.Text = " KUVA KÕIK PEATUSED"
         Me.btnKuvaPeatused.UseVisualStyleBackColor = True
-        Me.btnKuvaPeatused.Visible = False
         '
         'UMap
         '
@@ -129,6 +129,7 @@ Partial Class Form1
         '
         'btnVaatamisvaarsused
         '
+        Me.btnVaatamisvaarsused.Enabled = False
         Me.btnVaatamisvaarsused.Image = Global.PrjKasutajaaken.My.Resources.Resources.foto__1___2_
         Me.btnVaatamisvaarsused.Location = New System.Drawing.Point(839, 395)
         Me.btnVaatamisvaarsused.Name = "btnVaatamisvaarsused"
