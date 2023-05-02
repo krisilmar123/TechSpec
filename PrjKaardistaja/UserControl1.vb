@@ -18,16 +18,13 @@ Public Class UserControl1
         GMapControl1.Manager.Mode = GMap.NET.AccessMode.ServerAndCache
         GMapControl1.CanDragMap = True
         GMapControl1.DragButton = MouseButtons.Left
-
-
-
     End Sub
     Public Sub margiKoikPeatused()
         ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
         Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
-         GMapControl1.Overlays.Clear()
+        GMapControl1.Overlays.Clear()
 
         ' Peatuste nimede nimekirja deklareerimine ja väärtuse andmine vastava funktsiooni kaudu
         Dim peatusteList As List(Of String)
@@ -133,7 +130,12 @@ Public Class UserControl1
 
             markerOverlay.Markers.Add(marker)
         Next
+
+
     End Sub
+
+
+
 
     Public Sub margiKoikVaatamisvaarsused()
         Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
