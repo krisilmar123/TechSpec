@@ -26,7 +26,7 @@ Partial Class Form1
         '
         'Form1
         '
-        Me.ClientSize = New System.Drawing.Size(278, 244)
+        Me.ClientSize = New System.Drawing.Size(1039, 505)
         Me.Name = "Form1"
         Me.ResumeLayout(False)
 
