@@ -342,6 +342,33 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.6\analyzers\dotnet\vb\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.6\analyzers\dotnet\vb\Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto %281%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto %281%29 %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
