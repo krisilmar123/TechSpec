@@ -138,10 +138,10 @@ Public Class CSaaAndmed
             command.Connection = connection
             command.CommandText = "SELECT DISTINCT stop_name
 FROM Stop
-INNER JOIN Stop_time ON Stop.stop_id = Stop_time.stop_id
-INNER JOIN Trip ON Trip.trip_id = Stop_time.trip_id
-INNER JOIN Route ON Route.route_id = Trip.route_id
-WHERE Route.route_short_name='" & liiniNimi & "' AND Route.route_long_name='" & liiniTeekond & "' AND Trip.direction_code='A>B';"
+JOIN Stop_time ON Stop.stop_id = Stop_time.stop_id
+JOIN Trip ON Trip.trip_id = Stop_time.trip_id
+JOIN Route ON Route.route_id = Trip.route_id
+WHERE Route.route_short_name='" & liiniNimi & "' AND Route.route_long_name='" & liiniTeekond & "' AND Trip.direction_code='A>B' ORDER BY CAST(Stop_time.stop_sequence AS UNISGNED);"
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
             Dim resultList As New List(Of String)
