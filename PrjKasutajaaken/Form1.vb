@@ -36,4 +36,12 @@ Public Class Form1
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim CSV As CSVExporterDNF.IExporter
+        CSV = New CSVExporterDNF.CExporter
+
+
+
+    End Sub
 End Class

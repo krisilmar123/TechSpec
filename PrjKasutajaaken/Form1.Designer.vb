@@ -39,6 +39,7 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnOtsi
@@ -181,11 +182,21 @@ Partial Class Form1
         '
         Me.Timer1.Interval = 3000
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(26, 176)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(131, 45)
+        Me.Button2.TabIndex = 44
+        Me.Button2.Text = "Save As"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1614, 863)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -225,4 +236,5 @@ Partial Class Form1
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Button2 As Button
 End Class
