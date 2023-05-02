@@ -67,6 +67,9 @@ Public Class CSaaAndmed
         If connection.State = ConnectionState.Open Then
             command.Connection = connection
             command.CommandText = "SELECT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id WHERE Stop.stop_name='" & peatuseNimi & "' ORDER BY Route.route_short_name;"
+
+            'command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id WHERE Stop.stop_name='" & peatuseNimi & "' AND Stop_time.departure_time >=  ORDER BY Route.route_short_name;"
+
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
             Dim result As New List(Of String())
