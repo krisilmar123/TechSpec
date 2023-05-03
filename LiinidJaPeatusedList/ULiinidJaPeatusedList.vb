@@ -103,57 +103,47 @@
         pensionaarCheckBox = CheckBoxPensionaar.Checked
 
     End Sub
+
+    Private Sub btnInimesteHulk_Click(sender As Object, e As EventArgs) Handles btnInimesteHulk.Click
+
+        Dim esimeneOsaAlgus As Date = #12:00:00 AM#
+        Dim esimeneOsaLopp As Date = #07:30:00 AM#
+        Dim teineOsaAlgus As Date = #07:30:01 AM#
+        Dim teineOsaLopp As Date = #10:30:00 AM#
+        Dim kolmasOsaAlgus As Date = #10:30:01 AM#
+        Dim kolmasOsaLopp As Date = #01:10:00 PM#
+        Dim neljasOsaAlgus As Date = #01:10:01 PM#
+        Dim neljasOsaLopp As Date = #07:30:00 PM#
+        Dim viiesOsaAlgus As Date = #07:30:01 PM#
+        Dim viiesOsaLopp As Date = #09:30:00 PM#
+        Dim kuuesOsaAlgus As Date = #09:30:01 PM#
+        Dim kuuesOsaLopp As Date = #11:59:59 PM#
+
+        Dim aegPraegu As Date
+        aegPraegu = TimeValue(Now)
+
+        If aegPraegu >= esimeneOsaAlgus And aegPraegu <= esimeneOsaLopp Then
+            MsgBox("Praegu vähe inimesi bussides!")
+
+        ElseIf aegPraegu >= teineOsaAlgus And aegPraegu <= teineOsaLopp Then
+            MsgBox("Praegu on palju inimesi bussides!")
+
+        ElseIf aegPraegu >= kolmasOsaAlgus And aegPraegu <= kolmasOsaLopp Then
+            MsgBox("Praegu on keskmiselt inimesi bussides!")
+
+        ElseIf aegPraegu >= neljasOsaAlgus And aegPraegu <= neljasOsaLopp Then
+            MsgBox("Praegu on palju inimesi bussides!")
+
+        ElseIf aegPraegu >= viiesOsaAlgus And aegPraegu <= viiesOsaLopp Then
+            MsgBox("Praegu on keskmiselt inimesi bussides!")
+
+        ElseIf aegPraegu >= kuuesOsaAlgus And aegPraegu <= kuuesOsaLopp Then
+            MsgBox("Praegu on vähe inimesi bussides!")
+
+        Else
+            MsgBox("Ei suutnud tuvastada kellaaega!")
+
+        End If
+
+    End Sub
 End Class
-
-
-
-
-
-'Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, 15)
-
-''Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
-'valjumised = valjumised.Distinct.ToList()
-
-
-'For Each valjumine In valjumised
-
-''Võtab vaid kellaja
-'Dim stringKell1 As String = valjumine(1)
-''Splititakse kella aeg ":" kohtadest
-'Dim stringKell2 As String() = stringKell1.Split(":")
-
-''Jaotatakse aeg kolmeks osaks tunnid minutid ja sekundid
-'Dim stringHour As String = stringKell2(0)
-'Dim stringMinute As String = stringKell2(1)
-'Dim stringSecond As String = stringKell2(2)
-''Deklareeritakse "tulemus" tunnid ja minutid
-'Dim stringResult As String = stringKell2(0) & stringKell2(1)
-''Tehakse tulemus int tüüpi muutujaks
-'Dim intResult As Integer = Integer.Parse(stringResult)
-
-''Kui kellaja tunni kohas on 24 asendadtakse see 00-iga
-'If stringKell2(0) = 24 Then
-'stringKell2(0) = 0
-'End If
-
-''Võetakse reaalne kellaaeg
-'Dim dateValue As String = DateTime.Now
-''Eemaldatakse eest kuupäev jäetakse vaid kellaeg mis sisaldab ":"
-'Dim stringaegDate As String() = dateValue.ToString().Split(" ")
-''Eemaldatakse vaid kellaajast ":" 
-'Dim stringDateWO As String() = stringaegDate(1).ToString().Split(":")
-''Deklareeritakse uus string muutuja ja antakse väärtuseks tunnid ja minutid, et hiljem võrrelda
-'Dim stringReaalResult As String = stringDateWO(0) & stringDateWO(1)
-''Deklareeritakse uus muutuja mis on int tüüpi ja muudetakse eelnev tulemus intiks et võrrelda
-'Dim intReaalResutl As Integer = Integer.Parse(stringReaalResult)
-
-''Kui andmebaasist saadud kellaajast lahutada reaalne aeg, võrreldakse saadud tulemsut 30nega kas see on suure väiksem või võrdne
-''Antud tsükkel jätkab kui tulemus on väiksem võrdne ja suurem 0-ist et ei oleks negatiivne
-'If (intResult - intReaalResutl <= 30) And (intResult - intReaalResutl >= 0) Then
-
-''Väljastataske tulemus ValjumisteListBoxi ja pannakse osade vahele koolonid
-'ListValjumised.Items.Add("nr:" & valjumine(0) & " " & valjumine(1))
-
-'End If
-
-'Next

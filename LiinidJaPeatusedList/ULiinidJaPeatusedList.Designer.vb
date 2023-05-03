@@ -26,6 +26,7 @@ Partial Class ULiinidJaPeatusedList
         Me.ListPeatused = New System.Windows.Forms.ListBox()
         Me.ListValjumised = New System.Windows.Forms.ListBox()
         Me.CheckBoxPensionaar = New System.Windows.Forms.CheckBox()
+        Me.btnInimesteHulk = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ListLiinid
@@ -65,17 +66,27 @@ Partial Class ULiinidJaPeatusedList
         Me.CheckBoxPensionaar.Text = "3 Järgmist bussiaega"
         Me.CheckBoxPensionaar.UseVisualStyleBackColor = True
         '
+        'btnInimesteHulk
+        '
+        Me.btnInimesteHulk.Location = New System.Drawing.Point(14, 21)
+        Me.btnInimesteHulk.Name = "btnInimesteHulk"
+        Me.btnInimesteHulk.Size = New System.Drawing.Size(237, 52)
+        Me.btnInimesteHulk.TabIndex = 4
+        Me.btnInimesteHulk.Text = "VAATA INIMESTE HULKA BUSSIS"
+        Me.btnInimesteHulk.UseVisualStyleBackColor = True
+        '
         'ULiinidJaPeatusedList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.btnInimesteHulk)
         Me.Controls.Add(Me.CheckBoxPensionaar)
         Me.Controls.Add(Me.ListValjumised)
         Me.Controls.Add(Me.ListPeatused)
         Me.Controls.Add(Me.ListLiinid)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "ULiinidJaPeatusedList"
-        Me.Size = New System.Drawing.Size(759, 429)
+        Me.Size = New System.Drawing.Size(753, 428)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -85,4 +96,5 @@ Partial Class ULiinidJaPeatusedList
     Friend WithEvents ListPeatused As ListBox
     Friend WithEvents ListValjumised As ListBox
     Friend WithEvents CheckBoxPensionaar As CheckBox
+    Friend WithEvents btnInimesteHulk As Button
 End Class
