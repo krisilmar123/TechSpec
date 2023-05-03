@@ -10,16 +10,13 @@ Public Class Form1
         Timer1.Enabled = True
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
-
-    Private Sub btnOtsi_Click(sender As Object, e As EventArgs)  ' Klikib OTSI ja siis kuvab kas liini peatuste loetelu VÕI peatuses peatuvad liinid
-
-    End Sub
-
     Private Sub btnKuvaKaardil_Click(sender As Object, e As EventArgs) Handles btnKuvaKaardil.Click
         UMap.Visible = True
         Timer1.Enabled = False
         UMap.Show()
         btnKuvaPeatused.Visible = True
+        UMap.margiKoikVaatamisvaarsused()
+
     End Sub
 
     Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load

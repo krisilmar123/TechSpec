@@ -24,7 +24,6 @@ Public Class UserControl1
     End Sub
     Public Sub margiKoikPeatused()
         ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
-        Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
          GMapControl1.Overlays.Clear()
@@ -84,13 +83,13 @@ Public Class UserControl1
 
         markeriKuvamine.Markers.Add(alguseMarker)
         markeriKuvamine.Markers.Add(lopuMarker)
-
+        'teekonna kuvamine'
         Dim alguseOma As PointLatLng = New PointLatLng(koordinaadidAlgus(0), koordinaadidAlgus(1))
         Dim lopuOma As PointLatLng = New PointLatLng(koordinaadidLopp(0), koordinaadidLopp(1))
 
-        Dim route As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(alguseOma, lopuOma, False, False, 15)
+        Dim teekond As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(alguseOma, lopuOma, False, False, 15)
 
-        Dim ruut As GMapRoute = New GMapRoute(route.Points, "My route")
+        Dim ruut As GMapRoute = New GMapRoute(teekond.Points, "My route")
 
         Dim routesOverlay As GMapOverlay = New GMapOverlay("routes")
         routesOverlay.Routes.Add(ruut)
@@ -136,6 +135,29 @@ Public Class UserControl1
 
 
     End Sub
+
+     Public Sub margiKoikVaatamisvaarsused()
+        Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
+        andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+
+        Dim vaatamisvaarsusedList As List(Of String)
+        vaatamisvaarsusedList = andmebaas.saaKoikVaatamisvaarsuseNimed
+
+        Dim markerOverlay As New GMapOverlay("markers")
+        GMapControl1.Overlays.Add(markerOverlay)
+
+        For Each koht As String In vaatamisvaarsusedList
+            Dim koordinaadid As Double() = andmebaas.saaVaatamisvaarsuseAsukoht(koht)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.blue)
+            marker.ToolTipText = koht
+            Dim size As New Size(16, 16)
+            marker.Size = size
+
+            markerOverlay.Markers.Add(marker)
+
+        Next
+    End Sub
+
 
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
         ' Event käivitub ning seda jälgiv funktsioon käivitub kasutajaakna koodis
