@@ -11,15 +11,12 @@ Public Class Form1
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
 
-
     Private Sub btnKuvaKaardil_Click(sender As Object, e As EventArgs) Handles btnKuvaKaardil.Click
         UMap.Visible = True
         Timer1.Enabled = False
         UMap.Show()
         btnKuvaPeatused.Visible = True
     End Sub
-
-
 
     Private Sub btnKuvaPeatused_Click(sender As Object, e As EventArgs) Handles btnKuvaPeatused.Click
         UMap.margiKoikPeatused()
