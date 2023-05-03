@@ -100,6 +100,9 @@
     End Sub
 
     Public Sub CheckBoxPensionaar_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxPensionaar.CheckedChanged
+        ListValjumised.Items.Clear()
+        ListPeatused.Items.Clear()
+
         pensionaarCheckBox = CheckBoxPensionaar.Checked
 
     End Sub
@@ -123,25 +126,25 @@
         aegPraegu = TimeValue(Now)
 
         If aegPraegu >= esimeneOsaAlgus And aegPraegu <= esimeneOsaLopp Then
-            MsgBox("Praegu vähe inimesi bussides!")
+            txtInimesteHulk.Text = "VÄHE"
 
         ElseIf aegPraegu >= teineOsaAlgus And aegPraegu <= teineOsaLopp Then
-            MsgBox("Praegu on palju inimesi bussides!")
+            txtInimesteHulk.Text = "PALJU"
 
         ElseIf aegPraegu >= kolmasOsaAlgus And aegPraegu <= kolmasOsaLopp Then
-            MsgBox("Praegu on keskmiselt inimesi bussides!")
+            txtInimesteHulk.Text = "KESMISELT"
 
         ElseIf aegPraegu >= neljasOsaAlgus And aegPraegu <= neljasOsaLopp Then
-            MsgBox("Praegu on palju inimesi bussides!")
+            txtInimesteHulk.Text = "PALJU"
 
         ElseIf aegPraegu >= viiesOsaAlgus And aegPraegu <= viiesOsaLopp Then
-            MsgBox("Praegu on keskmiselt inimesi bussides!")
+            txtInimesteHulk.Text = "KESKMISELT"
 
         ElseIf aegPraegu >= kuuesOsaAlgus And aegPraegu <= kuuesOsaLopp Then
-            MsgBox("Praegu on vähe inimesi bussides!")
+            txtInimesteHulk.Text = "VÄHE"
 
         Else
-            MsgBox("Ei suutnud tuvastada kellaaega!")
+            txtInimesteHulk.Text = "ERROR"
 
         End If
 
