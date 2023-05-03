@@ -73,7 +73,7 @@
     Public Sub KuvaValjumised(peatuseNimi As String, liiniNimi As String)
         ListValjumised.Items.Clear()
 
-        Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, liiniNimi)
+        Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString)
 
         'Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
         valjumised = valjumised.Distinct.ToList()
