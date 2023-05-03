@@ -10,6 +10,7 @@ Public Class UserControl1
     Public Event markerDoubleClick(item As GMapMarker)
 
     Private Sub GMapControl1_Load(sender As Object, e As EventArgs) Handles GMapControl1.Load
+        'Luuakse kaardi kiht
         GMapControl1.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance
         GMapControl1.Position = New GMap.NET.PointLatLng(59.437, 24.7536)
         GMapControl1.MinZoom = 1
@@ -25,6 +26,7 @@ Public Class UserControl1
     Public Sub margiKoikPeatused()
         ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
         Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
+        'Andtakse andmebaasile väärtus ja luuakse andmebaasikomponendi objekt ja parameetriks andmebaasi asukoht
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
         GMapControl1.Overlays.Clear()
@@ -34,6 +36,7 @@ Public Class UserControl1
         peatusteList = andmebaas.saaKoikPeatuseNimed
 
         Dim markerOverlay As New GMapOverlay("markers")
+        'Overlay on nagu pealiskiht mis pannakse kaardi peale, milelle lisatakse hilisema koodis kordinaadid
         GMapControl1.Overlays.Add(markerOverlay)
 
         ' Tsükkel, mis käib kõik peatuse nimed läbi
