@@ -41,12 +41,16 @@ Public Class Form1
 
     ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
     Private Sub markerDoubleClick(item As GMap.NET.WindowsForms.GMapMarker) Handles UMap.markerDoubleClick
-        ULiinidJaPeatusedList1.KuvaValjumised(item.ToolTipText, ULiinidJaPeatusedList1.liiniValik)
+        If ULiinidJaPeatusedList1.liiniValik <= 0 Then
+            MsgBox("Palun vali liiniloetelust liin")
+        Else
+            ULiinidJaPeatusedList1.KuvaValjumised(item.ToolTipText, ULiinidJaPeatusedList1.liiniValik)
+        End If
+
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
-
 
 End Class

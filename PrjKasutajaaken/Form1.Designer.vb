@@ -33,31 +33,31 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.SuspendLayout
+        Me.SuspendLayout()
         '
         'btnKuvaKaardil
         '
-        Me.btnKuvaKaardil.Location = New System.Drawing.Point(799, 186)
+        Me.btnKuvaKaardil.Location = New System.Drawing.Point(899, 232)
         Me.btnKuvaKaardil.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnKuvaKaardil.Name = "btnKuvaKaardil"
-        Me.btnKuvaKaardil.Size = New System.Drawing.Size(111, 70)
+        Me.btnKuvaKaardil.Size = New System.Drawing.Size(125, 88)
         Me.btnKuvaKaardil.TabIndex = 32
         Me.btnKuvaKaardil.Text = "KUVA KAART"
         Me.btnKuvaKaardil.UseVisualStyleBackColor = True
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(335, 316)
+        Me.Label3.Location = New System.Drawing.Point(377, 423)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 17)
+        Me.Label3.Size = New System.Drawing.Size(100, 21)
         Me.Label3.TabIndex = 19
         '
         'btnKuvaPeatused
         '
-        Me.btnKuvaPeatused.Location = New System.Drawing.Point(799, 290)
+        Me.btnKuvaPeatused.Location = New System.Drawing.Point(899, 362)
         Me.btnKuvaPeatused.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnKuvaPeatused.Name = "btnKuvaPeatused"
-        Me.btnKuvaPeatused.Size = New System.Drawing.Size(111, 66)
+        Me.btnKuvaPeatused.Size = New System.Drawing.Size(125, 82)
         Me.btnKuvaPeatused.TabIndex = 37
         Me.btnKuvaPeatused.Text = " KUVA KÕIK PEATUSED"
         Me.btnKuvaPeatused.UseVisualStyleBackColor = True
@@ -65,20 +65,20 @@ Partial Class Form1
         '
         'UMap
         '
-        Me.UMap.Location = New System.Drawing.Point(935, 55)
-        Me.UMap.Margin = New System.Windows.Forms.Padding(5, 6, 5, 6)
+        Me.UMap.Location = New System.Drawing.Point(1034, 69)
+        Me.UMap.Margin = New System.Windows.Forms.Padding(6, 8, 6, 8)
         Me.UMap.Name = "UMap"
-        Me.UMap.Size = New System.Drawing.Size(1652, 976)
+        Me.UMap.Size = New System.Drawing.Size(1858, 1220)
         Me.UMap.TabIndex = 36
         Me.UMap.Visible = False
         '
         'ULiinidJaPeatusedList1
         '
         Me.ULiinidJaPeatusedList1.liiniValik = Nothing
-        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(64, 123)
+        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(72, 101)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
-        Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(675, 274)
+        Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(759, 429)
         Me.ULiinidJaPeatusedList1.TabIndex = 38
         '
         'Label1
@@ -86,40 +86,40 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1773, 11)
+        Me.Label1.Location = New System.Drawing.Point(1995, 14)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(80, 25)
+        Me.Label1.Size = New System.Drawing.Size(92, 29)
         Me.Label1.TabIndex = 39
         Me.Label1.Text = "KAART"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(71, 55)
+        Me.Label2.Location = New System.Drawing.Point(80, 69)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(122, 17)
+        Me.Label2.Size = New System.Drawing.Size(144, 20)
         Me.Label2.TabIndex = 40
         Me.Label2.Text = "LIINIDE LOETELU"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(309, 55)
+        Me.Label4.Location = New System.Drawing.Point(348, 69)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(175, 17)
+        Me.Label4.Size = New System.Drawing.Size(208, 20)
         Me.Label4.TabIndex = 41
         Me.Label4.Text = "VALITUD LIINI PEATUSED"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(504, 55)
+        Me.Label5.Location = New System.Drawing.Point(567, 69)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(223, 17)
+        Me.Label5.Size = New System.Drawing.Size(264, 20)
         Me.Label5.TabIndex = 42
         Me.Label5.Text = "VALITUD PEATUSE VÄLJUMISED"
         '
@@ -129,9 +129,9 @@ Partial Class Form1
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1924, 1035)
+        Me.ClientSize = New System.Drawing.Size(2164, 1294)
         Me.Controls.Add(Me.ULiinidJaPeatusedList1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -144,10 +144,10 @@ Partial Class Form1
         Me.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents btnKuvaKaardil As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents UMap As PrjKaardistaja.UserControl1

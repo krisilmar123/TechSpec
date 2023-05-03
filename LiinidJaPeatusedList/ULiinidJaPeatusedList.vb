@@ -3,6 +3,7 @@
     Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
 
     Public Property liiniValik As String
+    Public Property pensionaarCheckBox As Boolean
 
     Public Event liinValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -73,18 +74,35 @@
     Public Sub KuvaValjumised(peatuseNimi As String, liiniNimi As String)
         ListValjumised.Items.Clear()
 
-        Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString)
+        If pensionaarCheckBox Then
+            Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "3")
 
-        'Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
-        valjumised = valjumised.Distinct.ToList()
+            'Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
+            valjumised = valjumised.Distinct.ToList()
 
-        For Each valjumine In valjumised
+            For Each valjumine In valjumised
 
-            ListValjumised.Items.Add("BUSS NR: " & valjumine(0) & " " & valjumine(1))
-        Next
+                ListValjumised.Items.Add("Bussi nr: " & valjumine(0) & " " & valjumine(1))
+            Next
+
+        Else
+            Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "15")
+
+            'Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
+            valjumised = valjumised.Distinct.ToList()
+
+            For Each valjumine In valjumised
+
+                ListValjumised.Items.Add("Bussi nr: " & valjumine(0) & " " & valjumine(1))
+            Next
+        End If
 
     End Sub
 
+    Public Sub CheckBoxPensionaar_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxPensionaar.CheckedChanged
+        pensionaarCheckBox = CheckBoxPensionaar.Checked
+
+    End Sub
 End Class
 
 
