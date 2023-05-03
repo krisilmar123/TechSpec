@@ -66,7 +66,7 @@ Public Class CSaaAndmed
 
         If connection.State = ConnectionState.Open Then
             command.Connection = connection
-            command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id WHERE Stop.stop_name= '" & peatuseNimi & "' AND time(Stop_time.departure_time) >= TIME('" & DateTime.Now.TimeOfDay.ToString & "') AND Route.route_short_name = '" & liiniNimi & "' ORDER BY time(Stop_time.departure_time);"
+            command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id WHERE Stop.stop_name= '" & peatuseNimi & "' AND time(Stop_time.departure_time) >= TIME('" & DateTime.Now.TimeOfDay.ToString & "') AND Route.route_short_name = '" & liiniNimi & "' ORDER BY time(Stop_time.departure_time) LIMIT 3;"
 
             'command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id WHERE Stop.stop_name='" & peatuseNimi & "' AND Stop_time.departure_time >=  ORDER BY Route.route_short_name;"
 

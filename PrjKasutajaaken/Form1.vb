@@ -20,6 +20,10 @@ Public Class Form1
         Timer1.Enabled = False
         UMap.Show()
         btnKuvaPeatused.Visible = True
+
+        MsgBox(DateTime.Now.DayOfWeek.ToString)
+
+
     End Sub
 
     'Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
@@ -37,7 +41,7 @@ Public Class Form1
 
     ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
     Private Sub markerDoubleClick(item As GMap.NET.WindowsForms.GMapMarker) Handles UMap.markerDoubleClick
-        ULiinidJaPeatusedList1.KuvaValjumised(item.ToolTipText)
+        ULiinidJaPeatusedList1.KuvaValjumised(item.ToolTipText, ULiinidJaPeatusedList1.liiniValik)
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
