@@ -38,5 +38,8 @@ Public Class Form1
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
+    Private Sub eventBtnOtsi() Handles UMap.otsiClick
+        UMap.uldineTeekonaKuvamine(ULiinidJaPeatusedList1.liiniValik)
+    End Sub
 
 End Class
