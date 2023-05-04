@@ -214,6 +214,9 @@
     <Reference Include="PrjAndmebaasKomponent">
       <HintPath>..\PrjAndmebaasKomponent\bin\Debug\PrjAndmebaasKomponent.dll</HintPath>
     </Reference>
+    <Reference Include="PrjVaatamisvaarsused">
+      <HintPath>..\PrjVaatamisvaarsused\bin\Debug\PrjVaatamisvaarsused.dll</HintPath>
+    </Reference>
     <Reference Include="SkiaSharp, Version=2.80.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\SkiaSharp.2.80.2\lib\net462\SkiaSharp.dll</HintPath>
     </Reference>
