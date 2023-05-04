@@ -293,11 +293,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -310,7 +305,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -343,28 +337,7 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.6\analyzers\dotnet\vb\Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3 %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3 %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3 %283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\foto %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\foto %281%291.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\foto %281%29 %281%29.png" />
+    <None Include="Resources\kaamera.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\foto %281%29 %282%29.png" />

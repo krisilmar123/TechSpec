@@ -4,7 +4,6 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs)
         UMap.Visible = False
         UMap.Hide()
-
     End Sub
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
         Timer1.Enabled = True
@@ -19,7 +18,8 @@ Public Class Form1
         UMap.Visible = True
         Timer1.Enabled = False
         UMap.Show()
-        btnKuvaPeatused.Visible = True
+        btnKuvaPeatused.Enabled = True
+        btnVaatamisvaarsused.Enabled = True
     End Sub
 
     'Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
@@ -46,5 +46,9 @@ Public Class Form1
 
     Private Sub btnVaatamisvaarsused_Click(sender As Object, e As EventArgs) Handles btnVaatamisvaarsused.Click
         UMap.margiKoikVaatamisvaarsused()
+    End Sub
+
+    Private Sub Form1_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
