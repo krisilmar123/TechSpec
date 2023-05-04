@@ -140,7 +140,7 @@ Public Class UserControl1
 
     End Sub
 
-     Public Sub margiKoikVaatamisvaarsused()
+    Public Sub margiKoikVaatamisvaarsused()
         Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
