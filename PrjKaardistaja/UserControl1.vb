@@ -19,6 +19,9 @@ Public Class UserControl1
         GMapControl1.Manager.Mode = GMap.NET.AccessMode.ServerAndCache
         GMapControl1.CanDragMap = True
         GMapControl1.DragButton = MouseButtons.Left
+
+
+
     End Sub
     Public Sub margiKoikPeatused()
         ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
@@ -102,6 +105,7 @@ Public Class UserControl1
         GMapControl1.Refresh()
     End Sub
 
+
     Public Sub margiSoidukiAsukoht(liin As String)
         ' Andmebaasi muutuja andmete hankimiseks
         Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
@@ -158,7 +162,6 @@ Public Class UserControl1
 
         Next
     End Sub
-
 
 
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
