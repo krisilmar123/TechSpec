@@ -149,14 +149,16 @@ Public Class UserControl1
 
         For Each koht As String In vaatamisvaarsusedList
             Dim koordinaadid As Double() = andmebaas.saaVaatamisvaarsuseAsukoht(koht)
-            Dim icon As New Bitmap("Resources\kaamera.png")
-            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), icon)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.blue)
             marker.ToolTipText = koht
-            Dim size As New Size(32, 32)
+            Dim size As New Size(16, 16)
             marker.Size = size
+
             markerOverlay.Markers.Add(marker)
+
         Next
     End Sub
+
 
 
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick

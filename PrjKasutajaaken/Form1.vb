@@ -8,39 +8,21 @@ Public Class Form1
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
         Timer1.Enabled = True
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
+        UMap.Visible = True
+        Timer1.Enabled = False
+        UMap.Show()
+        btnKuvaPeatused.Visible = True
+        btnKuvaPeatused.Enabled = True
+
     End Sub
 
     Private Sub btnKuvaKaardil_Click(sender As Object, e As EventArgs) Handles btnKuvaKaardil.Click
         UMap.Visible = True
         Timer1.Enabled = False
         UMap.Show()
-        btnKuvaPeatused.Enabled = True
+        btnKuvaPeatused.Visible = True
         btnVaatamisvaarsused.Enabled = True
     End Sub
-
-=========
-        btnKuvaPeatused.Visible = True
-    End Sub
-
-    'Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
-
-    'End Sub
->>>>>>>>> Temporary merge branch 2
-
-    'Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
-
-    'End Sub
->>>>>>>>> Temporary merge branch 2
-
-    'Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
-
-    'End Sub
->>>>>>>>> Temporary merge branch 2
-
-    'Private Sub UserControl11_Load(sender As Object, e As EventArgs) Handles UMap.Load
-
-    'End Sub
->>>>>>>>> Temporary merge branch 2
 
     Private Sub btnKuvaPeatused_Click(sender As Object, e As EventArgs) Handles btnKuvaPeatused.Click
         UMap.margiKoikPeatused()
@@ -61,4 +43,7 @@ Public Class Form1
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
 
+    Private Sub btnVaatamisvaarsused_Click(sender As Object, e As EventArgs) Handles btnVaatamisvaarsused.Click
+        UMap.margiKoikVaatamisvaarsused()
+    End Sub
 End Class
