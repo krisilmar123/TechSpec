@@ -33,6 +33,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnVaatamisvaarsused = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnKuvaKaardil
@@ -54,14 +55,13 @@ Partial Class Form1
         '
         'btnKuvaPeatused
         '
-        Me.btnKuvaPeatused.Location = New System.Drawing.Point(899, 362)
+        Me.btnKuvaPeatused.Location = New System.Drawing.Point(899, 349)
         Me.btnKuvaPeatused.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnKuvaPeatused.Name = "btnKuvaPeatused"
         Me.btnKuvaPeatused.Size = New System.Drawing.Size(125, 82)
         Me.btnKuvaPeatused.TabIndex = 37
         Me.btnKuvaPeatused.Text = " KUVA KÕIK PEATUSED"
         Me.btnKuvaPeatused.UseVisualStyleBackColor = True
-        Me.btnKuvaPeatused.Visible = False
         '
         'UMap
         '
@@ -78,6 +78,7 @@ Partial Class Form1
         Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(72, 101)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
+        Me.ULiinidJaPeatusedList1.pensionaarCheckBox = False
         Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(759, 429)
         Me.ULiinidJaPeatusedList1.TabIndex = 38
         '
@@ -125,13 +126,23 @@ Partial Class Form1
         '
         'Timer1
         '
-        Me.Timer1.Interval = 1000
+        '
+        'btnVaatamisvaarsused
+        '
+        Me.btnVaatamisvaarsused.Enabled = False
+        Me.btnVaatamisvaarsused.Image = Global.PrjKasutajaaken.My.Resources.Resources.kaamera
+        Me.btnVaatamisvaarsused.Location = New System.Drawing.Point(899, 463)
+        Me.btnVaatamisvaarsused.Name = "btnVaatamisvaarsused"
+        Me.btnVaatamisvaarsused.Size = New System.Drawing.Size(126, 82)
+        Me.btnVaatamisvaarsused.TabIndex = 43
+        Me.btnVaatamisvaarsused.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(2164, 1294)
+        Me.ClientSize = New System.Drawing.Size(1924, 1050)
+        Me.Controls.Add(Me.btnVaatamisvaarsused)
         Me.Controls.Add(Me.ULiinidJaPeatusedList1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -141,7 +152,7 @@ Partial Class Form1
         Me.Controls.Add(Me.UMap)
         Me.Controls.Add(Me.btnKuvaKaardil)
         Me.Controls.Add(Me.Label3)
-        Me.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
+        Me.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -158,4 +169,5 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents btnVaatamisvaarsused As Button
 End Class
