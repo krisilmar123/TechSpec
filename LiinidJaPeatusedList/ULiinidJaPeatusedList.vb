@@ -4,6 +4,8 @@
 
     Public Property liiniValik As String
 
+    Public Property liiniList As List(Of String)
+
     Public Event liinValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
@@ -14,14 +16,20 @@
         ' Clear the items in the ListView control
         ListLiinid.Items.Clear()
 
+        liiniList = New List(Of String)
+
         ' Add each string in the list as an item in the ListView control
         For Each s As String In stringList
             ListLiinid.Items.Add(s)
+            liiniList.Add(s)
         Next
+
+
+
+
     End Sub
     Private Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
         ListPeatused.Items.Clear()
-
         RaiseEvent liinValitud()
 
         If ListLiinid.SelectedIndex >= 0 Then

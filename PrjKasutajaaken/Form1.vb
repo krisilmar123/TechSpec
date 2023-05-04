@@ -40,8 +40,31 @@ Public Class Form1
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim CSV As CSVExporterDNF.IExporter
         CSV = New CSVExporterDNF.CExporter
+        CSV.textQualifier = ","
+        CSV.delimiter = ","
+        CSV.setFileToSave()
 
+        Dim DataList As List(Of String) = ULiinidJaPeatusedList1.liiniList
+        Dim Data(DataList.Count - 1, 0) As String
+        Dim i As Integer = 0
+        For Each liin In DataList
+            Data(i, 0) = liin
+            i += 1
+        Next
+        CSV.saveDataToCsv(Data)
 
+        MsgBox(CSV.textQualifier)
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+
+    End Sub
+
+    Private Sub txtAlgpeatus_TextChanged(sender As Object, e As EventArgs) Handles txtAlgpeatus.TextChanged
 
     End Sub
 End Class
