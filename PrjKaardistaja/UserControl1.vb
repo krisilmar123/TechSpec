@@ -84,13 +84,13 @@ Public Class UserControl1
 
         markeriKuvamine.Markers.Add(alguseMarker)
         markeriKuvamine.Markers.Add(lopuMarker)
-
+        'teekonna kuvamine'
         Dim alguseOma As PointLatLng = New PointLatLng(koordinaadidAlgus(0), koordinaadidAlgus(1))
         Dim lopuOma As PointLatLng = New PointLatLng(koordinaadidLopp(0), koordinaadidLopp(1))
 
-        Dim route As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(alguseOma, lopuOma, False, False, 15)
+        Dim teekond As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(alguseOma, lopuOma, False, False, 15)
 
-        Dim ruut As GMapRoute = New GMapRoute(route.Points, "My route")
+        Dim ruut As GMapRoute = New GMapRoute(teekond.Points, "My route")
 
         Dim routesOverlay As GMapOverlay = New GMapOverlay("routes")
         routesOverlay.Routes.Add(ruut)
@@ -136,9 +136,6 @@ Public Class UserControl1
 
 
     End Sub
-
-
-
 
     Public Sub margiKoikVaatamisvaarsused()
         Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed

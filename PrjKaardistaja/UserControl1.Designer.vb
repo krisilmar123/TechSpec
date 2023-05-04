@@ -39,68 +39,74 @@ Partial Class UserControl1
         Me.GMapControl1.GrayScaleMode = false
         Me.GMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
         Me.GMapControl1.LevelsKeepInMemory = 5
-        Me.GMapControl1.Location = New System.Drawing.Point(-9, -11)
-        Me.GMapControl1.MarkersEnabled = true
+        Me.GMapControl1.Location = New System.Drawing.Point(-10, -5)
+        Me.GMapControl1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GMapControl1.MarkersEnabled = True
         Me.GMapControl1.MaxZoom = 2
         Me.GMapControl1.MinZoom = 2
-        Me.GMapControl1.MouseWheelZoomEnabled = true
+        Me.GMapControl1.MouseWheelZoomEnabled = True
         Me.GMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter
         Me.GMapControl1.Name = "GMapControl1"
-        Me.GMapControl1.NegativeMode = false
-        Me.GMapControl1.PolygonsEnabled = true
+        Me.GMapControl1.NegativeMode = False
+        Me.GMapControl1.PolygonsEnabled = True
         Me.GMapControl1.RetryLoadTile = 0
-        Me.GMapControl1.RoutesEnabled = true
+        Me.GMapControl1.RoutesEnabled = True
         Me.GMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
-        Me.GMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33,Byte),Integer), CType(CType(65,Byte),Integer), CType(CType(105,Byte),Integer), CType(CType(225,Byte),Integer))
-        Me.GMapControl1.ShowTileGridLines = false
-        Me.GMapControl1.Size = New System.Drawing.Size(1137, 654)
+        Me.GMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.GMapControl1.ShowTileGridLines = False
+        Me.GMapControl1.Size = New System.Drawing.Size(1687, 1004)
         Me.GMapControl1.TabIndex = 0
         Me.GMapControl1.Zoom = 0R
         '
         'TxtAlgusPeatus
         '
-        Me.TxtAlgusPeatus.Location = New System.Drawing.Point(68, 12)
+        Me.TxtAlgusPeatus.Location = New System.Drawing.Point(102, 18)
+        Me.TxtAlgusPeatus.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TxtAlgusPeatus.Name = "TxtAlgusPeatus"
-        Me.TxtAlgusPeatus.Size = New System.Drawing.Size(100, 20)
+        Me.TxtAlgusPeatus.Size = New System.Drawing.Size(148, 26)
         Me.TxtAlgusPeatus.TabIndex = 1
         '
         'txtLoppPeatus
         '
-        Me.txtLoppPeatus.Location = New System.Drawing.Point(68, 38)
+        Me.txtLoppPeatus.Location = New System.Drawing.Point(102, 58)
+        Me.txtLoppPeatus.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtLoppPeatus.Name = "txtLoppPeatus"
-        Me.txtLoppPeatus.Size = New System.Drawing.Size(100, 20)
+        Me.txtLoppPeatus.Size = New System.Drawing.Size(148, 26)
         Me.txtLoppPeatus.TabIndex = 2
         '
         'btnOtsiPeatused
         '
-        Me.btnOtsiPeatused.Location = New System.Drawing.Point(79, 64)
+        Me.btnOtsiPeatused.Location = New System.Drawing.Point(118, 98)
+        Me.btnOtsiPeatused.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnOtsiPeatused.Name = "btnOtsiPeatused"
-        Me.btnOtsiPeatused.Size = New System.Drawing.Size(75, 23)
+        Me.btnOtsiPeatused.Size = New System.Drawing.Size(112, 35)
         Me.btnOtsiPeatused.TabIndex = 3
         Me.btnOtsiPeatused.Text = "Otsi"
-        Me.btnOtsiPeatused.UseVisualStyleBackColor = true
+        Me.btnOtsiPeatused.UseVisualStyleBackColor = True
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
-        Me.Label1.Location = New System.Drawing.Point(10, 15)
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(15, 23)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.Size = New System.Drawing.Size(81, 20)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Lähtekoht"
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
-        Me.Label2.Location = New System.Drawing.Point(10, 45)
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(15, 69)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
+        Me.Label2.Size = New System.Drawing.Size(68, 20)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Sihtkoht"
         '
         'UserControl1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -108,8 +114,9 @@ Partial Class UserControl1
         Me.Controls.Add(Me.txtLoppPeatus)
         Me.Controls.Add(Me.TxtAlgusPeatus)
         Me.Controls.Add(Me.GMapControl1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "UserControl1"
-        Me.Size = New System.Drawing.Size(800, 450)
+        Me.Size = New System.Drawing.Size(1677, 1004)
         Me.ResumeLayout(false)
         Me.PerformLayout
 
