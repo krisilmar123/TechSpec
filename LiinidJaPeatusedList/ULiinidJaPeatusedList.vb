@@ -5,6 +5,8 @@
     Public Property liiniValik As String
     Public Property pensionaarCheckBox As Boolean
 
+    Public Property liiniInfo As String
+
     Public Event liinValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
@@ -21,12 +23,10 @@
         Next
     End Sub
 
-    Private Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
+    Public Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
         ListPeatused.Items.Clear()
         'Annab kasutajaaknale teada et LiinideListBoxist on midagi valitud
         RaiseEvent liinValitud()
-
-
 
         If ListLiinid.SelectedIndex >= 0 Then
             'Tehakse valitud liini koos numbri ja marsuudiga stringiks
@@ -39,6 +39,7 @@
             Dim liiniTeekond As String = ""
             'Kuna see on public property siis saab tänu sellele kasutaja aken näha mida selles LiinideListBoxis valiti
             liiniValik = liiniNimi
+            liiniInfo = koosNimi
 
             'Alustab esimesest liikmest, sest Split tehti tühikute järgi ja marsruudil. Võetakse sidekriipsude vahelt peatused ja pannakse see kokku uue stringina
             For i As Integer = 1 To stringArray.Length - 1

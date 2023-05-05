@@ -105,36 +105,36 @@ Public Class UserControl1 : Implements IMargiKaardil : Implements IKuvaKaart
 
 
     Public Sub margiSoidukiAsukoht(liin As String) Implements IMargiKaardil.margiSoidukiAsukoht
-        ' Andmebaasi muutuja andmete hankimiseks
-        Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
-        baasHankimine = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
-        ' Andmebaasi muutuja andmete uuendamiseks
-        Dim baasUuendamine As PrjAndmebaasKomponent.IUuendaAndmed
-        baasUuendamine = New PrjAndmebaasKomponent.CUuuendaAndmed(Application.StartupPath)
+        '' Andmebaasi muutuja andmete hankimiseks
+        'Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
+        'baasHankimine = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+        '' Andmebaasi muutuja andmete uuendamiseks
+        'Dim baasUuendamine As PrjAndmebaasKomponent.IUuendaAndmed
+        'baasUuendamine = New PrjAndmebaasKomponent.CUuuendaAndmed(Application.StartupPath)
 
-        ' Uuendab ühistranspordi sõidukite asukohta liini järgi
-        baasUuendamine.uuendaSoidukiAsukoht(liin)
+        '' Uuendab ühistranspordi sõidukite asukohta liini järgi
+        'baasUuendamine.uuendaSoidukiAsukoht(liin)
 
-        ' Hangib sõidukite koordinaadid Double array List'ina
-        ' Iga Double array esimene liige on longitude, teine liige on latitude
-        Dim koordinaadidList As List(Of Double()) = baasHankimine.saaSoidukiAsukoht(liin)
+        '' Hangib sõidukite koordinaadid Double array List'ina
+        '' Iga Double array esimene liige on longitude, teine liige on latitude
+        'Dim koordinaadidList As List(Of Double()) = baasHankimine.saaSoidukiAsukoht(liin)
 
-        Dim markerOverlay As New GMapOverlay("markers")
-        GMapControl1.Overlays.Clear()
+        'Dim markerOverlay As New GMapOverlay("markers")
+        'GMapControl1.Overlays.Clear()
 
-        GMapControl1.Overlays.Add(markerOverlay)
+        'GMapControl1.Overlays.Add(markerOverlay)
 
-        ' Loop kõikide sõidukite koordinaatide läbimiseks
-        For Each koordinaadid In koordinaadidList
-            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), WindowsForms.Markers.GMarkerGoogleType.red)
+        '' Loop kõikide sõidukite koordinaatide läbimiseks
+        'For Each koordinaadid In koordinaadidList
+        '    Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), WindowsForms.Markers.GMarkerGoogleType.red)
 
-            marker.ToolTipText = liin
+        '    marker.ToolTipText = liin
 
-            Dim size As New Size(16, 16)
-            marker.Size = size
+        '    Dim size As New Size(16, 16)
+        '    marker.Size = size
 
-            markerOverlay.Markers.Add(marker)
-        Next
+        '    markerOverlay.Markers.Add(marker)
+        'Next
 
 
     End Sub
@@ -160,6 +160,35 @@ Public Class UserControl1 : Implements IMargiKaardil : Implements IKuvaKaart
             markerOverlay.Markers.Add(marker)
 
         Next
+    End Sub
+
+    Public Sub margiLiiniPeatused(liin As String) Implements IMargiKaardil.margiLiiniPeatused
+        Dim liinipeatused As PrjAndmebaasKomponent.ISaaAndmed
+        liinipeatused = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+
+        Dim markerOverlay As New GMapOverlay("markers")
+        GMapControl1.Overlays.Clear()
+        GMapControl1.Overlays.Add(markerOverlay)
+
+        Dim stringArray As String() = Split(liin)
+        Dim liiniNimi As String = stringArray(0)
+
+        Dim liiniTeekond As String = ""
+
+        For i As Integer = 1 To stringArray.Length - 1
+            liiniTeekond &= stringArray(i) & " "
+        Next
+        liiniTeekond = Trim(liiniTeekond)
+
+        Dim peatusteNimed As List(Of String) = liinipeatused.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
+
+        For Each peatus In peatusteNimed
+
+            Dim kordinaadid As Double() = liinipeatused.saaPeatuseAsukoht(peatus)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(kordinaadid(0), kordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.purple)
+            markerOverlay.Markers.Add(marker)
+        Next
+
     End Sub
 
 
