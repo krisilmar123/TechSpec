@@ -19,6 +19,9 @@ Public Class UserControl1
         GMapControl1.Manager.Mode = GMap.NET.AccessMode.ServerAndCache
         GMapControl1.CanDragMap = True
         GMapControl1.DragButton = MouseButtons.Left
+
+
+
     End Sub
     Public Sub margiKoikPeatused()
         ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
@@ -102,6 +105,7 @@ Public Class UserControl1
         GMapControl1.Refresh()
     End Sub
 
+
     Public Sub margiSoidukiAsukoht(liin As String)
         ' Andmebaasi muutuja andmete hankimiseks
         Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
@@ -138,17 +142,17 @@ Public Class UserControl1
     End Sub
 
     Public Sub margiKoikVaatamisvaarsused()
-        Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
-        andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+        Dim vaatamisvaarsused As New PrjVaatamisvaarsused.CKuvaVaatamisvaarsused(Application.StartupPath)
+
 
         Dim vaatamisvaarsusedList As List(Of String)
-        vaatamisvaarsusedList = andmebaas.saaKoikVaatamisvaarsuseNimed
+        vaatamisvaarsusedList = vaatamisvaarsused.saaKoikVaatamisvaarsuseNimed
 
         Dim markerOverlay As New GMapOverlay("markers")
         GMapControl1.Overlays.Add(markerOverlay)
 
         For Each koht As String In vaatamisvaarsusedList
-            Dim koordinaadid As Double() = andmebaas.saaVaatamisvaarsuseAsukoht(koht)
+            Dim koordinaadid As Double() = vaatamisvaarsused.saaVaatamisvaarsuseAsukoht(koht)
             Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.blue)
             marker.ToolTipText = koht
             Dim size As New Size(16, 16)
@@ -158,7 +162,6 @@ Public Class UserControl1
 
         Next
     End Sub
-
 
 
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
