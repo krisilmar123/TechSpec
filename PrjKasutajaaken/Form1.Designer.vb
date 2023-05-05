@@ -55,6 +55,7 @@ Partial Class Form1
         '
         'btnKuvaPeatused
         '
+        Me.btnKuvaPeatused.Enabled = False
         Me.btnKuvaPeatused.Location = New System.Drawing.Point(899, 349)
         Me.btnKuvaPeatused.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnKuvaPeatused.Name = "btnKuvaPeatused"

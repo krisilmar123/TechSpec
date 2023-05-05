@@ -1,8 +1,4 @@
-﻿
-
-
-Imports System.Data.SQLite
-
+﻿Imports System.Data.SQLite
 
 Public Class CKuvaVaatamisvaarsused
     Private dbName As String = "TranspordiAndmed.db"
@@ -69,6 +65,5 @@ Public Class CKuvaVaatamisvaarsused
         End If
         connection.Close()
     End Function
-
 
 End Class

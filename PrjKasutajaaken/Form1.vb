@@ -20,7 +20,7 @@ Public Class Form1
         UMap.Visible = True
         Timer1.Enabled = False
         UMap.Show()
-        btnKuvaPeatused.Visible = True
+        btnKuvaPeatused.Enabled = True
         btnVaatamisvaarsused.Enabled = True
     End Sub
 
