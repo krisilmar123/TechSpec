@@ -344,9 +344,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LiinidJaPeatusedList\LiinidJaPeatusedList.vbproj">
+    <ProjectReference Include="..\LiinidJaPeatusedList\PrjLiinidJaPeatusedList.vbproj">
       <Project>{7338FF8C-F855-4C0D-924D-F256796E39F6}</Project>
-      <Name>LiinidJaPeatusedList</Name>
+      <Name>PrjLiinidJaPeatusedList</Name>
     </ProjectReference>
     <ProjectReference Include="..\PrjKaardistaja\PrjKaardistaja.vbproj">
       <Project>{edc6fdf2-f8de-4a64-91c2-1ca4156f5b2b}</Project>
