@@ -1,7 +1,7 @@
 ﻿Imports GMap.NET
 Imports GMap.NET.WindowsForms
 Imports GMap.NET.MapProviders
-Public Class UserControl1
+Public Class UserControl1 : Implements IMargiKaardil : Implements IKuvaKaart
 
     Private andmebaas As PrjAndmebaasKomponent.ISaaAndmed
 
@@ -9,7 +9,7 @@ Public Class UserControl1
     ' Event mõeldud markeri topelt klikkimise tuvastasmieks, võtab markeri endaga kaasa 
     Public Event markerDoubleClick(item As GMapMarker)
 
-    Private Sub GMapControl1_Load(sender As Object, e As EventArgs) Handles GMapControl1.Load
+    Public Sub kuvaKaart() Implements IKuvaKaart.kuvaKaart
         'Luuakse kaardi kiht
         GMapControl1.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance
         GMapControl1.Position = New GMap.NET.PointLatLng(59.437, 24.7536)
@@ -19,11 +19,9 @@ Public Class UserControl1
         GMapControl1.Manager.Mode = GMap.NET.AccessMode.ServerAndCache
         GMapControl1.CanDragMap = True
         GMapControl1.DragButton = MouseButtons.Left
-
-
-
     End Sub
-    Public Sub margiKoikPeatused()
+
+    Public Sub margiKoikPeatused() Implements IMargiKaardil.margiKoikPeatused
         ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
         Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
         'Andtakse andmebaasile väärtus ja luuakse andmebaasikomponendi objekt ja parameetriks andmebaasi asukoht
@@ -106,7 +104,7 @@ Public Class UserControl1
     End Sub
 
 
-    Public Sub margiSoidukiAsukoht(liin As String)
+    Public Sub margiSoidukiAsukoht(liin As String) Implements IMargiKaardil.margiSoidukiAsukoht
         ' Andmebaasi muutuja andmete hankimiseks
         Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
         baasHankimine = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
@@ -141,9 +139,10 @@ Public Class UserControl1
 
     End Sub
 
-    Public Sub margiKoikVaatamisvaarsused()
-        Dim vaatamisvaarsused As New PrjVaatamisvaarsused.CKuvaVaatamisvaarsused(Application.StartupPath)
+    Public Sub margiKoikVaatamisvaarsused() Implements IMargiKaardil.margiKoikVaatamisvaarsused
 
+        Dim vaatamisvaarsused As PrjVaatamisvaarsused.ISaaAndmed
+        vaatamisvaarsused = New PrjVaatamisvaarsused.CKuvaVaatamisvaarsused(Application.StartupPath)
 
         Dim vaatamisvaarsusedList As List(Of String)
         vaatamisvaarsusedList = vaatamisvaarsused.saaKoikVaatamisvaarsuseNimed
@@ -168,5 +167,6 @@ Public Class UserControl1
         ' Event käivitub ning seda jälgiv funktsioon käivitub kasutajaakna koodis
         RaiseEvent markerDoubleClick(item)
     End Sub
+
 
 End Class
