@@ -1,4 +1,4 @@
-﻿Public Class ULiinidJaPeatusedList
+﻿Public Class ULiinidJaPeatusedList : Implements IKuvaAndmed
 
     Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
 
@@ -71,7 +71,7 @@
 
     End Sub
 
-    Public Sub KuvaValjumised(peatuseNimi As String, liiniNimi As String)
+    Public Sub KuvaValjumised(peatuseNimi As String, liiniNimi As String) Implements IKuvaAndmed.KuvaValjumised
         ListValjumised.Items.Clear()
 
         If pensionaarCheckBox Then
@@ -149,4 +149,6 @@
         End If
 
     End Sub
+
+
 End Class

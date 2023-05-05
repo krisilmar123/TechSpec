@@ -4,7 +4,7 @@
 Imports System.Data.SQLite
 
 
-Public Class CKuvaVaatamisvaarsused
+Public Class CKuvaVaatamisvaarsused : Implements ISaaAndmed
     Private dbName As String = "TranspordiAndmed.db"
 
     ' Muutuja mõeldud andmebaasi faili asukoha hoidmiseks, saab väärtuse konstruktoris
@@ -26,7 +26,7 @@ Public Class CKuvaVaatamisvaarsused
         connection = New SQLiteConnection(connString)
         command = New SQLiteCommand("", connection)
     End Sub
-    Public Function saaKoikVaatamisvaarsuseNimed() As List(Of String)
+    Public Function saaKoikVaatamisvaarsuseNimed() As List(Of String) Implements ISaaAndmed.saaKoikVaatamisvaarsuseNimed
         connection.Open()
 
         If connection.State = ConnectionState.Open Then
@@ -47,7 +47,7 @@ Public Class CKuvaVaatamisvaarsused
         connection.Close()
     End Function
 
-    Public Function saaVaatamisvaarsuseAsukoht(vaarsusNimi As String) As Double()
+    Public Function saaVaatamisvaarsuseAsukoht(vaarsusNimi As String) As Double() Implements ISaaAndmed.saaVaatamisvaarsuseAsukoht
         connection.Open()
 
         If connection.State = ConnectionState.Open Then
