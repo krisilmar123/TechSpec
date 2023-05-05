@@ -26,7 +26,7 @@ Partial Class Form1
         Me.btnKuvaKaardil = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnKuvaPeatused = New System.Windows.Forms.Button()
-        Me.UMap = New PrjKaardistaja.UserControl1()
+        Me.UMap = New PrjKaardistaja.Kaart()
         Me.ULiinidJaPeatusedList1 = New LiinidJaPeatusedList.ULiinidJaPeatusedList()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -161,7 +161,7 @@ Partial Class Form1
     End Sub
     Friend WithEvents btnKuvaKaardil As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents UMap As PrjKaardistaja.UserControl1
+    Friend WithEvents UMap As PrjKaardistaja.Kaart
     Friend WithEvents btnKuvaPeatused As Button
     Friend WithEvents ULiinidJaPeatusedList1 As LiinidJaPeatusedList.ULiinidJaPeatusedList
     Friend WithEvents Label1 As Label

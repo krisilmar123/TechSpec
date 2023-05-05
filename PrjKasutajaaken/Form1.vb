@@ -57,6 +57,9 @@ Public Class Form1
         margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
 
     End Sub
+    Private Sub eventBtnOtsi() Handles UMap.otsiClick
+        UMap.uldineTeekonaKuvamine(ULiinidJaPeatusedList1.liiniInfo)
+    End Sub
 
     Private Sub btnVaatamisvaarsused_Click(sender As Object, e As EventArgs) Handles btnVaatamisvaarsused.Click
         Dim margi As PrjKaardistaja.IMargiKaardil
