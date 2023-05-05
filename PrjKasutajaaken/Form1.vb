@@ -39,7 +39,7 @@ Public Class Form1
         UMap.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
     End Sub
     Private Sub eventBtnOtsi() Handles UMap.otsiClick
-        UMap.uldineTeekonaKuvamine(ULiinidJaPeatusedList1.liiniValik)
+        UMap.uldineTeekonaKuvamine(ULiinidJaPeatusedList1.liiniInfo)
     End Sub
 
 End Class

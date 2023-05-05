@@ -59,9 +59,7 @@ Public Class Kaart
        RaiseEvent otsiClick
     End Sub
 
-
     Public Sub uldineTeekonaKuvamine(liin As String)
-
         Dim algPeatus As String = TxtAlgusPeatus.Text
         Dim loppPeatus As String = txtLoppPeatus.Text
 
@@ -94,21 +92,65 @@ Public Class Kaart
         markeriKuvamine.Markers.Add(alguseMarker)
         markeriKuvamine.Markers.Add(lopuMarker)
         'teekonna kuvamine'
-        Dim alguseOma As PointLatLng = New PointLatLng(koordinaadidAlgus(0), koordinaadidAlgus(1))
-        Dim lopuOma As PointLatLng = New PointLatLng(koordinaadidLopp(0), koordinaadidLopp(1))
+        Dim liiniJada As String() = Split(liin)
+        Dim liiniNimi As String = liiniJada(0)
+        Dim liiniTeekond As String = ""
 
-        Dim teekond As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(alguseOma, lopuOma, False, False, 15)
+    'Alustab esimesest liikmest, sest Split tehti tühikute järgi ja marsruudil. Võetakse sidekriipsude vahelt peatused ja pannakse see kokku uue stringina
+        For i As Integer = 1 To liiniJada.Length - 1
+            liiniTeekond &= liiniJada(i) & " "
+        Next
+        liiniTeekond = Trim(liiniTeekond)
 
-        Dim ruut As GMapRoute = New GMapRoute(teekond.Points, "My route")
+        Dim teekonnaList As List(Of String) = andmebaas.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
+        Dim alguseOma As PointLatLng
 
-        Dim routesOverlay As GMapOverlay = New GMapOverlay("routes")
-        routesOverlay.Routes.Add(ruut)
+        For i As Integer = 0 To teekonnaList.Count - 2
+            Dim algPeatuse As String = teekonnaList(i)
+            Dim loppPeatuse As String = teekonnaList(i + 1)
 
-        GMapControl1.Overlays.Add(routesOverlay)
+            Dim algKordinaadid As Double() = andmebaas.saaPeatuseAsukoht(algPeatuse)
+            Dim loppKordinaadid As Double() = andmebaas.saaPeatuseAsukoht(loppPeatuse)
 
-        ruut.Stroke.Width = 2
-        ruut.Stroke.Color = Color.Red
-        GMapControl1.Refresh()
+            Dim algusOma As PointLatLng = New PointLatLng(algKordinaadid(0), algKordinaadid(1))
+            Dim lopuOma As PointLatLng = New PointLatLng(loppKordinaadid(0), loppKordinaadid(1))
+
+            Dim teekond As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(algusOma, lopuOma, False, False, 15)
+            if i = 0 Then
+                Dim algusMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                algusOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
+                markeriKuvamine.Markers.Add(algusMarker)
+
+                algusMarker.ToolTipText = algPeatus
+                algusMarker.Size = size
+            
+            elseif i = teekonnaList.Count - 2 Then
+
+                Dim loppMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                lopuOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
+                markeriKuvamine.Markers.Add(loppMarker)
+
+                loppMarker.ToolTipText = loppPeatus  
+                loppMarker.Size = size
+            Else
+                Dim vaheMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                algusOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.yellow)
+                markeriKuvamine.Markers.Add(vaheMarker)
+
+                vaheMarker.ToolTipText = teekonnaList(i)
+                vaheMarker.Size = size
+            End If
+            Dim ruut As GMapRoute = New GMapRoute(teekond.Points, "My route")
+
+            Dim routesOverlay As GMapOverlay = New GMapOverlay("routes")
+            routesOverlay.Routes.Add(ruut)
+
+            GMapControl1.Overlays.Add(routesOverlay)
+
+            ruut.Stroke.Width = 2
+            ruut.Stroke.Color = Color.Red
+        Next
+            GMapControl1.Refresh()
     End Sub
     Public Sub margiSoidukiAsukoht(liin As String)
         ' Andmebaasi muutuja andmete hankimiseks
@@ -155,11 +197,10 @@ End Sub
 
         For Each koht As String In vaatamisvaarsusedList
             Dim koordinaadid As Double() = andmebaas.saaVaatamisvaarsuseAsukoht(koht)
-            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.blue)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.blue)
             marker.ToolTipText = koht
             Dim size As New Size(16, 16)
             marker.Size = size
-
             markerOverlay.Markers.Add(marker)
         Next
     End Sub
@@ -167,5 +208,4 @@ End Sub
         ' Event käivitub ning seda jälgiv funktsioon käivitub kasutajaakna koodis
         RaiseEvent markerDoubleClick(item)
     End Sub
-
 End Class

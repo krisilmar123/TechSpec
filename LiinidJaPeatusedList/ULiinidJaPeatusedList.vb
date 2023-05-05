@@ -4,6 +4,7 @@
 
     Public Property liiniValik As String
     Public Property pensionaarCheckBox As Boolean
+    Public Property liiniInfo As String
 
     Public Event liinValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -39,6 +40,7 @@
             Dim liiniTeekond As String = ""
             'Kuna see on public property siis saab tänu sellele kasutaja aken näha mida selles LiinideListBoxis valiti
             liiniValik = liiniNimi
+            liiniInfo = koosNimi
 
             'Alustab esimesest liikmest, sest Split tehti tühikute järgi ja marsruudil. Võetakse sidekriipsude vahelt peatused ja pannakse see kokku uue stringina
             For i As Integer = 1 To stringArray.Length - 1
