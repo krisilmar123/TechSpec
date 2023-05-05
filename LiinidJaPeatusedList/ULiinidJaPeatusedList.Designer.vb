@@ -76,7 +76,7 @@ Partial Class ULiinidJaPeatusedList
         Me.btnInimesteHulk.Name = "btnInimesteHulk"
         Me.btnInimesteHulk.Size = New System.Drawing.Size(237, 52)
         Me.btnInimesteHulk.TabIndex = 4
-        Me.btnInimesteHulk.Text = "VAATA INIMESTE HULKA BUSSIS"
+        Me.btnInimesteHulk.Text = "VAATA INIMESTE HULKA ÜHISTRANSPORDIS"
         Me.btnInimesteHulk.UseVisualStyleBackColor = False
         '
         'txtInimesteHulk
