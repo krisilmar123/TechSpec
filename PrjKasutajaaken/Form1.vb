@@ -6,16 +6,27 @@ Public Class Form1
         UMap.Hide()
     End Sub
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
+        If chkBoxReaal.Checked Then
+            Timer1.Enabled = True
+
+        Else
+            Timer1.Enabled = False
+        End If
+
         Dim margi As PrjKaardistaja.IMargiKaardil
         margi = UMap
-        Timer1.Enabled = True
         margi.margiLiiniPeatused(ULiinidJaPeatusedList1.liiniInfo)
-        'margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
         UMap.Visible = True
-        Timer1.Enabled = False
         UMap.Show()
         btnKuvaPeatused.Visible = True
         btnKuvaPeatused.Enabled = True
+
+        If chkBoxReaal.Checked Then
+            Timer1.Enabled = True
+            margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
+        Else
+            Timer1.Enabled = False
+        End If
 
     End Sub
 
@@ -52,16 +63,18 @@ Public Class Form1
 
     End Sub
 
-    'Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-    '    Dim margi As PrjKaardistaja.IMargiKaardil
-    '    margi = UMap
-    '    margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Dim margi As PrjKaardistaja.IMargiKaardil
+        margi = UMap
+        margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
 
-    'End Sub
+    End Sub
 
     Private Sub btnVaatamisvaarsused_Click(sender As Object, e As EventArgs) Handles btnVaatamisvaarsused.Click
         Dim margi As PrjKaardistaja.IMargiKaardil
         margi = UMap
         margi.margiKoikVaatamisvaarsused()
     End Sub
+
+
 End Class
