@@ -4,7 +4,6 @@
 
     Public Property liiniValik As String
     Public Property pensionaarCheckBox As Boolean
-    Public Property liiniInfo As String
 
     Public Property liiniInfo As String
 

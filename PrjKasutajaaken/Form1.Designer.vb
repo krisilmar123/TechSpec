@@ -75,8 +75,6 @@ Partial Class Form1
         '
         'ULiinidJaPeatusedList1
         '
-        Me.ULiinidJaPeatusedList1.liiniInfo = Nothing
-        Me.ULiinidJaPeatusedList1.liiniValik = Nothing
         Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(72, 101)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
