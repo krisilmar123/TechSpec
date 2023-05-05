@@ -205,6 +205,37 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
             markerOverlay.Markers.Add(marker)
         Next
     End Sub
+
+    Public Sub margiLiiniPeatused(liin As String) Implements IMargiKaardil.margiLiiniPeatused
+        Dim liinipeatused As PrjAndmebaasKomponent.ISaaAndmed
+        liinipeatused = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+
+        Dim markerOverlay As New GMapOverlay("markers")
+        GMapControl1.Overlays.Clear()
+        GMapControl1.Overlays.Add(markerOverlay)
+
+        Dim stringArray As String() = Split(liin)
+        Dim liiniNimi As String = stringArray(0)
+
+        Dim liiniTeekond As String = ""
+
+        For i As Integer = 1 To stringArray.Length - 1
+            liiniTeekond &= stringArray(i) & " "
+        Next
+        liiniTeekond = Trim(liiniTeekond)
+
+        Dim peatusteNimed As List(Of String) = liinipeatused.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
+
+        For Each peatus In peatusteNimed
+
+            Dim kordinaadid As Double() = liinipeatused.saaPeatuseAsukoht(peatus)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(kordinaadid(0), kordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.purple)
+            markerOverlay.Markers.Add(marker)
+        Next
+
+    End Sub
+
+
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
         ' Event käivitub ning seda jälgiv funktsioon käivitub kasutajaakna koodis
         RaiseEvent markerDoubleClick(item)

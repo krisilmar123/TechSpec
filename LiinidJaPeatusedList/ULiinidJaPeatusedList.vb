@@ -6,6 +6,8 @@
     Public Property pensionaarCheckBox As Boolean
     Public Property liiniInfo As String
 
+    Public Property liiniInfo As String
+
     Public Event liinValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
@@ -22,12 +24,10 @@
         Next
     End Sub
 
-    Private Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
+    Public Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
         ListPeatused.Items.Clear()
         'Annab kasutajaaknale teada et LiinideListBoxist on midagi valitud
         RaiseEvent liinValitud()
-
-
 
         If ListLiinid.SelectedIndex >= 0 Then
             'Tehakse valitud liini koos numbri ja marsuudiga stringiks

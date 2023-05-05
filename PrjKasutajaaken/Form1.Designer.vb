@@ -34,6 +34,7 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.btnVaatamisvaarsused = New System.Windows.Forms.Button()
+        Me.chkBoxReaal = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'btnKuvaKaardil
@@ -74,6 +75,7 @@ Partial Class Form1
         '
         'ULiinidJaPeatusedList1
         '
+        Me.ULiinidJaPeatusedList1.liiniInfo = Nothing
         Me.ULiinidJaPeatusedList1.liiniValik = Nothing
         Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(72, 101)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
@@ -137,11 +139,22 @@ Partial Class Form1
         Me.btnVaatamisvaarsused.TabIndex = 43
         Me.btnVaatamisvaarsused.UseVisualStyleBackColor = True
         '
+        'chkBoxReaal
+        '
+        Me.chkBoxReaal.AutoSize = True
+        Me.chkBoxReaal.Location = New System.Drawing.Point(104, 563)
+        Me.chkBoxReaal.Name = "chkBoxReaal"
+        Me.chkBoxReaal.Size = New System.Drawing.Size(269, 36)
+        Me.chkBoxReaal.TabIndex = 44
+        Me.chkBoxReaal.Text = "Reaal aja väljumised"
+        Me.chkBoxReaal.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1924, 1050)
+        Me.Controls.Add(Me.chkBoxReaal)
         Me.Controls.Add(Me.btnVaatamisvaarsused)
         Me.Controls.Add(Me.ULiinidJaPeatusedList1)
         Me.Controls.Add(Me.Label5)
@@ -170,4 +183,5 @@ Partial Class Form1
     Friend WithEvents Label5 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents btnVaatamisvaarsused As Button
+    Friend WithEvents chkBoxReaal As CheckBox
 End Class
