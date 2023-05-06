@@ -78,7 +78,15 @@
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
         If pensionaarCheckBox Then
-            Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "3")
+
+            Dim valjumised As List(Of String())
+
+            If chkMadal.Checked Then
+                valjumised = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "3", True)
+            Else
+                valjumised = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "3", False)
+            End If
+
 
             'Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
             valjumised = valjumised.Distinct.ToList()
@@ -89,7 +97,15 @@
             Next
 
         Else
-            Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "15")
+            Dim valjumised As List(Of String())
+
+
+            If chkMadal.Checked Then
+                valjumised = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "15", True)
+            Else
+                valjumised = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "15", False)
+            End If
+
 
             'Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
             valjumised = valjumised.Distinct.ToList()
@@ -153,5 +169,7 @@
 
     End Sub
 
+    Private Sub chkMadal_CheckedChanged(sender As Object, e As EventArgs) Handles chkMadal.CheckedChanged
 
+    End Sub
 End Class
