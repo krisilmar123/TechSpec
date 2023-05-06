@@ -75,6 +75,8 @@
     Public Sub KuvaValjumised(peatuseNimi As String, liiniNimi As String) Implements IKuvaAndmed.KuvaValjumised
         ListValjumised.Items.Clear()
 
+        andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+
         If pensionaarCheckBox Then
             Dim valjumised As List(Of String()) = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "3")
 

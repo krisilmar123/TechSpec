@@ -230,6 +230,7 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
 
             Dim kordinaadid As Double() = liinipeatused.saaPeatuseAsukoht(peatus)
             Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(kordinaadid(0), kordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.purple)
+            marker.ToolTipText = peatus
             markerOverlay.Markers.Add(marker)
         Next
 

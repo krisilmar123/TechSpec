@@ -10,6 +10,7 @@ Public Class Form1
             Timer1.Enabled = True
 
         Else
+
             Timer1.Enabled = False
         End If
 
@@ -52,8 +53,9 @@ Public Class Form1
 
     ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
     Private Sub markerDoubleClick(item As GMap.NET.WindowsForms.GMapMarker) Handles UMap.markerDoubleClick
+
         Dim valjumine As LiinidJaPeatusedList.IKuvaAndmed
-        valjumine = New LiinidJaPeatusedList.ULiinidJaPeatusedList()
+        valjumine = ULiinidJaPeatusedList1
 
         If ULiinidJaPeatusedList1.liiniValik <= 0 Then
             MsgBox("Palun vali liiniloetelust liin")
