@@ -3,8 +3,8 @@ Imports GMap.NET.WindowsForms
 Imports GMap.NET.MapProviders
 Imports Avalonia.OpenGL
 
-Public Class Kaart
-    Public Event otsiClick
+Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
+    Public Event otsiClick()
 
     Private andmebaas As PrjAndmebaasKomponent.ISaaAndmed
 
@@ -57,10 +57,10 @@ Public Class Kaart
         Next
     End Sub
     Private Sub btnOtsiPeatused_Click(sender As Object, e As EventArgs) Handles btnOtsiPeatused.Click
-       RaiseEvent otsiClick
+        RaiseEvent otsiClick()
     End Sub
 
-    Public Sub uldineTeekonaKuvamine(liin As String)
+    Public Sub uldineTeekonaKuvamine(liin As String) Implements IMargiKaardil.uldineTeekonnaKuvamine
         Dim algPeatus As String = TxtAlgusPeatus.Text
         Dim loppPeatus As String = txtLoppPeatus.Text
 
@@ -97,7 +97,7 @@ Public Class Kaart
         Dim liiniNimi As String = liiniJada(0)
         Dim liiniTeekond As String = ""
 
-    'Alustab esimesest liikmest, sest Split tehti tühikute järgi ja marsruudil. Võetakse sidekriipsude vahelt peatused ja pannakse see kokku uue stringina
+        'Alustab esimesest liikmest, sest Split tehti tühikute järgi ja marsruudil. Võetakse sidekriipsude vahelt peatused ja pannakse see kokku uue stringina
         For i As Integer = 1 To liiniJada.Length - 1
             liiniTeekond &= liiniJada(i) & " "
         Next
@@ -117,21 +117,21 @@ Public Class Kaart
             Dim lopuOma As PointLatLng = New PointLatLng(loppKordinaadid(0), loppKordinaadid(1))
 
             Dim teekond As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(algusOma, lopuOma, False, False, 15)
-            if i = 0 Then
+            If i = 0 Then
                 Dim algusMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
                 algusOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
                 markeriKuvamine.Markers.Add(algusMarker)
 
                 algusMarker.ToolTipText = algPeatus
                 algusMarker.Size = size
-            
-            elseif i = teekonnaList.Count - 2 Then
+
+            ElseIf i = teekonnaList.Count - 2 Then
 
                 Dim loppMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
                 lopuOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
                 markeriKuvamine.Markers.Add(loppMarker)
 
-                loppMarker.ToolTipText = loppPeatus  
+                loppMarker.ToolTipText = loppPeatus
                 loppMarker.Size = size
             Else
                 Dim vaheMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
@@ -151,9 +151,9 @@ Public Class Kaart
             ruut.Stroke.Width = 2
             ruut.Stroke.Color = Color.Red
         Next
-            GMapControl1.Refresh()
+        GMapControl1.Refresh()
     End Sub
-    Public Sub margiSoidukiAsukoht(liin As String)
+    Public Sub margiSoidukiAsukoht(liin As String) Implements IMargiKaardil.margiSoidukiAsukoht
         ' Andmebaasi muutuja andmete hankimiseks
         Dim baasHankimine As PrjAndmebaasKomponent.ISaaAndmed
         baasHankimine = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
@@ -183,29 +183,60 @@ Public Class Kaart
             marker.Size = size
 
             markerOverlay.Markers.Add(marker)
-Next
-End Sub
+        Next
+    End Sub
 
     Public Sub margiKoikVaatamisvaarsused() Implements IMargiKaardil.margiKoikVaatamisvaarsused
-
-        Dim vaatamisvaarsused As PrjVaatamisvaarsused.ISaaAndmed
-        vaatamisvaarsused = New PrjVaatamisvaarsused.CKuvaVaatamisvaarsused(Application.StartupPath)
+        Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
+        andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
         Dim vaatamisvaarsusedList As List(Of String)
-        vaatamisvaarsusedList = vaatamisvaarsused.saaKoikVaatamisvaarsuseNimed
+        vaatamisvaarsusedList = andmebaas.saaKoikVaatamisvaarsuseNimed
 
         Dim markerOverlay As New GMapOverlay("markers")
         GMapControl1.Overlays.Add(markerOverlay)
 
         For Each koht As String In vaatamisvaarsusedList
-            Dim koordinaadid As Double() = vaatamisvaarsused.saaVaatamisvaarsuseAsukoht(koht)
-            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.blue)
+            Dim koordinaadid As Double() = andmebaas.saaVaatamisvaarsuseAsukoht(koht)
+            Dim destinationPath As String = Application.StartupPath & "\Icons" & "\kaamera.png"
+
+            Dim markerIcon As New Bitmap(destinationPath)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), markerIcon)
             marker.ToolTipText = koht
-            Dim size As New Size(16, 16)
-            marker.Size = size
             markerOverlay.Markers.Add(marker)
         Next
     End Sub
+
+    Public Sub margiLiiniPeatused(liin As String) Implements IMargiKaardil.margiLiiniPeatused
+        Dim liinipeatused As PrjAndmebaasKomponent.ISaaAndmed
+        liinipeatused = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
+
+        Dim markerOverlay As New GMapOverlay("markers")
+        GMapControl1.Overlays.Clear()
+        GMapControl1.Overlays.Add(markerOverlay)
+
+        Dim stringArray As String() = Split(liin)
+        Dim liiniNimi As String = stringArray(0)
+
+        Dim liiniTeekond As String = ""
+
+        For i As Integer = 1 To stringArray.Length - 1
+            liiniTeekond &= stringArray(i) & " "
+        Next
+        liiniTeekond = Trim(liiniTeekond)
+
+        Dim peatusteNimed As List(Of String) = liinipeatused.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
+
+        For Each peatus In peatusteNimed
+
+            Dim kordinaadid As Double() = liinipeatused.saaPeatuseAsukoht(peatus)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(kordinaadid(0), kordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.purple)
+            marker.ToolTipText = peatus
+            markerOverlay.Markers.Add(marker)
+        Next
+    End Sub
+
+
     Private Sub GMapControl1_OnMarkerDoubleClick(item As GMapMarker, e As MouseEventArgs) Handles GMapControl1.OnMarkerDoubleClick
         ' Event käivitub ning seda jälgiv funktsioon käivitub kasutajaakna koodis
         RaiseEvent markerDoubleClick(item)

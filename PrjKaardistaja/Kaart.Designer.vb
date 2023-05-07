@@ -104,7 +104,7 @@ Partial Class Kaart
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Sihtkoht"
         '
-        'UserControl1
+        'Kaart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -115,7 +115,7 @@ Partial Class Kaart
         Me.Controls.Add(Me.TxtAlgusPeatus)
         Me.Controls.Add(Me.GMapControl1)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.Name = "UserControl1"
+        Me.Name = "Kaart"
         Me.Size = New System.Drawing.Size(1677, 1004)
         Me.ResumeLayout(false)
         Me.PerformLayout

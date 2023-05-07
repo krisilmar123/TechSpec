@@ -1,7 +1,7 @@
 ﻿Public Interface ISaaAndmed
     Function saaPeatuseAsukoht(peatuseNimi As String) As Double()
 
-    Function saaValjumised(peatuseNimi As String, liiniNimi As String, paev As String, limiit As String) As List(Of String())
+    Function saaValjumised(peatuseNimi As String, liiniNimi As String, paev As String, limiit As String, madalSisenemine As Boolean) As List(Of String())
 
     Function saaLiinid() As List(Of String)
 

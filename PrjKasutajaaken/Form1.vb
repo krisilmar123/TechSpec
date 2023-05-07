@@ -6,15 +6,28 @@ Public Class Form1
         UMap.Hide()
     End Sub
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
+        If chkBoxReaal.Checked Then
+            Timer1.Enabled = True
+
+        Else
+
+            Timer1.Enabled = False
+        End If
+
         Dim margi As PrjKaardistaja.IMargiKaardil
         margi = UMap
-        Timer1.Enabled = True
-        margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
+        margi.margiLiiniPeatused(ULiinidJaPeatusedList1.liiniInfo)
         UMap.Visible = True
-        Timer1.Enabled = False
         UMap.Show()
         btnKuvaPeatused.Visible = True
         btnKuvaPeatused.Enabled = True
+
+        If chkBoxReaal.Checked Then
+            Timer1.Enabled = True
+            margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
+        Else
+            Timer1.Enabled = False
+        End If
 
     End Sub
 
@@ -25,7 +38,7 @@ Public Class Form1
         UMap.Visible = True
         Timer1.Enabled = False
         UMap.Show()
-        btnKuvaPeatused.Visible = True
+        btnKuvaPeatused.Enabled = True
         btnVaatamisvaarsused.Enabled = True
     End Sub
 
@@ -57,6 +70,7 @@ Public Class Form1
         margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
 
     End Sub
+
     Private Sub eventBtnOtsi() Handles UMap.otsiClick
         UMap.uldineTeekonaKuvamine(ULiinidJaPeatusedList1.liiniInfo)
     End Sub
