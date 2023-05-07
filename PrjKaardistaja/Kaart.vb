@@ -106,7 +106,7 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         Dim teekonnaList As List(Of String) = andmebaas.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
         Dim alguseOma As PointLatLng
 
-        For i As Integer = 0 To teekonnaList.Count - 2
+        For i As Integer = teekonnaList.IndexOf(algPeatus) To teekonnaList.IndexOf(loppPeatus) - 1
             Dim algPeatuse As String = teekonnaList(i)
             Dim loppPeatuse As String = teekonnaList(i + 1)
 
@@ -117,7 +117,7 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
             Dim lopuOma As PointLatLng = New PointLatLng(loppKordinaadid(0), loppKordinaadid(1))
 
             Dim teekond As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(algusOma, lopuOma, False, False, 15)
-            If i = 0 Then
+            If i = teekonnaList.IndexOf(algPeatus) Then
                 Dim algusMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
                 algusOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
                 markeriKuvamine.Markers.Add(algusMarker)
@@ -125,7 +125,7 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
                 algusMarker.ToolTipText = algPeatus
                 algusMarker.Size = size
 
-            ElseIf i = teekonnaList.Count - 2 Then
+            ElseIf i = teekonnaList.IndexOf(loppPeatus) Then
 
                 Dim loppMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
                 lopuOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
