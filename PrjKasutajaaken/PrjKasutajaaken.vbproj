@@ -149,6 +149,9 @@
     <Reference Include="Avalonia.X11, Version=0.10.6.0, Culture=neutral, PublicKeyToken=c8d484a7012f9a8b, processorArchitecture=MSIL">
       <HintPath>..\packages\Avalonia.X11.0.10.6\lib\netstandard2.0\Avalonia.X11.dll</HintPath>
     </Reference>
+    <Reference Include="CSVExporterDNF">
+      <HintPath>..\..\..\..\Downloads\CSVExporterDNF.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
