@@ -24,6 +24,10 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         GMapControl1.DragButton = MouseButtons.Left
     End Sub
 
+
+
+    ' Markerite loomine ja muutmine abimaterjal: http://www.independent-software.com/gmap-net-beginners-tutorial-adding-clickable-markers-to-your-map-updates-for-vs2015-and-gmap-1-7.html
+    ' Looja: Independent Software
     Public Sub margiKoikPeatused() Implements IMargiKaardil.margiKoikPeatused
         ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
         Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
@@ -60,6 +64,9 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         RaiseEvent otsiClick()
     End Sub
 
+
+    ' Teekonna kuvamiseks kasutatud abimaterjal: http://www.independent-software.com/gmap-net-tutorial-routes.html
+    ' Looja: Independent Software
     Public Sub uldineTeekonaKuvamine(liin As String) Implements IMargiKaardil.uldineTeekonnaKuvamine
         Dim algPeatus As String = TxtAlgusPeatus.Text
         Dim loppPeatus As String = txtLoppPeatus.Text
