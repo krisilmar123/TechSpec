@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class UserControl1
+Partial Class Kaart
     Inherits System.Windows.Forms.UserControl
 
     'UserControl1 overrides dispose to clean up the component list.

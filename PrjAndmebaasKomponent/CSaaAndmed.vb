@@ -3,7 +3,6 @@
 
 Imports System.Data.SQLite
 
-
 Public Class CSaaAndmed
     Implements ISaaAndmed
 
@@ -62,7 +61,7 @@ Public Class CSaaAndmed
         connection.Close()
     End Function
 
-    Function saaValjumised(peatuseNimi As String, liiniNimi As String, paev As String, limiit As String) As List(Of String()) Implements ISaaAndmed.saaValjumised
+    Function saaValjumised(peatuseNimi As String, liiniNimi As String, paev As String, limiit As String, madalSisenemine As Boolean) As List(Of String()) Implements ISaaAndmed.saaValjumised
         connection.Open()
 
         paev = paev.ToLower
@@ -70,7 +69,13 @@ Public Class CSaaAndmed
 
         If connection.State = ConnectionState.Open Then
             command.Connection = connection
-            command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id INNER JOIN Calendar ON Trip.service_id = Calendar.service_id WHERE Stop.stop_name= '" & peatuseNimi & "' AND time(Stop_time.departure_time) >= TIME('" & DateTime.Now.TimeOfDay.ToString & "') AND Route.route_short_name = '" & liiniNimi & "' AND Calendar." & paev & " = '1' ORDER BY time(Stop_time.departure_time) LIMIT " & limiit & ";"
+
+            If madalSisenemine Then
+                command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id INNER JOIN Calendar ON Trip.service_id = Calendar.service_id WHERE Stop.stop_name= '" & peatuseNimi & "' AND time(Stop_time.departure_time) >= TIME('" & DateTime.Now.TimeOfDay.ToString & "') AND Route.route_short_name = '" & liiniNimi & "' AND Calendar." & paev & " = '1' AND Trip.wheelchair_accesible = '1' ORDER BY time(Stop_time.departure_time) LIMIT " & limiit & ";"
+
+            Else
+                command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id INNER JOIN Calendar ON Trip.service_id = Calendar.service_id WHERE Stop.stop_name= '" & peatuseNimi & "' AND time(Stop_time.departure_time) >= TIME('" & DateTime.Now.TimeOfDay.ToString & "') AND Route.route_short_name = '" & liiniNimi & "' AND Calendar." & paev & " = '1' ORDER BY time(Stop_time.departure_time) LIMIT " & limiit & ";"
+            End If
 
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
@@ -139,11 +144,11 @@ Public Class CSaaAndmed
         If connection.State = ConnectionState.Open Then
             command.Connection = connection
             command.CommandText = "SELECT DISTINCT stop_name
-        FROM Stop
-        JOIN Stop_time ON Stop.stop_id = Stop_time.stop_id
-        JOIN Trip ON Trip.trip_id = Stop_time.trip_id
-        JOIN Route ON Route.route_id = Trip.route_id
-        WHERE Route.route_short_name='" & liiniNimi & "' AND Route.route_long_name='" & liiniTeekond & "' AND Trip.direction_code='A>B' ORDER BY CAST(Stop_time.stop_sequence AS UNISGNED);"
+FROM Stop
+JOIN Stop_time ON Stop.stop_id = Stop_time.stop_id
+JOIN Trip ON Trip.trip_id = Stop_time.trip_id
+JOIN Route ON Route.route_id = Trip.route_id
+WHERE Route.route_short_name='" & liiniNimi & "' AND Route.route_long_name='" & liiniTeekond & "' AND Trip.direction_code='A>B' ORDER BY CAST(Stop_time.stop_sequence AS UNISGNED);"
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
             Dim resultList As New List(Of String)
