@@ -1,9 +1,8 @@
 ﻿Imports System.Threading
 Public Class Kasutajaaken
-    Public Selected As String
 
-    Property CSV As CSVExporterDNF.IExporter = New CSVExporterDNF.CExporter()
-    Property failiPath As String
+    Private Property CSV As CSVExporterDNF.IExporter = New CSVExporterDNF.CExporter()
+    Private Property failiPath As String
     Private Sub Form1_Load(sender As Object, e As EventArgs)
         UMap.Visible = False
         UMap.Hide()

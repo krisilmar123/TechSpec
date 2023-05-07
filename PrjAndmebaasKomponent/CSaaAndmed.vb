@@ -10,7 +10,7 @@ Public Class CSaaAndmed
     Private dbName As String = "TranspordiAndmed.db"
 
     ' Muutuja mõeldud andmebaasi faili asukoha hoidmiseks, saab väärtuse konstruktoris
-    Public Property dbPath As String = ""
+    Private Property dbPath As String = ""
 
     ' Muutuja mõeldud andmebaasiga ühenduse loova stringi hoidmiseks
     Private connString As String = ""
