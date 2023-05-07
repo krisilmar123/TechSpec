@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-
         Me.btnKuvaKaardil = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnKuvaPeatused = New System.Windows.Forms.Button()
@@ -34,14 +33,17 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-
         Me.btnVaatamisvaarsused = New System.Windows.Forms.Button()
         Me.chkBoxReaal = New System.Windows.Forms.CheckBox()
+        Me.btnSalvesta = New System.Windows.Forms.Button()
+        Me.chkUleKirjutamine = New System.Windows.Forms.CheckBox()
+        Me.chkFailiLoppu = New System.Windows.Forms.CheckBox()
+        Me.chkVali = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'btnKuvaKaardil
         '
-        Me.btnKuvaKaardil.Location = New System.Drawing.Point(899, 232)
+        Me.btnKuvaKaardil.Location = New System.Drawing.Point(643, 144)
         Me.btnKuvaKaardil.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnKuvaKaardil.Name = "btnKuvaKaardil"
         Me.btnKuvaKaardil.Size = New System.Drawing.Size(125, 88)
@@ -59,7 +61,7 @@ Partial Class Form1
         'btnKuvaPeatused
         '
         Me.btnKuvaPeatused.Enabled = False
-        Me.btnKuvaPeatused.Location = New System.Drawing.Point(899, 349)
+        Me.btnKuvaPeatused.Location = New System.Drawing.Point(643, 252)
         Me.btnKuvaPeatused.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.btnKuvaPeatused.Name = "btnKuvaPeatused"
         Me.btnKuvaPeatused.Size = New System.Drawing.Size(125, 82)
@@ -69,7 +71,7 @@ Partial Class Form1
         '
         'UMap
         '
-        Me.UMap.Location = New System.Drawing.Point(1034, 69)
+        Me.UMap.Location = New System.Drawing.Point(777, 17)
         Me.UMap.Margin = New System.Windows.Forms.Padding(6, 8, 6, 8)
         Me.UMap.Name = "UMap"
         Me.UMap.Size = New System.Drawing.Size(1858, 1220)
@@ -79,13 +81,15 @@ Partial Class Form1
         'ULiinidJaPeatusedList1
         '
         Me.ULiinidJaPeatusedList1.liiniInfo = Nothing
+        Me.ULiinidJaPeatusedList1.liiniList = Nothing
         Me.ULiinidJaPeatusedList1.liiniValik = Nothing
-        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(72, 101)
+        Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(46, 104)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
         Me.ULiinidJaPeatusedList1.pensionaarCheckBox = False
-        Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(759, 429)
+        Me.ULiinidJaPeatusedList1.Size = New System.Drawing.Size(516, 304)
         Me.ULiinidJaPeatusedList1.TabIndex = 38
+        Me.ULiinidJaPeatusedList1.valjumisteList = Nothing
         '
         'Label1
         '
@@ -136,7 +140,7 @@ Partial Class Form1
         '
         Me.btnVaatamisvaarsused.Enabled = False
         Me.btnVaatamisvaarsused.Image = Global.PrjKasutajaaken.My.Resources.Resources.kaamera
-        Me.btnVaatamisvaarsused.Location = New System.Drawing.Point(899, 463)
+        Me.btnVaatamisvaarsused.Location = New System.Drawing.Point(642, 349)
         Me.btnVaatamisvaarsused.Name = "btnVaatamisvaarsused"
         Me.btnVaatamisvaarsused.Size = New System.Drawing.Size(126, 82)
         Me.btnVaatamisvaarsused.TabIndex = 43
@@ -145,80 +149,63 @@ Partial Class Form1
         'chkBoxReaal
         '
         Me.chkBoxReaal.AutoSize = True
-        Me.chkBoxReaal.Location = New System.Drawing.Point(104, 563)
+        Me.chkBoxReaal.Location = New System.Drawing.Point(83, 414)
         Me.chkBoxReaal.Name = "chkBoxReaal"
-        Me.chkBoxReaal.Size = New System.Drawing.Size(179, 24)
+        Me.chkBoxReaal.Size = New System.Drawing.Size(123, 17)
         Me.chkBoxReaal.TabIndex = 44
         Me.chkBoxReaal.Text = "Reaal aja väljumised"
         Me.chkBoxReaal.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnSalvesta
         '
-        Me.Button2.Location = New System.Drawing.Point(17, 114)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(87, 29)
-        Me.Button2.TabIndex = 44
-        Me.Button2.Text = "Save As"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnSalvesta.Enabled = False
+        Me.btnSalvesta.Location = New System.Drawing.Point(494, 487)
+        Me.btnSalvesta.Name = "btnSalvesta"
+        Me.btnSalvesta.Size = New System.Drawing.Size(150, 28)
+        Me.btnSalvesta.TabIndex = 45
+        Me.btnSalvesta.Text = "SALVESTA VÄLJUMISED"
+        Me.btnSalvesta.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'chkUleKirjutamine
         '
-        Me.TextBox1.Location = New System.Drawing.Point(114, 158)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(19, 20)
-        Me.TextBox1.TabIndex = 45
+        Me.chkUleKirjutamine.AutoSize = True
+        Me.chkUleKirjutamine.Location = New System.Drawing.Point(410, 413)
+        Me.chkUleKirjutamine.Name = "chkUleKirjutamine"
+        Me.chkUleKirjutamine.Size = New System.Drawing.Size(88, 17)
+        Me.chkUleKirjutamine.TabIndex = 46
+        Me.chkUleKirjutamine.Text = "Kirjuta fail üle"
+        Me.chkUleKirjutamine.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'chkFailiLoppu
         '
-        Me.TextBox2.Location = New System.Drawing.Point(115, 184)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(18, 20)
-        Me.TextBox2.TabIndex = 46
+        Me.chkFailiLoppu.AutoSize = True
+        Me.chkFailiLoppu.Location = New System.Drawing.Point(410, 437)
+        Me.chkFailiLoppu.Name = "chkFailiLoppu"
+        Me.chkFailiLoppu.Size = New System.Drawing.Size(92, 17)
+        Me.chkFailiLoppu.TabIndex = 47
+        Me.chkFailiLoppu.Text = "Lisa faili lõppu"
+        Me.chkFailiLoppu.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'chkVali
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(174, 156)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(88, 17)
-        Me.CheckBox1.TabIndex = 47
-        Me.CheckBox1.Text = "Kirjuta fail üle"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(174, 184)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(92, 17)
-        Me.CheckBox2.TabIndex = 48
-        Me.CheckBox2.Text = "Lisa faili lõppu"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(28, 157)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(82, 13)
-        Me.Label7.TabIndex = 49
-        Me.Label7.Text = "Väljade eraldaja"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(31, 184)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(65, 13)
-        Me.Label8.TabIndex = 50
-        Me.Label8.Text = "Kvalifikaator"
+        Me.chkVali.AutoSize = True
+        Me.chkVali.Enabled = False
+        Me.chkVali.Location = New System.Drawing.Point(504, 413)
+        Me.chkVali.Name = "chkVali"
+        Me.chkVali.Size = New System.Drawing.Size(132, 17)
+        Me.chkVali.TabIndex = 48
+        Me.chkVali.Text = "Valin salvestamisel faili"
+        Me.chkVali.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1924, 1050)
+        Me.Controls.Add(Me.chkVali)
+        Me.Controls.Add(Me.chkFailiLoppu)
+        Me.Controls.Add(Me.chkUleKirjutamine)
+        Me.Controls.Add(Me.btnSalvesta)
         Me.Controls.Add(Me.chkBoxReaal)
         Me.Controls.Add(Me.btnVaatamisvaarsused)
         Me.Controls.Add(Me.ULiinidJaPeatusedList1)
@@ -249,4 +236,8 @@ Partial Class Form1
     Friend WithEvents Timer1 As Timer
     Friend WithEvents btnVaatamisvaarsused As Button
     Friend WithEvents chkBoxReaal As CheckBox
+    Friend WithEvents btnSalvesta As Button
+    Friend WithEvents chkUleKirjutamine As CheckBox
+    Friend WithEvents chkFailiLoppu As CheckBox
+    Friend WithEvents chkVali As CheckBox
 End Class

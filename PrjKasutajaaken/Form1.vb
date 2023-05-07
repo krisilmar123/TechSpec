@@ -1,9 +1,12 @@
 ﻿Imports System.Threading
 Public Class Form1
     Public Selected As String
+    Property CSV As CSVExporterDNF.IExporter = New CSVExporterDNF.CExporter()
+    Property failiPath As String
     Private Sub Form1_Load(sender As Object, e As EventArgs)
         UMap.Visible = False
         UMap.Hide()
+        CSV = New CSVExporterDNF.CExporter()
     End Sub
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
         If chkBoxReaal.Checked Then
@@ -81,34 +84,72 @@ Public Class Form1
         margi.margiKoikVaatamisvaarsused()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim CSV As CSVExporterDNF.IExporter
-        CSV = New CSVExporterDNF.CExporter
+
+
+    Private Sub chkBoxReaal_CheckedChanged(sender As Object, e As EventArgs) Handles chkBoxReaal.CheckedChanged
+
+    End Sub
+
+    Private Sub btnSalvesta_Click(sender As Object, e As EventArgs) Handles btnSalvesta.Click
+
         CSV.textQualifier = ","
         CSV.delimiter = ","
-        CSV.setFileToSave()
 
-        Dim DataList As List(Of String) = ULiinidJaPeatusedList1.liiniList
-        Dim Data(DataList.Count - 1, 0) As String
+        Dim DataList As List(Of String()) = ULiinidJaPeatusedList1.valjumisteList
+        If DataList Is Nothing Then
+            MsgBox("Väljumised puuduvad!")
+            Exit Sub
+        End If
+
+        If chkVali.Enabled = False Or chkVali.Checked Then
+            failiPath = CSV.setFileToSave()
+        End If
+
+        Dim Data(DataList.Count - 1, 1) As String
         Dim i As Integer = 0
         For Each liin In DataList
-            Data(i, 0) = liin
+            Data(i, 0) = liin(0)
+            Data(i, 1) = liin(1)
             i += 1
         Next
-        CSV.saveDataToCsv(Data)
 
-        MsgBox(CSV.textQualifier)
+        If chkUleKirjutamine.Checked Then
+            Try
+                CSV.saveDataToCsv(Data, False)
+            Catch ex As Exception
+                MsgBox("Sulgege fail enne uuesti salvestamist!")
+            End Try
+
+        ElseIf chkFailiLoppu.Checked Then
+            Try
+                CSV.saveDataToCsv(Data, True)
+            Catch ex As Exception
+                MsgBox("Sulgege fail enne uuesti salvestamist!")
+            End Try
+        End If
+
+        chkVali.Enabled = True
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
+    Private Sub chkUleKirjutamine_CheckedChanged(sender As Object, e As EventArgs) Handles chkUleKirjutamine.CheckedChanged
+        btnSalvesta.Enabled = True
+        If chkUleKirjutamine.Checked Then
+            chkFailiLoppu.Enabled = False
+        Else
+            chkFailiLoppu.Enabled = True
+            btnSalvesta.Enabled = False
+        End If
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
-
+    Private Sub chkFailiLoppu_CheckedChanged(sender As Object, e As EventArgs) Handles chkFailiLoppu.CheckedChanged
+        btnSalvesta.Enabled = True
+        If chkFailiLoppu.Checked Then
+            chkUleKirjutamine.Enabled = False
+        Else
+            chkUleKirjutamine.Enabled = True
+            btnSalvesta.Enabled = False
+        End If
     End Sub
 
-    Private Sub txtAlgpeatus_TextChanged(sender As Object, e As EventArgs) Handles txtAlgpeatus.TextChanged
 
-    End Sub
 End Class

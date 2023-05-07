@@ -7,6 +7,8 @@
 
     Public Property liiniInfo As String
     Public Property liiniList As List(Of String)
+
+    Public Property valjumisteList As List(Of String())
     Public Event liinValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
@@ -81,7 +83,7 @@
 
     Public Sub KuvaValjumised(peatuseNimi As String, liiniNimi As String) Implements IKuvaAndmed.KuvaValjumised
         ListValjumised.Items.Clear()
-
+        valjumisteList = New List(Of String())
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
         If pensionaarCheckBox Then
@@ -118,8 +120,10 @@
             valjumised = valjumised.Distinct.ToList()
 
             For Each valjumine In valjumised
-
-                ListValjumised.Items.Add("Bussi nr: " & valjumine(0) & " " & valjumine(1))
+                Dim liin = "Bussi nr: " & valjumine(0)
+                Dim valjumisAeg = valjumine(1)
+                ListValjumised.Items.Add(liin & " " & valjumisAeg)
+                valjumisteList.Add(valjumine)
             Next
         End If
 
