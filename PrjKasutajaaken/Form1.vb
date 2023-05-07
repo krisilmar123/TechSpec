@@ -6,28 +6,15 @@ Public Class Form1
         UMap.Hide()
     End Sub
     Private Sub liinValitud() Handles ULiinidJaPeatusedList1.liinValitud
-        If chkBoxReaal.Checked Then
-            Timer1.Enabled = True
-
-        Else
-
-            Timer1.Enabled = False
-        End If
-
         Dim margi As PrjKaardistaja.IMargiKaardil
         margi = UMap
-        margi.margiLiiniPeatused(ULiinidJaPeatusedList1.liiniInfo)
+        Timer1.Enabled = True
+        margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
         UMap.Visible = True
+        Timer1.Enabled = False
         UMap.Show()
         btnKuvaPeatused.Visible = True
         btnKuvaPeatused.Enabled = True
-
-        If chkBoxReaal.Checked Then
-            Timer1.Enabled = True
-            margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
-        Else
-            Timer1.Enabled = False
-        End If
 
     End Sub
 
@@ -53,9 +40,8 @@ Public Class Form1
 
     ' Käivitub siis, kui klikitakse kaks korda kaardi markerile
     Private Sub markerDoubleClick(item As GMap.NET.WindowsForms.GMapMarker) Handles UMap.markerDoubleClick
-
         Dim valjumine As LiinidJaPeatusedList.IKuvaAndmed
-        valjumine = ULiinidJaPeatusedList1
+        valjumine = New LiinidJaPeatusedList.ULiinidJaPeatusedList()
 
         If ULiinidJaPeatusedList1.liiniValik <= 0 Then
             MsgBox("Palun vali liiniloetelust liin")
@@ -71,15 +57,10 @@ Public Class Form1
         margi.margiSoidukiAsukoht(ULiinidJaPeatusedList1.liiniValik)
 
     End Sub
-    Private Sub eventBtnOtsi() Handles UMap.otsiClick
-        UMap.uldineTeekonaKuvamine(ULiinidJaPeatusedList1.liiniInfo)
-    End Sub
 
     Private Sub btnVaatamisvaarsused_Click(sender As Object, e As EventArgs) Handles btnVaatamisvaarsused.Click
         Dim margi As PrjKaardistaja.IMargiKaardil
         margi = UMap
         margi.margiKoikVaatamisvaarsused()
     End Sub
-
-
 End Class

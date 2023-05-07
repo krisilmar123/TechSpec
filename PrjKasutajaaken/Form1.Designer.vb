@@ -76,6 +76,8 @@ Partial Class Form1
         '
         'ULiinidJaPeatusedList1
         '
+        Me.ULiinidJaPeatusedList1.liiniInfo = Nothing
+        Me.ULiinidJaPeatusedList1.liiniValik = Nothing
         Me.ULiinidJaPeatusedList1.Location = New System.Drawing.Point(72, 101)
         Me.ULiinidJaPeatusedList1.Margin = New System.Windows.Forms.Padding(4, 2, 4, 2)
         Me.ULiinidJaPeatusedList1.Name = "ULiinidJaPeatusedList1"
@@ -143,7 +145,7 @@ Partial Class Form1
         Me.chkBoxReaal.AutoSize = True
         Me.chkBoxReaal.Location = New System.Drawing.Point(104, 563)
         Me.chkBoxReaal.Name = "chkBoxReaal"
-        Me.chkBoxReaal.Size = New System.Drawing.Size(269, 36)
+        Me.chkBoxReaal.Size = New System.Drawing.Size(179, 24)
         Me.chkBoxReaal.TabIndex = 44
         Me.chkBoxReaal.Text = "Reaal aja väljumised"
         Me.chkBoxReaal.UseVisualStyleBackColor = True

@@ -203,8 +203,6 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
             Dim markerIcon As New Bitmap(destinationPath)
             Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), markerIcon)
             marker.ToolTipText = koht
-            Dim size As New Size(16, 16)
-            marker.Size = size
             markerOverlay.Markers.Add(marker)
         Next
     End Sub
@@ -243,6 +241,4 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         ' Event käivitub ning seda jälgiv funktsioon käivitub kasutajaakna koodis
         RaiseEvent markerDoubleClick(item)
     End Sub
-
-
 End Class
