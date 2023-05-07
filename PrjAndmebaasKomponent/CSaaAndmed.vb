@@ -1,4 +1,8 @@
-﻿Imports System.Data.SQLite
+﻿' Koodi baas on võetud järgnevast Youtube video'st: https://www.youtube.com/watch?v=9PrPx83L2hY. 
+' Looja: PSDen
+
+Imports System.Data.SQLite
+
 Public Class CSaaAndmed
     Implements ISaaAndmed
 
@@ -48,6 +52,7 @@ Public Class CSaaAndmed
                     lon = Convert.ToDouble(rdr.GetValue(1))
                 End While
             End Using
+            ' Salvestab latitute ja longitude koordinaadid array'sse
             Dim koordinaadid = New Double() {lat, lon}
             connection.Close()
             Return koordinaadid
@@ -56,18 +61,27 @@ Public Class CSaaAndmed
         connection.Close()
     End Function
 
-    Function saaValjumised(peatuseNimi As String) As List(Of String()) Implements ISaaAndmed.saaValjumised
+    Function saaValjumised(peatuseNimi As String, liiniNimi As String, paev As String, limiit As String, madalSisenemine As Boolean) As List(Of String()) Implements ISaaAndmed.saaValjumised
         connection.Open()
+
+        paev = paev.ToLower
+
 
         If connection.State = ConnectionState.Open Then
             command.Connection = connection
-            command.CommandText = "SELECT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id WHERE Stop.stop_name='" & peatuseNimi & "' ORDER BY Route.route_short_name;"
+
+            If madalSisenemine Then
+                command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id INNER JOIN Calendar ON Trip.service_id = Calendar.service_id WHERE Stop.stop_name= '" & peatuseNimi & "' AND time(Stop_time.departure_time) >= TIME('" & DateTime.Now.TimeOfDay.ToString & "') AND Route.route_short_name = '" & liiniNimi & "' AND Calendar." & paev & " = '1' AND Trip.wheelchair_accesible = '1' ORDER BY time(Stop_time.departure_time) LIMIT " & limiit & ";"
+
+            Else
+                command.CommandText = "SELECT DISTINCT Route.route_short_name, Stop_time.departure_time FROM Stop_time INNER JOIN Stop ON Stop_time.stop_id = Stop.stop_id INNER JOIN Trip ON Stop_time.trip_id = Trip.trip_id INNER JOIN Route ON Trip.route_id = Route.route_id INNER JOIN Calendar ON Trip.service_id = Calendar.service_id WHERE Stop.stop_name= '" & peatuseNimi & "' AND time(Stop_time.departure_time) >= TIME('" & DateTime.Now.TimeOfDay.ToString & "') AND Route.route_short_name = '" & liiniNimi & "' AND Calendar." & paev & " = '1' ORDER BY time(Stop_time.departure_time) LIMIT " & limiit & ";"
+            End If
+
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
             Dim result As New List(Of String())
             Using rdr
                 While (rdr.Read())
-                    Dim liiniNimi As String = rdr.GetValue(0)
                     Dim aeg As String = rdr.GetValue(1)
                     Dim resultArray As String() = {liiniNimi, aeg}
                     result.Add(resultArray)
@@ -131,10 +145,10 @@ Public Class CSaaAndmed
             command.Connection = connection
             command.CommandText = "SELECT DISTINCT stop_name
 FROM Stop
-INNER JOIN Stop_time ON Stop.stop_id = Stop_time.stop_id
-INNER JOIN Trip ON Trip.trip_id = Stop_time.trip_id
-INNER JOIN Route ON Route.route_id = Trip.route_id
-WHERE Route.route_short_name='" & liiniNimi & "' AND Route.route_long_name='" & liiniTeekond & "' AND Trip.direction_code='A>B';"
+JOIN Stop_time ON Stop.stop_id = Stop_time.stop_id
+JOIN Trip ON Trip.trip_id = Stop_time.trip_id
+JOIN Route ON Route.route_id = Trip.route_id
+WHERE Route.route_short_name='" & liiniNimi & "' AND Route.route_long_name='" & liiniTeekond & "' AND Trip.direction_code='A>B' ORDER BY CAST(Stop_time.stop_sequence AS UNISGNED);"
             Dim rdr As SQLiteDataReader = command.ExecuteReader
 
             Dim resultList As New List(Of String)
