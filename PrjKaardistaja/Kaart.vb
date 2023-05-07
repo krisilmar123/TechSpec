@@ -75,7 +75,16 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         GMapControl1.Overlays.Add(markeriKuvamine)
 
         Dim koordinaadidAlgus As Double() = andmebaas.saaPeatuseAsukoht(algPeatus)
+        If koordinaadidAlgus(0) = 0 And koordinaadidAlgus(1) = 0 Then
+            TxtAlgusPeatus.Text = "Sellist peatust ei eksisteeri"
+            Return    
+        End If
+
         Dim koordinaadidLopp As Double() = andmebaas.saaPeatuseAsukoht(loppPeatus)
+        If koordinaadidLopp(0) = 0 And koordinaadidLopp(1) = 0 Then
+            txtLoppPeatus.Text = "Sellist peatust ei eksisteeri"
+            Return
+        End If
 
         Dim alguseMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
         New PointLatLng(koordinaadidAlgus(0), koordinaadidAlgus(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
@@ -104,7 +113,6 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         liiniTeekond = Trim(liiniTeekond)
 
         Dim teekonnaList As List(Of String) = andmebaas.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
-        Dim alguseOma As PointLatLng
 
         For i As Integer = teekonnaList.IndexOf(algPeatus) To teekonnaList.IndexOf(loppPeatus) - 1
             Dim algPeatuse As String = teekonnaList(i)

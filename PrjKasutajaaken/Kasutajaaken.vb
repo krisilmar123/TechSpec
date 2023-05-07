@@ -1,5 +1,5 @@
 ﻿Imports System.Threading
-Public Class Form1
+Public Class Kasutajaaken
     Public Selected As String
     Private Sub Form1_Load(sender As Object, e As EventArgs)
         UMap.Visible = False

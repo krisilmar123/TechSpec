@@ -31,64 +31,64 @@ Partial Class ULiinidJaPeatusedList
         Me.txtInimesteHulk = New System.Windows.Forms.TextBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.chkMadal = New System.Windows.Forms.CheckBox()
-        Me.SuspendLayout()
+        Me.SuspendLayout
         '
         'ListLiinid
         '
-        Me.ListLiinid.FormattingEnabled = True
-        Me.ListLiinid.Location = New System.Drawing.Point(0, 65)
-        Me.ListLiinid.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListLiinid.FormattingEnabled = true
+        Me.ListLiinid.Location = New System.Drawing.Point(2, 2)
+        Me.ListLiinid.Margin = New System.Windows.Forms.Padding(2)
         Me.ListLiinid.Name = "ListLiinid"
         Me.ListLiinid.Size = New System.Drawing.Size(185, 212)
         Me.ListLiinid.TabIndex = 0
         '
         'ListPeatused
         '
-        Me.ListPeatused.FormattingEnabled = True
-        Me.ListPeatused.Location = New System.Drawing.Point(207, 65)
-        Me.ListPeatused.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListPeatused.FormattingEnabled = true
+        Me.ListPeatused.Location = New System.Drawing.Point(207, 2)
+        Me.ListPeatused.Margin = New System.Windows.Forms.Padding(2)
         Me.ListPeatused.Name = "ListPeatused"
         Me.ListPeatused.Size = New System.Drawing.Size(138, 212)
         Me.ListPeatused.TabIndex = 1
         '
         'ListValjumised
         '
-        Me.ListValjumised.FormattingEnabled = True
-        Me.ListValjumised.Location = New System.Drawing.Point(363, 65)
-        Me.ListValjumised.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.ListValjumised.FormattingEnabled = true
+        Me.ListValjumised.Location = New System.Drawing.Point(362, 2)
+        Me.ListValjumised.Margin = New System.Windows.Forms.Padding(2)
         Me.ListValjumised.Name = "ListValjumised"
         Me.ListValjumised.Size = New System.Drawing.Size(137, 212)
         Me.ListValjumised.TabIndex = 2
         '
         'CheckBoxPensionaar
         '
-        Me.CheckBoxPensionaar.AutoSize = True
-        Me.CheckBoxPensionaar.Location = New System.Drawing.Point(307, 31)
-        Me.CheckBoxPensionaar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.CheckBoxPensionaar.AutoSize = true
+        Me.CheckBoxPensionaar.Location = New System.Drawing.Point(304, 269)
+        Me.CheckBoxPensionaar.Margin = New System.Windows.Forms.Padding(2)
         Me.CheckBoxPensionaar.Name = "CheckBoxPensionaar"
         Me.CheckBoxPensionaar.Size = New System.Drawing.Size(153, 17)
         Me.CheckBoxPensionaar.TabIndex = 3
         Me.CheckBoxPensionaar.Text = "3 JÄRGMIST BUSSIAEGA"
-        Me.CheckBoxPensionaar.UseVisualStyleBackColor = True
+        Me.CheckBoxPensionaar.UseVisualStyleBackColor = true
         '
         'btnInimesteHulk
         '
         Me.btnInimesteHulk.BackColor = System.Drawing.SystemColors.Control
-        Me.btnInimesteHulk.Location = New System.Drawing.Point(9, 14)
-        Me.btnInimesteHulk.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnInimesteHulk.Location = New System.Drawing.Point(2, 247)
+        Me.btnInimesteHulk.Margin = New System.Windows.Forms.Padding(2)
         Me.btnInimesteHulk.Name = "btnInimesteHulk"
         Me.btnInimesteHulk.Size = New System.Drawing.Size(158, 34)
         Me.btnInimesteHulk.TabIndex = 4
         Me.btnInimesteHulk.Text = "VAATA INIMESTE HULKA ÜHISTRANSPORDIS"
-        Me.btnInimesteHulk.UseVisualStyleBackColor = False
+        Me.btnInimesteHulk.UseVisualStyleBackColor = false
         '
         'txtInimesteHulk
         '
         Me.txtInimesteHulk.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.txtInimesteHulk.Location = New System.Drawing.Point(179, 22)
-        Me.txtInimesteHulk.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtInimesteHulk.Location = New System.Drawing.Point(179, 255)
+        Me.txtInimesteHulk.Margin = New System.Windows.Forms.Padding(2)
         Me.txtInimesteHulk.Name = "txtInimesteHulk"
-        Me.txtInimesteHulk.ReadOnly = True
+        Me.txtInimesteHulk.ReadOnly = true
         Me.txtInimesteHulk.Size = New System.Drawing.Size(96, 20)
         Me.txtInimesteHulk.TabIndex = 5
         '
@@ -100,18 +100,18 @@ Partial Class ULiinidJaPeatusedList
         '
         'chkMadal
         '
-        Me.chkMadal.AutoSize = True
-        Me.chkMadal.Location = New System.Drawing.Point(307, 10)
+        Me.chkMadal.AutoSize = true
+        Me.chkMadal.Location = New System.Drawing.Point(304, 247)
         Me.chkMadal.Name = "chkMadal"
         Me.chkMadal.Size = New System.Drawing.Size(195, 17)
         Me.chkMadal.TabIndex = 6
         Me.chkMadal.Text = "AINULT MADALA SISENEMISEGA"
         Me.chkMadal.TextAlign = System.Drawing.ContentAlignment.BottomRight
-        Me.chkMadal.UseVisualStyleBackColor = True
+        Me.chkMadal.UseVisualStyleBackColor = true
         '
         'ULiinidJaPeatusedList
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.chkMadal)
         Me.Controls.Add(Me.txtInimesteHulk)
@@ -122,11 +122,11 @@ Partial Class ULiinidJaPeatusedList
         Me.Controls.Add(Me.ListLiinid)
         Me.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.Name = "ULiinidJaPeatusedList"
-        Me.Size = New System.Drawing.Size(502, 281)
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.Size = New System.Drawing.Size(502, 293)
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
 
     Friend WithEvents ListLiinid As ListBox
     Friend WithEvents ListPeatused As ListBox
