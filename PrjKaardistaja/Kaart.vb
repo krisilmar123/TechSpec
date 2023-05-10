@@ -8,7 +8,6 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
 
     Private andmebaas As PrjAndmebaasKomponent.ISaaAndmed
 
-
     ' Event mõeldud markeri topelt klikkimise tuvastasmieks, võtab markeri endaga kaasa 
     Public Event markerDoubleClick(item As GMapMarker)
 
@@ -26,7 +25,6 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
 
     Public Sub margiKoikPeatused() Implements IMargiKaardil.margiKoikPeatused
         ' Andmebaasi muutuja deklareerimine, selle kaudu kutsub andmebaasi komponendi funktsioone
-        Dim andmebaas As PrjAndmebaasKomponent.ISaaAndmed
         'Andtakse andmebaasile väärtus ja luuakse andmebaasikomponendi objekt ja parameetriks andmebaasi asukoht
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
@@ -104,7 +102,7 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         'teekonna kuvamine'
         Dim liiniJada As String() = Split(liin)
         Dim liiniNimi As String = liiniJada(0)
-        Dim liiniTeekond As String = ""
+        Dim liiniTeekond As String = Nothing
 
         'Alustab esimesest liikmest, sest Split tehti tühikute järgi ja marsruudil. Võetakse sidekriipsude vahelt peatused ja pannakse see kokku uue stringina
         For i As Integer = 1 To liiniJada.Length - 1
