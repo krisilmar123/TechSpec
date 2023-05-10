@@ -7,6 +7,8 @@
 
     Public Property liiniInfo As String
 
+    Public Property valjumisteList As List(Of String())
+
     Public Event liinValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
@@ -23,7 +25,7 @@
         Next
     End Sub
 
-    Public Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
+    Private Sub ListLiinid_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListLiinid.SelectedIndexChanged
         ListPeatused.Items.Clear()
         'Annab kasutajaaknale teada et LiinideListBoxist on midagi valitud
         RaiseEvent liinValitud()
@@ -60,7 +62,7 @@
 
     End Sub
 
-    Public Sub ListPeatused_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListPeatused.SelectedIndexChanged
+    Private Sub ListPeatused_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListPeatused.SelectedIndexChanged
         ListValjumised.Items.Clear()
 
         'Kui valitakse PeatusteListBoxist midagi siis kutsutakse välja funktsioon "KuvaValjumised"
@@ -74,7 +76,7 @@
 
     Public Sub KuvaValjumised(peatuseNimi As String, liiniNimi As String) Implements IKuvaAndmed.KuvaValjumised
         ListValjumised.Items.Clear()
-
+        valjumisteList = New List(Of String())
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
         If pensionaarCheckBox Then
@@ -112,13 +114,16 @@
 
             For Each valjumine In valjumised
 
-                ListValjumised.Items.Add("Bussi nr: " & valjumine(0) & " " & valjumine(1))
+                Dim liin = "Bussi nr: " & valjumine(0)
+                Dim valjumisAeg = valjumine(1)
+                ListValjumised.Items.Add(liin & " " & valjumisAeg)
+                valjumisteList.Add(valjumine)
             Next
         End If
 
     End Sub
 
-    Public Sub CheckBoxPensionaar_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxPensionaar.CheckedChanged
+    Private Sub CheckBoxPensionaar_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxPensionaar.CheckedChanged
         ListValjumised.Items.Clear()
         ListPeatused.Items.Clear()
 
@@ -169,7 +174,4 @@
 
     End Sub
 
-    Private Sub chkMadal_CheckedChanged(sender As Object, e As EventArgs) Handles chkMadal.CheckedChanged
-
-    End Sub
 End Class

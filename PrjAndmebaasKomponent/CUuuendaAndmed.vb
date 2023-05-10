@@ -3,7 +3,7 @@ Public Class CUuuendaAndmed
     Implements IUuendaAndmed
 
     Private dbName As String = "TranspordiAndmed.db"
-    Public Property dbPath As String = ""
+    Private Property dbPath As String = ""
     Private connString As String = ""
 
     Private connection As SQLiteConnection
