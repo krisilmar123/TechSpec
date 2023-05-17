@@ -23,8 +23,6 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         GMapControl1.DragButton = MouseButtons.Left
     End Sub
 
-
-
     ' Markerite loomine ja muutmine abimaterjal: http://www.independent-software.com/gmap-net-beginners-tutorial-adding-clickable-markers-to-your-map-updates-for-vs2015-and-gmap-1-7.html
     ' Looja: Independent Software
     Public Sub margiKoikPeatused() Implements IMargiKaardil.margiKoikPeatused
@@ -41,6 +39,8 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         Dim markerOverlay As New GMapOverlay("markers")
         'Overlay on nagu pealiskiht mis pannakse kaardi peale, milelle lisatakse hilisema koodis kordinaadid
         GMapControl1.Overlays.Add(markerOverlay)
+        MsgBox(markerOverlay.Control.PolygonsEnabled)
+        markerOverlay.Control.PolygonsEnabled = False
 
         ' Tsükkel, mis käib kõik peatuse nimed läbi
         For Each peatus As String In peatusteList
@@ -48,14 +48,32 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
             ' Array esimene liige on latitude, array teine liige on longitude
             Dim koordinaadid As Double() = andmebaas.saaPeatuseAsukoht(peatus)
             ' Markeri loomine koordinaatide järgi
-            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
+
+            Dim destinationPath As String = Application.StartupPath & "\Icons" & "\mapMarker.png"
+
+            Dim markerIcon As New Bitmap(destinationPath)
+            'Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), Markers.GMarkerGoogleType.green)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(0), koordinaadid(1)), markerIcon)
+
             ' Kui hiir läheb markeri peale, siis tuleb Tool Tip'ina tekst, mis kuvab peatuse nime
             marker.ToolTipText = peatus
+
+            'Dim X As New Point(-15, 31)
+            'marker.Offset = X
+
+
             ' Muudab markeri väiksemaks
-            Dim size As New Size(16, 16)
-            marker.Size = size
+            'Dim size As New Size(16, 16)
+            'MsgBox(marker.Offset.X & " " & marker.Offset.Y)
+            'MsgBox(marker.Position.Lat & " " & marker.Position.Lng)
+            'MsgBox(marker.LocalPosition.X & " " & marker.LocalPosition.Y)
+            'MsgBox(marker.LocalArea.X & " " & marker.LocalArea.Y & " " & marker.LocalArea.Width & " " & marker.LocalArea.Height)
+            'marker.Size = size
+
+
             ' Lisab markeri kaardile
             markerOverlay.Markers.Add(marker)
+
         Next
     End Sub
     Private Sub btnOtsiPeatused_Click(sender As Object, e As EventArgs) Handles btnOtsiPeatused.Click
@@ -91,11 +109,18 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
             Return
         End If
 
+        Dim destinationPathGreen As String = Application.StartupPath & "\Icons" & "\mapMarker.png"
+        Dim destinationPathRed As String = Application.StartupPath & "\Icons" & "\mapMarkerRed.png"
+        Dim destinationPathYellow As String = Application.StartupPath & "\Icons" & "\mapMarkerYellow.png"
+        Dim markerIconGreen As New Bitmap(destinationPathGreen)
+        Dim markerIconRed As New Bitmap(destinationPathRed)
+        Dim markerIconYellow As New Bitmap(destinationPathYellow)
+
         Dim alguseMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-        New PointLatLng(koordinaadidAlgus(0), koordinaadidAlgus(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
+        New PointLatLng(koordinaadidAlgus(0), koordinaadidAlgus(1)), markerIconGreen)
 
         Dim lopuMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-        New PointLatLng(koordinaadidLopp(0), koordinaadidLopp(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
+        New PointLatLng(koordinaadidLopp(0), koordinaadidLopp(1)), markerIconRed)
 
         alguseMarker.ToolTipText = algPeatus
         lopuMarker.ToolTipText = loppPeatus
@@ -115,6 +140,7 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         For i As Integer = 1 To liiniJada.Length - 1
             liiniTeekond &= liiniJada(i) & " "
         Next
+
         liiniTeekond = Trim(liiniTeekond)
 
         Dim teekonnaList As List(Of String) = andmebaas.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
@@ -132,7 +158,7 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
             Dim teekond As MapRoute = GMap.NET.MapProviders.OpenStreetMapProvider.Instance.GetRoute(algusOma, lopuOma, False, False, 15)
             If i = teekonnaList.IndexOf(algPeatus) Then
                 Dim algusMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-                algusOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.green)
+                algusOma, markerIconGreen)
                 markeriKuvamine.Markers.Add(algusMarker)
 
                 algusMarker.ToolTipText = algPeatus
@@ -141,14 +167,14 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
             ElseIf i = teekonnaList.IndexOf(loppPeatus) Then
 
                 Dim loppMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-                lopuOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red)
+                lopuOma, markerIconRed)
                 markeriKuvamine.Markers.Add(loppMarker)
 
                 loppMarker.ToolTipText = loppPeatus
                 loppMarker.Size = size
             Else
                 Dim vaheMarker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-                algusOma, GMap.NET.WindowsForms.Markers.GMarkerGoogleType.yellow)
+                algusOma, markerIconYellow)
                 markeriKuvamine.Markers.Add(vaheMarker)
 
                 vaheMarker.ToolTipText = teekonnaList(i)
@@ -186,9 +212,12 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
 
         GMapControl1.Overlays.Add(markerOverlay)
 
+        Dim destinationPathRed As String = Application.StartupPath & "\Icons" & "\mapMarkerRed.png"
+        Dim markerIconRed As New Bitmap(destinationPathRed)
+
         ' Loop kõikide sõidukite koordinaatide läbimiseks
         For Each koordinaadid In koordinaadidList
-            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), WindowsForms.Markers.GMarkerGoogleType.red)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(koordinaadid(1), koordinaadid(0)), markerIconRed)
 
             marker.ToolTipText = liin
 
@@ -239,11 +268,12 @@ Public Class Kaart : Implements IMargiKaardil : Implements IKuvaKaart
         liiniTeekond = Trim(liiniTeekond)
 
         Dim peatusteNimed As List(Of String) = liinipeatused.saaPeatuseNimedLiiniJargi(liiniNimi, liiniTeekond)
-
+        Dim destinationPathPurple As String = Application.StartupPath & "\Icons" & "\mapMarkerPurple.png"
+        Dim markerIconPurple As New Bitmap(destinationPathPurple)
         For Each peatus In peatusteNimed
 
             Dim kordinaadid As Double() = liinipeatused.saaPeatuseAsukoht(peatus)
-            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(kordinaadid(0), kordinaadid(1)), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.purple)
+            Dim marker As New GMap.NET.WindowsForms.Markers.GMarkerGoogle(New PointLatLng(kordinaadid(0), kordinaadid(1)), markerIconPurple)
             marker.ToolTipText = peatus
             markerOverlay.Markers.Add(marker)
         Next

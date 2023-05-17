@@ -171,4 +171,7 @@ Public Class Kasutajaaken
         txtFailiNimi.Text = failiNimi
     End Sub
 
+    Private Sub peatusValitud() Handles ULiinidJaPeatusedList1.peatusValitud
+        lblValjumisteArv.Text = ULiinidJaPeatusedList1.valjumisteArv
+    End Sub
 End Class

@@ -9,7 +9,10 @@
 
     Public Property valjumisteList As List(Of String())
 
+    Public Property valjumisteArv As Integer
+
     Public Event liinValitud()
+    Public Event peatusValitud()
     Private Sub ULiinidJaPeatusedList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         andmebaas = New PrjAndmebaasKomponent.CSaaAndmed(Application.StartupPath)
 
@@ -82,7 +85,6 @@
         If pensionaarCheckBox Then
 
             Dim valjumised As List(Of String())
-
             If chkMadal.Checked Then
                 valjumised = andmebaas.saaValjumised(peatuseNimi, liiniNimi, DateTime.Now.DayOfWeek.ToString, "3", True)
             Else
@@ -93,9 +95,19 @@
             'Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
             valjumised = valjumised.Distinct.ToList()
 
-            For Each valjumine In valjumised
+            valjumisteArv = valjumised.Count
 
-                ListValjumised.Items.Add("Bussi nr: " & valjumine(0) & " " & valjumine(1))
+            For Each valjumine In valjumised
+                If liiniInfo = "1 Mustamäe - Kaubamaja" Or liiniInfo = "3 Mustamäe - Kaubamaja" Or liiniInfo = "4 Keskuse - Balti jaam" Or liiniInfo = "5 Mustamäe - Balti jaam" Then
+                    ListValjumised.Items.Add("Trolli nr: " & valjumine(0) & " " & valjumine(1))
+
+                ElseIf liiniInfo = "1 Kopli - Kadriorg" Or liiniInfo = "3 Tondi - Kadriorg" Or liiniInfo = "6 Kopli - Tondi" Then
+                    ListValjumised.Items.Add("Trammi nr: " & valjumine(0) & " " & valjumine(1))
+                Else
+                    ListValjumised.Items.Add("Bussi nr: " & valjumine(0) & " " & valjumine(1))
+                End If
+
+
             Next
 
         Else
@@ -112,20 +124,35 @@
             'Lisab vaid unikaalsed liikemd AGA JÄETAKSE IKKA MILLEGI PÄRAST MÕNED DUPLIKAADID
             valjumised = valjumised.Distinct.ToList()
 
-            For Each valjumine In valjumised
+            valjumisteArv = valjumised.Count
 
-                Dim liin = "Bussi nr: " & valjumine(0)
-                Dim valjumisAeg = valjumine(1)
-                ListValjumised.Items.Add(liin & " " & valjumisAeg)
-                valjumisteList.Add(valjumine)
+            For Each valjumine In valjumised
+                Dim liin = ""
+                Dim valjumisAeg = ""
+                If liiniInfo = "1 Mustamäe - Kaubamaja" Or liiniInfo = "3 Mustamäe - Kaubamaja" Or liiniInfo = "4 Keskuse - Balti jaam" Or liiniInfo = "5 Mustamäe - Balti jaam" Then
+                    liin = "Trolli nr: " & valjumine(0)
+                    valjumisAeg = valjumine(1)
+                    ListValjumised.Items.Add(liin & " " & valjumisAeg)
+                    valjumisteList.Add(valjumine)
+
+                ElseIf liiniInfo = "1 Kopli - Kadriorg" Or liiniInfo = "3 Tondi - Kadriorg" Or liiniInfo = "6 Kopli - Tondi" Then
+                    liin = "Trammi nr: " & valjumine(0)
+                    valjumisAeg = valjumine(1)
+                    ListValjumised.Items.Add(liin & " " & valjumisAeg)
+                    valjumisteList.Add(valjumine)
+                Else
+                    liin = "Bussi nr: " & valjumine(0)
+                    valjumisAeg = valjumine(1)
+                    ListValjumised.Items.Add(liin & " " & valjumisAeg)
+                    valjumisteList.Add(valjumine)
+                End If
             Next
         End If
-
+        RaiseEvent peatusValitud()
     End Sub
 
     Private Sub CheckBoxPensionaar_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxPensionaar.CheckedChanged
         ListValjumised.Items.Clear()
-        ListPeatused.Items.Clear()
 
         pensionaarCheckBox = CheckBoxPensionaar.Checked
 
@@ -156,7 +183,7 @@
             txtInimesteHulk.Text = "PALJU"
 
         ElseIf aegPraegu >= kolmasOsaAlgus And aegPraegu <= kolmasOsaLopp Then
-            txtInimesteHulk.Text = "KESMISELT"
+            txtInimesteHulk.Text = "KESKMISELT"
 
         ElseIf aegPraegu >= neljasOsaAlgus And aegPraegu <= neljasOsaLopp Then
             txtInimesteHulk.Text = "PALJU"
